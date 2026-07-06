@@ -1525,6 +1525,211 @@
       .row-gap-custom {
         --bs-gutter-y: 30px;
       }
+
+
+
+       /* ==================================================== */
+      /*  BREADCRUMB & TITLE                                   */
+      /* ==================================================== */
+      .custom-breadcrumb {
+        background: transparent;
+        padding: 0.5rem 0 0.2rem 0;
+        margin-bottom: 0.2rem;
+        font-size: 0.85rem;
+      }
+      .custom-breadcrumb .breadcrumb-item a {
+        color: var(--text-muted);
+        text-decoration: none;
+        transition: var(--transition-smooth);
+      }
+      .custom-breadcrumb .breadcrumb-item a:hover {
+        color: var(--dark-yellow);
+        text-decoration: underline;
+      }
+      .custom-breadcrumb .breadcrumb-item.active {
+        color: var(--dark-yellow);
+        font-weight: 600;
+      }
+      .custom-breadcrumb .breadcrumb-item + .breadcrumb-item::before {
+        content: "/";
+        color: var(--text-muted);
+        font-weight: 300;
+        padding: 0 0.5rem;
+      }
+
+
+      .article-body {
+        font-size: 1.05rem;
+        line-height: 1.9;
+        color: var(--text-main);
+      }
+
+      .article-body p {
+        margin-bottom: 1.25rem;
+      }
+
+      /* .article-body p:first-of-type::first-letter {
+        font-size: 3.2rem;
+        font-weight: 700;
+        float: left;
+        line-height: 1;
+        margin-right: 0.5rem;
+        color: var(--dark-yellow);
+      } */
+
+      .article-body .section-subheading {
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: var(--primary-color);
+        margin-top: 1.8rem;
+        margin-bottom: 0.8rem;
+        border-left: 4px solid var(--dark-yellow);
+        padding-left: 1rem;
+      }
+
+      .article-body .pull-quote {
+        font-size: 1.2rem;
+        font-weight: 600;
+        line-height: 1.6;
+        color: var(--text-main);
+        padding: 1.2rem 2rem;
+        margin: 1.5rem 0;
+        background: #f8f6f0;
+        border-radius: 8px;
+        border-left: 5px solid var(--dark-yellow);
+        position: relative;
+      }
+      .article-body .pull-quote .attribution {
+        display: block;
+        font-size: 0.85rem;
+        font-weight: 400;
+        color: var(--text-muted);
+        margin-top: 0.5rem;
+      }
+
+      .article-divider {
+        text-align: center;
+        color: var(--dark-yellow);
+        font-size: 1.5rem;
+        letter-spacing: 0.5rem;
+        margin: 2rem 0;
+        opacity: 0.5;
+      }
+
+      .article-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+        margin-top: 2.5rem;
+        padding-top: 1.5rem;
+        border-top: 2px solid #e9edf2;
+      }
+      .article-tags .tag {
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        background: #eef2f5;
+        color: var(--text-muted);
+        padding: 0.25rem 1rem;
+        border-radius: 20px;
+        text-decoration: none;
+        transition: var(--transition-smooth);
+      }
+      .article-tags .tag:hover {
+        background: var(--dark-yellow);
+        color: var(--surface-white);
+      }
+
+      .article-share {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-top: 1.5rem;
+        padding-top: 1.5rem;
+        border-top: 2px solid #e9edf2;
+      }
+      .article-share .share-label {
+        font-weight: 600;
+        font-size: 0.85rem;
+        color: var(--text-muted);
+      }
+      .article-share .share-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: #eef2f5;
+        color: var(--text-muted);
+        text-decoration: none;
+        transition: var(--transition-smooth);
+        font-size: 0.9rem;
+      }
+      .article-share .share-btn:hover {
+        background: var(--dark-yellow);
+        color: var(--surface-white);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      /* ============================================================
+         RESPONSIVE — ARTICLE
+         ============================================================ */
+      @media (max-width: 768px) {
+        .article-header .article-title {
+          font-size: 1.6rem;
+        }
+        .article-body {
+          font-size: 0.95rem;
+          line-height: 1.8;
+        }
+        /* .article-body p:first-of-type::first-letter {
+          font-size: 2.4rem;
+        } */
+        .article-body .section-subheading {
+          font-size: 1.1rem;
+        }
+        .article-body .pull-quote {
+          font-size: 1rem;
+          padding: 1rem 1.2rem;
+        }
+        .article-container {
+          padding: 0 1rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .article-header .article-title {
+          font-size: 1.3rem;
+        }
+        .article-header .article-meta {
+          gap: 0.8rem;
+          font-size: 0.75rem;
+        }
+        .article-body {
+          font-size: 0.9rem;
+        }
+        /* .article-body p:first-of-type::first-letter {
+          font-size: 2rem;
+        } */
+        .article-share {
+          flex-wrap: wrap;
+          gap: 0.6rem;
+        }
+      }
+
+      .other-news-title {
+    color: var(--text-main);
+        font-weight: 700;
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+        display: inline-block;
+        border-bottom: 3px solid var(--dark-yellow);
+        padding-bottom: 4px;
+}
+    
     </style>
   </head>
   <body>
@@ -1884,1130 +2089,81 @@
     MAIN CONTENT (demo)
     ============================================================ -->
     <main class="content-placeholder">
-      <div class="container container-news">
-        <!-- Section Header -->
+      <div class="container container-news pt-4 pb-3">
+        <!-- Breadcrumb & Title -->
         <div class="row">
           <div class="col-12">
-            <h2 class="section-title">ပြည်ထောင်စုဝန်ကြီး သတင်း</h2>
-          </div>
-        </div>
-
-        <!-- Main Grid Layout -->
-        <div class="row g-4 row-gap-custom">
-          <!-- LEFT COLUMN: Large Main Image -->
-          <div class="col-lg-7 col-md-12">
-            <div class="card-news">
-              <div class="img-wrapper aspect-medium">
-                <img
-                      src="./image/news-2.jpg"
-                      alt="Top Right News"
-                    />
-                    <div class="info-overlay">
-                      <div class="meta-tags">
-                        <span><i class="bi bi-calendar"></i> 03 July 2026</span>
-                        <span
-                          ><i class="bi bi-geo-alt-fill"></i>
-                          နေပြည်တော်</span
-                        >
-                      </div>
-                      <div class="news-title">
-                        ၂၀၂၆ ခုနှစ်၊ ဇူလိုင်လ ၃ ရက်တွင် ကျရောက်သည့် မြန်မာအမျိုးသမီးများနေ့ အထိမ်းအမှတ် အကြိုလှုပ်ရှားမှု “သစ်ပင်စိုက်ပျိုးပွဲ” အခမ်းအနားနှင့် “ စာတမ်းဖတ်ပွဲ” အခမ်းအနား ကျင်းပခြင်း
-                      </div>
-                      <a href="./comming-soon.html" class="read-more-btn"
-                        >ဆက်လက်ဖတ်ရှုရန် <i class="bi bi-arrow-right"></i
-                        ><i class="fas fa-arrow-right"></i
-                      ></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- RIGHT COLUMN -->
-          <div class="col-lg-5 col-md-12">
-            <div class="row row-gap-custom h-100">
-              <!-- TOP RIGHT -->
-              <div class="col-12">
-                <div class="card-news">
-                  <div class="img-wrapper aspect-medium">
-
-                    <img
-                  src="./image/news-1.jpg"
-                  alt="Main News"
-                />
-                <div class="info-overlay">
-                  <div class="meta-tags">
-                    <span><i class="bi bi-calendar"></i> 01 July 2026</span>
-                    <span><i class="bi bi-geo-alt-fill"></i> နေပြည်တော်</span>
-                  </div>
-                  <div class="news-title">
-                    ၂၀၂၆ ခုနှစ် ဇူလိုင်လ ၃ ရက်တွင် ကျရောက်မည့် မြန်မာအမျိုးသမီးများနေ့အထိမ်းအမှတ်အကြိုလှုပ်ရှားမှု “ပုလဲရတု စွမ်းအားပြု၊ ဂုဏ်ယူဝင့်ကြွား မြန်မာအမျိုးသမီးများ” ဝတ်စားဆင်ယင်မှုပြပွဲနှင့် ရုပ်ရှင်သဘင်ဂီတဖျော်ဖြေပွဲ ကျင်းပ
-                  </div>
-                  
-                  <a href="/comming-soon.html" class="read-more-btn"
-                    >ဆက်လက်ဖတ်ရှုရန် <i class="bi bi-arrow-right"></i
-                  ></a>
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb custom-breadcrumb">
+                <li class="breadcrumb-item"><a href="./index.html">ပင်မစာမျက်နှာ</a></li>
                     
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- BOTTOM RIGHT: Two square cards side-by-side -->
-              <div class="col-12">
-                <div class="row row-gap-custom h-100">
-                  <!-- Bottom Left Square -->
-                  <div class="col-lg-6 col-md-12">
-                    <div class="card-news">
-                      <div class="img-wrapper aspect-medium">
-                        <img
-                          src="./image/news-3.jpg"
-                          alt="Bottom Left News"
-                        />
-                        <div class="info-overlay">
-                          <div class="news-title small-text">
-                           ၂၀၂၆ ခုနှစ် မြန်မာအမျိုးသမီးများနေ့ အခမ်းအနား ကျင်းပ
-                          </div>
-                          <a href="./comming-soon.html" class="read-more-btn"
-                            >ဆက်လက်ဖတ်ရှုရန် <i class="bi bi-arrow-right"></i
-                            ><i class="fas fa-arrow-right"></i
-                          ></a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- Bottom Right Square -->
-                  <div class="col-lg-6 col-md-12">
-                    <div class="card-news">
-                      <div class="img-wrapper aspect-medium">
-                        <img
-                          src="/image/news-4.jpg"
-                          alt="Bottom Right News"
-                        />
-                        <div class="info-overlay">
-                          <div class="news-title small-text">
-                            အမျိုးသမီးရေးရာ ဝန်ကြီးဌာန၊ ပြည်ထောင်စုဝန်ကြီး...
-                          </div>
-                          <a href="./comming-soon.html" class="read-more-btn"
-                            >ဆက်လက်ဖတ်ရှုရန် <i class="bi bi-arrow-right"></i
-                            ><i class="fas fa-arrow-right"></i
-                          ></a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="container container-news">
-        <!-- Section Header -->
-        <div class="row">
-          <div class="col-12">
-            <h2 class="section-title">ဒုတိယဝန်ကြီး သတင်း</h2>
+                    <li class="breadcrumb-item active" aria-current="page">မူဝါဒ၊ ရည်မှန်းချက်၊ မျှော်မှန်းချက် နှင့်တာဝန်</li>
+              </ol>
+            </nav>
+            <h1 class="other-news-title">အမျိုးသမီးရေးရာဝန်ကြီးဌာန</h1>
+            <hr class="gradient-divider my-3" />
           </div>
         </div>
 
-        <div class="row g-4 row-gap-custom">
-          <!-- LEFT COLUMN -->
-          <div class="col-lg-6 col-md-12">
-            <div class="card-news">
-              <div class="img-wrapper aspect-medium">
-                <img
-                  src="./image/news-4.jpg"
-                  alt="Main News"
-                />
-                <div class="info-overlay">
-                  <div class="meta-tags">
-                    <span><i class="bi bi-calendar"></i> 26 June 2026</span>
-                    <span><i class="bi bi-geo-alt-fill"></i> နေပြည်တော်</span>
-                  </div>
-                  <div class="news-title">
-                    အမျိုးသမီးရေးရာဝန်ကြီးဌာန၏ လုပ်ငန်းဆောင်ရွက်ချက်များ
-                    အောင်မြင်စွာအကောင်အထည်ဖော် နိုင်ရေးအတွက်
-                    ရှင်းလင်းဆွေးနွေး
-                  </div>
-                  <a href="/comming-soon.html" class="read-more-btn"
-                    >ဆက်လက်ဖတ်ရှုရန် <i class="bi bi-arrow-right"></i
-                  ></a>
-                </div>
-              </div>
-            </div>
-          </div>
+         <!-- ARTICLE BODY -->
+        <div class="article-body">
 
-          <!-- RIGHT COLUMN -->
-          <div class="col-lg-6 col-md-12">
-            <div class="card-news">
-              <div class="img-wrapper aspect-medium">
-                <img
-                  src="./image/news-5.jpg"
-                  alt="Main News"
-                />
-                <div class="info-overlay">
-                  <div class="meta-tags">
-                    <span><i class="bi bi-calendar"></i> 26 June 2026</span>
-                    <span><i class="bi bi-geo-alt-fill"></i> နေပြည်တော်</span>
-                  </div>
-                  <div class="news-title">
-                    အမျိုးသမီးရေးရာဝန်ကြီးဌာန၏ လုပ်ငန်းဆောင်ရွက်ချက်များ
-                    အောင်မြင်စွာအကောင်အထည်ဖော် နိုင်ရေးအတွက်
-                    ရှင်းလင်းဆွေးနွေး
-                  </div>
-                  <a href="./comming-soon.html" class="read-more-btn"
-                    >ဆက်လက်ဖတ်ရှုရန် <i class="bi bi-arrow-right"></i
-                  ></a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+        
+          <h2 class="section-subheading">မျှော်မှန်းချက်</h2>
 
-      <div class="container container-news">
-        <!-- Section Header -->
-        <div class="row">
-          <div class="col-12">
-            <h2 class="section-title">အခြား သတင်းများ</h2>
-          </div>
-        </div>
-
-        <div class="row g-4 row-gap-custom">
-          <div class="col-lg-3 col-md-6">
-            <div class="card-news-date">
-              <div class="img-wrapper">
-                <img
-                  src="/image/news-1.jpg"
-                  alt="News Image"
-                />
-                
-                <div class="date-diagonal">
-                    <div class="diag-badge"><span class="day-diag">27</span> FEB</div>
-                </div>
-              </div>
-              <div class="card-body-custom">
-                <div class="meta-info">
-                  <span class="date"
-                    ><i class="bi bi-calendar"></i> 27 FEBRUARY 2026</span
-                  >
-                  <span class="location"
-                    ><i class="bi bi-geo-alt-fill"></i> နေပြည်တော်</span
-                  >
-                </div>
-                <h3 class="news-title-text">
-                  အမျိုးသမီးရေးရာဝန်ကြီးဌာန၊ ဒုတိယဝန်ကြီး ဒေါ်စန်းစန်းနွယ်
-                  မြန်မာနိုင်ငံရှိ အမျိုးသမီးများ၏ အခွင့်အရေးနှင့် ဖွံ့ဖြိုးရေး
-                  လုပ်ငန်းများ အကြောင်း ဆွေးနွေး
-                </h3>
-                <p class="news-body-text">
-                  ရန်ကုန်တိုင်းဒေသကြီး၊ အင်းစိန်မြို့နယ်ရှိ
-                  အမျိုးသမီးရေးရာဝန်ကြီးဌာန၌ ကျင်းပပြုလုပ်ခဲ့သည့်
-                  အမျိုးသမီးများ၏ စွမ်းဆောင်ရည်မြှင့်တင်ရေး
-                  အလုပ်ရုံဆွေးနွေးပွဲတွင် ဒုတိယဝန်ကြီးက အမျိုးသမီးများ၏
-                  ခေါင်းဆောင်မှုစွမ်းရည်နှင့် စီးပွားရေးဆိုင်ရာ
-                  အခွင့်အလမ်းများအကြောင်း ဟောပြောခဲ့ပါသည်။
-                </p>
-                <a href="#" class="read-more-link"
-                  >ဆက်လက်ဖတ်ရှုရန် <i class="bi bi-arrow-right"></i
-                ></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6">
-            <div class="card-news-date">
-              <div class="img-wrapper">
-                <img
-                  src="/image/news-3.jpg"
-                  alt="News Image"
-                />
-                <!-- <div class="date-badge">
-                  <span class="day">27</span>
-                  <span class="month">FEB</span>
-                </div> -->
-
-                <div class="date-diagonal">
-                    <div class="diag-badge"><span class="day-diag">27</span> FEB</div>
-                </div>
-              </div>
-              <div class="card-body-custom">
-                <div class="meta-info">
-                  <span class="date"
-                    ><i class="bi bi-calendar"></i> 27 FEBRUARY 2026</span
-                  >
-                  <span class="location"
-                    ><i class="bi bi-geo-alt-fill"></i> နေပြည်တော်</span
-                  >
-                </div>
-                <h3 class="news-title-text">
-                  အမျိုးသမီးရေးရာဝန်ကြီးဌာနမှ ကျင်းပသည့် ကျားမတန်းတူရေး
-                  ဆွေးနွေးပွဲသို့ အရပ်ဘက်အဖွဲ့အစည်းများ တက်ရောက်
-                </h3>
-                <p class="news-body-text">
-                  နေပြည်တော်ရှိ အမျိုးသမီးရေးရာဝန်ကြီးဌာန၏ ခန်းမတွင်
-                  ကျင်းပပြုလုပ်ခဲ့သည့် ကျားမတန်းတူရေးနှင့် အမျိုးသမီးများ၏
-                  နိုင်ငံရေးပါဝင်မှုဆိုင်ရာ အလုပ်ရုံဆွေးနွေးပွဲသို့
-                  အရပ်ဘက်လူမှုအဖွဲ့အစည်းများမှ ကိုယ်စားလှယ်များ
-                  တက်ရောက်ခဲ့ကြသည်။
-                </p>
-                <a href="#" class="read-more-link"
-                  >ဆက်လက်ဖတ်ရှုရန် <i class="bi bi-arrow-right"></i
-                ></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6">
-            <div class="card-news-date">
-              <div class="img-wrapper">
-                <img
-                  src="/image/news-5.jpg"
-                  alt="News Image"
-                />
-                <!-- <div class="date-badge">
-                  <span class="day">27</span>
-                  <span class="month">FEB</span>
-                </div> -->
-                 <div class="date-diagonal">
-                    <div class="diag-badge"><span class="day-diag">27</span> FEB</div>
-                </div>
-              </div>
-              <div class="card-body-custom">
-                <div class="meta-info">
-                  <span class="date"
-                    ><i class="bi bi-calendar"></i> 27 FEBRUARY 2026</span
-                  >
-                  <span class="location"
-                    ><i class="bi bi-geo-alt-fill"></i> နေပြည်တော်</span
-                  >
-                </div>
-                <h3 class="news-title-text">
-                  အမျိုးသမီးများအတွက် ဒီဂျစ်တယ် ငွေကြေးအသိပညာပေး
-                  သင်တန်းများ ဖွင့်လှစ်
-                </h3>
-                <p class="news-body-text">
-                  အမျိုးသမီးရေးရာဝန်ကြီးဌာနနှင့် မြန်မာနိုင်ငံတော်ဗဟိုဘဏ်
-                  တို့ ပူးပေါင်းဆောင်ရွက်သည့် ဒီဂျစ်တယ် ဘဏ်လုပ်ငန်းနှင့်
-                  ငွေကြေးဆိုင်ရာ အသိပညာပေး သင်တန်းများကို
-                  ရန်ကုန်တိုင်းဒေသကြီးတွင် စတင်ဖွင့်လှစ်ခဲ့ပြီး
-                  အမျိုးသမီးစီးပွားရေးလုပ်ငန်းရှင်များ တက်ရောက်ခဲ့ကြသည်။
-                </p>
-                <a href="#" class="read-more-link"
-                  >ဆက်လက်ဖတ်ရှုရန် <i class="bi bi-arrow-right"></i
-                ></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6">
-            <div class="card-news-date">
-              <div class="img-wrapper">
-                <img
-                  src="/image/news-7.jpg"
-                  alt="News Image"
-                />
-                <!-- <div class="date-badge">
-                  <span class="day">27</span>
-                  <span class="month">FEB</span>
-                </div> -->
-                 <div class="date-diagonal">
-                    <div class="diag-badge"><span class="day-diag">27</span> FEB</div>
-                </div>
-              </div>
-              <div class="card-body-custom">
-                <div class="meta-info">
-                  <span class="date"
-                    ><i class="bi bi-calendar"></i> 27 FEBRUARY 2026</span
-                  >
-                  <span class="location"
-                    ><i class="bi bi-geo-alt-fill"></i> နေပြည်တော်</span
-                  >
-                </div>
-                <h3 class="news-title-text">
-                  အမျိုးသမီးရေးရာဝန်ကြီးဌာနမှ ကျင်းပသည့် အိမ်တွင်းအကြမ်းဖက်မှု
-                  တားဆီးရေး အသိပညာပေး ဟောပြောပွဲ
-                </h3>
-                <p class="news-body-text">
-                  မန္တလေးမြို့ရှိ အမျိုးသမီးရေးရာဝန်ကြီးဌာနရုံးခွဲတွင်
-                  ကျင်းပပြုလုပ်သည့် အိမ်တွင်းအကြမ်းဖက်မှု ကာကွယ်တားဆီးရေး
-                  အသိပညာပေး ဟောပြောပွဲသို့ ဒေသခံ အမျိုးသမီးများ၊
-                  မိသားစုဝင်များ အများအပြား တက်ရောက်၍ သိသင့်သည့်
-                  ဥပဒေရေးရာအချက်များ ကို ဆွေးနွေးခဲ့ကြသည်။
-                </p>
-                <a href="#" class="read-more-link"
-                  >ဆက်လက်ဖတ်ရှုရန် <i class="bi bi-arrow-right"></i
-                ></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="read-more-wrapper">
-          <a href="#" class="btn-read-more-pill">ပိုမိုဖတ်ရှုရန် ...</a>
-        </div>
-      </div>
-
-      <div class="container container-services">
-        <div class="row">
-          <!-- CARD 1: YELLOW -->
-          <div class="col-lg-4 col-md-4 col-12">
-            <div class="card-service bg-yellow-custom">
-              <!-- <div class="icon-wrapper">
-                <i class="bi bi-arrow-left-right"></i>
-              </div> -->
-              <h3 class="service-title">မူဝါဒ</h3>
-              <p class="service-desc">
-                အမျိုးသမီးရေးရာဝန်ကြီးဌာနသည် ဖွဲ့စည်းပုံအခြေခံဥပဒေပါ
-                အခြေခံမူများ၊ နိုင်ငံတော်က ချမှတ်ထားသည့် ကျားမတန်းတူရေး
-                မူဝါဒများ၊ အမျိုးသမီးများ၏ အခွင့်အရေးကာကွယ်စောင့်ရှောက်သည့်
-                ဥပဒေပါ ရည်ရွယ်ချက် များ
-              </p>
-              <a href="#" class="btn-read-more">ပိုမိုဖတ်ရှုရန် ...</a>
-            </div>
-          </div>
-
-          <!-- CARD 2: GREEN -->
-          <div class="col-lg-4 col-md-4 col-12">
-            <div class="card-service bg-green-custom">
-              <!-- <div class="icon-wrapper"><i class="bi bi-send"></i></div> -->
-              <h3 class="service-title">ရည်မှန်းချက်</h3>
-              <p class="service-desc">
-                ဝန်ကြီးဌာနသည် မူဝါဒများအပြင် နိုင်ငံတော်၏နှစ်အလိုက်
-                ဦးစားပေးကဏ္ဍများ၊ ဦးစားပေး ဒေသများ၊
-                ဦးစားပေးအကြောင်းအရာများနှင့်ကိုက်ညီသည့် အမျိုးသမီးရေးရာ
-                ဝန်ကြီးဌာန၏ ရည်မှန်းချက်များမှာ
-              </p>
-              <a href="#" class="btn-read-more">ပိုမိုဖတ်ရှုရန် ...</a>
-            </div>
-          </div>
-
-          <!-- CARD 3: RED -->
-          <div class="col-lg-4 col-md-4 col-12">
-            <div class="card-service bg-color-custom">
-              <!-- <div class="icon-wrapper"><i class="bi bi-bullseye"></i></div> -->
-              <h3 class="service-title">မျှော်မှန်းချက်</h3>
-              <p class="service-desc">
-                အမျိုးသမီးများ၏ ပညာရေးနှင့် ကျန်းမာရေးဆိုင်ရာ
-                အခွင့်အလမ်းများကို မြှင့်တင်ခြင်း၊ အိမ်တွင်းအကြမ်းဖက်မှုနှင့်
-                လိင်ပိုင်းဆိုင်ရာ အကြမ်းဖက်မှုတို့ကို တားဆီးကာကွယ်ခြင်းဖြင့်
-                အမျိုးသမီးများ၏ လူမှုဘဝမြင့်မားတိုးတက်စေရန်။
-              </p>
-              <a href="#" class="btn-read-more">ပိုမိုဖတ်ရှုရန် ...</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="container video-section-container">
-        <!-- SECTION HEADER -->
-        <div class="video-section-header">
-          <h2 class="video-section-title">ရုပ်သံသတင်းများ</h2>
-          <p class="video-section-subtitle">
-            အမျိုးသမီးရေးရာ ဝန်ကြီးဌာန၏ ရုပ်သံသတင်းများ
+          <p>
+           မြန်မာနိုင်ငံအတွင်းရှိ အမျိုးသမီးများနှင့် အမျိုးသမီးငယ်ရွယ်များအား
+စွမ်းပကားမြှင့်တင်ရေး၊ ငြိမ်းချမ်းသာယာရေး၊ ကဏ္ဍစုံတွင် အဓိပ္ပာယ်ရှိစွာ
+ပါဝင်ဆောင်ရွက်ခွင့်ရရှိရေးတို့ကို ဖော်ဆောင် ခြင်းဖြင့် အားလုံးအကျုံးဝင်သော
+လူ့အဖွဲ့အစည်းတစ်ရပ် ဖြစ်ထွန်းလာစေရန်
           </p>
-          <hr class="divider--shimmer">
-        </div>
 
-        <!-- VIDEO CARDS GRID -->
-        <div class="row g-4 row-gap-custom">
-          <!-- CARD 1 -->
-          <div class="col-lg-4 col-md-6 col-12">
-            <div class="card-video">
-              <div class="video-wrapper">
-                <video
-                  controls
-                  poster="./image/news-1.jpg"
-                >
-                  <source
-                    src="./video/video-1.mp4"
-                    type="video/mp4"
-                  />
-                  Your browser does not support the video tag.
-                </video>
-              </div>
-              <div class="video-card-body">
-                <p class="video-description">
-                  အမျိုးသမီးရေးရာဝန်ကြီးဌာန၊ ပြည်ထောင်စုဝန်ကြီး
-                  ဒေါက်တာသက်သက်ဇင် မန္တလေး တိုင်းဒေသကြီးအတွင်းရှိ
-                  အမျိုးသမီးအသင်းအဖွဲ့များနှင့် တွေ့ဆုံဆွေးနွေး
-                </p>
-              </div>
-            </div>
-          </div>
+         
 
-          <!-- CARD 2 -->
-          <div class="col-lg-4 col-md-6 col-12">
-            <div class="card-video">
-              <div class="video-wrapper">
-                <video
-                  controls
-                  poster="./image/news-6.jpg"
-                >
-                  <source
-                    src="./video/video-1.mp4"
-                    type="video/mp4"
-                  />
-                  Your browser does not support the video tag.
-                </video>
-              </div>
-              <!-- <div class="flag-badge">
-                <img
-                  src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Flag_of_Myanmar.svg"
-                  alt="Myanmar Flag"
-                />
-              </div> -->
-              <div class="video-card-body">
-                <p class="video-description">
-                  အမျိုးသမီးရေးရာဝန်ကြီးဌာန၊ ပြည်ထောင်စုဝန်ကြီး
-                  ဒေါက်တာသက်သက်ဇင် ဒီဂျစ်တယ်လုံခြုံရေး (Digital Security)
-                  ဆိုင်ရာ အမျိုးသမီးများအတွက် အသိပညာပေး ဟောပြောပွဲ
-                  တက်ရောက်
-                </p>
-              </div>
-            </div>
-          </div>
+          <h2 class="section-subheading">ရည်မှန်းချက်</h2>
 
-          <!-- CARD 3 -->
-          <div class="col-lg-4 col-md-6 col-12">
-            <div class="card-video">
-              <div class="video-wrapper">
-                <video
-                  controls
-                  poster="./image/news-7.jpg"
-                >
-                  <source
-                    src="./video/video-1.mp4"
-                    type="video/mp4"
-                  />
-                  Your browser does not support the video tag.
-                </video>
-              </div>
-              <!-- <div class="flag-badge">
-                <img
-                  src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Flag_of_Myanmar.svg"
-                  alt="Myanmar Flag"
-                />
-              </div> -->
-              <div class="video-card-body">
-                <p class="video-description">
-                  အမျိုးသမီးရေးရာဝန်ကြီးဌာန၊ ပြည်ထောင်စုဝန်ကြီး
-                  ဒေါက်တာသက်သက်ဇင် ပြည်ထောင်စုနေ့အခါ နေပြည်တော်အတွင်းရှိ
-                  အမျိုးသမီးအဖွဲ့အစည်းများနှင့် တွေ့ဆုံ
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="read-more-wrapper">
-          <a href="#" class="btn-read-more-pill">ပိုမိုကြည့်ရှုရန် ...</a>
-        </div>
-      </div>
-
-      <div class="container video-section-container">
-        <!-- SECTION HEADER -->
-        <div class="video-section-header">
-          <h2 class="video-section-title">ရုပ်သံမှတ်တမ်းများ</h2>
-          <p class="video-section-subtitle">
-            အမျိုးသမီးရေးရာ ဝန်ကြီးဌာန၏ ရုပ်သံမှတ်တမ်းများ
+          <p>
+            မြန်မာနိုင်ငံအတွင်းရှိ အမျိုးသမီးများနှင့် အမျိုးသမီးငယ်ရွယ်များ၏ စွမ်းဆောင်ရည်
+မြှင့်တင် ပေးရန်၊ ကာကွယ်စောင့်ရှောက်ရေးနှင့် လူမှုရေးဆိုင်ရာ ဝန်ဆောင်မှုများ
+ပံ့ပိုးပေးရန်၊ ငြိမ်းချမ်းရေး နှင့် ဖွံ့ဖြိုးရေးလုပ်ငန်းများတွင် အဓိပ္ပါယ်ရှိစွာ ပါဝင်နိုင်ရေး
+အခွင့်အလမ်းများ ဖန်တီးပေးရန်နှင့် ကဏ္ဍစုံတွင် ကျား၊မ တန်းတူညီမျှရေးနှင့်
+ထည့်သွင်းစဉ်းစားရေးတို့ကို ဆောင်ရွက်သွားမည်ဖြစ်ပါ သည်။
           </p>
-          <!-- <div class="divider-container">
-            <div class="divider-line"></div>
-            <div class="divider-icon"><i class="bi bi-record-circle"></i></div>
-            <div class="divider-line"></div>
-          </div> -->
-          <hr class="divider--shimmer">
-        </div>
 
-        <!-- VIDEO CARDS GRID -->
-        <div class="row g-4 row-gap-custom">
-          <!-- CARD 1 -->
-          <div class="col-lg-4 col-md-6 col-12">
-            <div class="card-video">
-              <div class="video-wrapper">
-                <video
-                  controls
-                  poster="./image/news-1.jpg"
-                >
-                  <source
-                    src="./video/video-1.mp4"
-                    type="video/mp4"
-                  />
-                  Your browser does not support the video tag.
-                </video>
-              </div>
-              <div class="video-card-body">
-                <p class="video-description">
-                  အမျိုးသမီးရေးရာဝန်ကြီးဌာန၊ ပြည်ထောင်စုဝန်ကြီး
-                  ဒေါက်တာသက်သက်ဇင် မန္တလေး တိုင်းဒေသကြီးအတွင်းရှိ
-                  အမျိုးသမီးအသင်းအဖွဲ့များနှင့် တွေ့ဆုံဆွေးနွေး
-                </p>
-              </div>
-            </div>
+       
+
+           <h2 class="section-subheading">ရည်ရွယ်ချက်</h2>
+
+            <p>
+            ၁။ အမျိုးသမီးများနှင့် အမျိုးသမီးငယ်ရွယ်များ၏ ဖွံ့ဖြိုးတိုးတက်ရေးဆိုင်ရာလုပ်ငန်းများ အကောင်အထည်ဖော်ဆောင်ရွက်ရန်
+          </p>
+
+          <p>
+            ၂။ ကျား၊မ တန်းတူညီမျှရေးအတွက် ကဏ္ဍစုံတွင် ထည့်သွင်းစဉ်းစားဆောင်ရွက်ရန်
+          </p><p>
+            ၃။ အမျိုးသမီးများနှင့် အမျိုးသမီးငယ်ရွယ်များအား နည်းမျိုးစုံဖြင့် အကြမ်းဖက်မှုမှ
+တားဆီးကာကွယ်ရေးနှင့် တုံ့ပြန်ရေးဆိုင်ရာ လုပ်ငန်းများကို
+အကောင်အထည်ဖော်‌ ဆောင်ရွက်ရန်
+          </p>
+
+          <div class="article-divider">• • •</div>
+
+         
+
+         
+
+          <!-- SHARE -->
+          <div class="article-share">
+            <span class="share-label">မျှဝေရန်:</span>
+            <a href="#" class="share-btn" title="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="share-btn" title="Twitter"><i class="bi bi-twitter-x"></i></a>
+            <a href="#" class="share-btn" title="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+            <a href="#" class="share-btn" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+            <a href="#" class="share-btn" title="မိတ္တူကူးရန်"><i class="bi bi-link-45deg"></i></a>
           </div>
 
-          <!-- CARD 2 -->
-          <div class="col-lg-4 col-md-6 col-12">
-            <div class="card-video">
-              <div class="video-wrapper">
-                <video
-                  controls
-                  poster="./image/news-2.jpg"
-                >
-                  <source
-                    src="./video/video-2.mp4"
-                    type="video/mp4"
-                  />
-                  Your browser does not support the video tag.
-                </video>
-              </div>
-              <!-- <div class="flag-badge">
-                <img
-                  src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Flag_of_Myanmar.svg"
-                  alt="Myanmar Flag"
-                />
-              </div> -->
-              <div class="video-card-body">
-                <p class="video-description">
-                  အမျိုးသမီးရေးရာဝန်ကြီးဌာန၊ ပြည်ထောင်စုဝန်ကြီး
-                  ဒေါက်တာသက်သက်ဇင် ဒီဂျစ်တယ်လုံခြုံရေး (Digital Security)
-                  ဆိုင်ရာ အမျိုးသမီးများအတွက် အသိပညာပေး ဟောပြောပွဲ
-                  တက်ရောက်
-                </p>
-              </div>
-            </div>
-          </div>
+        </div><!-- /article-body -->
 
-          <!-- CARD 3 -->
-          <div class="col-lg-4 col-md-6 col-12">
-            <div class="card-video">
-              <div class="video-wrapper">
-                <video
-                  controls
-                  poster="./image/news-5.jpg"
-                >
-                  <source
-                    src="./video/video-3.mp4"
-                    type="video/mp4"
-                  />
-                  Your browser does not support the video tag.
-                </video>
-              </div>
-              <!-- <div class="flag-badge">
-                <img
-                  src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Flag_of_Myanmar.svg"
-                  alt="Myanmar Flag"
-                />
-              </div> -->
-              <div class="video-card-body">
-                <p class="video-description">
-                  အမျိုးသမီးရေးရာဝန်ကြီးဌာန၊ ပြည်ထောင်စုဝန်ကြီး
-                  ဒေါက်တာသက်သက်ဇင် ပြည်ထောင်စုနေ့အခါ နေပြည်တော်အတွင်းရှိ
-                  အမျိုးသမီးအဖွဲ့အစည်းများနှင့် တွေ့ဆုံ
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="read-more-wrapper">
-          <a href="#" class="btn-read-more-pill">ပိုမိုကြည့်ရှုရန် ...</a>
-        </div>
-      </div>
-
-      <div class="section-ads">
-        <!-- 3 COLUMN GRID -->
-        <div class="row g-5">
-          <!-- COLUMN 1: ကြေညာချက် -->
-          <div class="col-lg-4 col-md-6 col-12">
-            <div class="col-header">
-              <h3 class="col-title">ကြေညာချက်</h3>
-              <!-- <div class="divider-container">
-                <div class="divider-line"></div>
-                <div class="divider-icon">
-                  <i class="bi bi-record-circle"></i>
-                </div>
-                <div class="divider-line"></div>
-              </div> -->
-              <hr class="divider--shimmer">
-            </div>
-
-            <div class="list-news-item">
-              <div class="thumb">
-                <img
-                  src="./mowa-logo.png"
-                  alt="Flag"
-                />
-              </div>
-              <div class="content">
-                <div class="headline">
-                  အဂတိလိုက်စားမှု တားရှင်းရေးဥပဒေ
-                  ပြန်လည်ပြဋ္ဌာန်းထား
-                </div>
-                <div class="meta">
-                  <span><i class="bi bi-calendar"></i> 08 JUNE 2026</span>
-                  <span><i class="bi bi-geo-alt-fill"></i> နေပြည်တော်</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="list-news-item">
-              <div class="thumb">
-                <img
-                   src="./mowa-logo.png"
-                  alt="Flag"
-                />
-              </div>
-              <div class="content">
-                <div class="headline">
-                  အမျိုးသမီးရေးရာဝန်ကြီးဌာန ပြည်ထောင်စုဝန်ကြီး
-                  အမျိုးသမီးစီးပွားရေးလုပ်ငန်ရှင်များ အသင်းဖွင့်ပွဲအခမ်းအနားသို့
-                  တက်ရောက်
-                </div>
-                <div class="meta">
-                  <span><i class="bi bi-calendar"></i> 19 MAY 2026</span>
-                  <span
-                    ><i class="bi bi-geo-alt-fill"></i>
-                    ရန်ကုန်တိုင်းဒေသကြီး</span
-                  >
-                </div>
-              </div>
-            </div>
-
-            <div class="list-news-item">
-              <div class="thumb">
-                <img
-                  src="./mowa-logo.png"
-                  alt="Flag"
-                />
-              </div>
-              <div class="content">
-                <div class="headline">
-                  မန္တလေးတိုင်းဒေသကြီး၊ အမျိုးသမီးများအတွက် အသက်မွေးဝမ်းကျောင်း
-                  သင်တန်းများ ဖွင့်လှစ်ခြင်း
-                </div>
-                <div class="meta">
-                  <span><i class="bi bi-calendar"></i> 28 FEBRUARY 2026</span>
-                  <span><i class="bi bi-geo-alt-fill"></i> နေပြည်တော်</span>
-                </div>
-              </div>
-            </div>
-             <div class="read-more-wrapper">
-              <a href="#" class="btn-read-more-pill">ပိုမိုဖတ်ရှုရန် ...</a>
-            </div>
-          </div>
-
-          <!-- COLUMN 2: တင်ဒါ -->
-          <div class="col-lg-4 col-md-6 col-12">
-            <div class="col-header">
-              <h3 class="col-title">တင်ဒါ</h3>
-              <!-- <div class="divider-container">
-                <div class="divider-line"></div>
-                <div class="divider-icon">
-                  <i class="bi bi-record-circle"></i>
-                </div>
-                <div class="divider-line"></div>
-              </div> -->
-
-              <hr class="divider--shimmer">
-            </div>
-
-            <div class="list-news-item">
-              <div class="thumb">
-                <img
-                  src="./mowa-logo.png"
-                  alt="Flag"
-                />
-              </div>
-              <div class="content">
-                <div class="headline">
-                  ၂၀၂၆-၂၀၂၇ ဘဏ္ဍာရေးနှစ်၊ အမျိုးသမီးရေးရာဝန်ကြီးဌာန၊
-                  ဒေသို့ဆောင်ရွက်မှုအစီအစဉ်အား တင်ဒါအောင် ပြုလုပ်ရန်
-                </div>
-                <div class="meta">
-                  <span><i class="bi bi-calendar"></i> 26 JUNE 2026</span>
-                  <span><i class="bi bi-geo-alt-fill"></i> နေပြည်တော်</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="list-news-item">
-              <div class="thumb">
-                <img
-                  src="./mowa-logo.png"
-                  alt="Flag"
-                />
-              </div>
-              <div class="content">
-                <div class="headline">
-                  အမျိုးသမီးရေးရာဝန်ကြီးဌာန ရုံးသုံးစက်ကိရိယာပစ္စည်းများ
-                  ရှိသောင်းအမိန့်စာဝယ်ယူခြင်း နှင့် တည်ဆောက်ခြင်းလုပ်ငန်းများ
-                </div>
-                <div class="meta">
-                  <span><i class="bi bi-calendar"></i> 28 MAY 2026</span>
-                  <span><i class="bi bi-geo-alt-fill"></i> နေပြည်တော်</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="list-news-item">
-              <div class="thumb">
-                <img
-                  src="./mowa-logo.png"
-                  alt="Flag"
-                />
-              </div>
-              <div class="content">
-                <div class="headline">တင်ဒါခေါ်ယူခြင်း</div>
-                <div class="meta">
-                  <span><i class="bi bi-calendar"></i> 04 FEBRUARY 2026</span>
-                  <span><i class="bi bi-geo-alt-fill"></i> နေပြည်တော်</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="read-more-wrapper">
-              <a href="#" class="btn-read-more-pill">ပိုမိုဖတ်ရှုရန် ...</a>
-            </div>
-          </div>
-
-          <!-- COLUMN 3: ADVERTISEMENT -->
-          <div class="col-lg-4 col-md-12 col-12">
-            <div class="col-header">
-              <h3 class="col-title">Advertisement</h3>
-              <!-- <div class="divider-container">
-                <div class="divider-line"></div>
-                <div class="divider-icon">
-                  <i class="bi bi-record-circle"></i>
-                </div>
-                <div class="divider-line"></div>
-              </div> -->
-              <hr class="divider--shimmer">
-            </div>
-
-            <div class="ad-banner-wrapper">
-              <div class="ad-border-box">
-                <div class="ad-gold-frame">
-                  <div class="ad-text">
-                    “အမျိုးသမီးရေးရာဝန်ကြီးဌာန”<br />
-                    <span style="font-size: 0.9rem; font-weight: 400"
-                      >“ပြည်ထောင်စုဝန်ကြီး ဒေါက်တာသက်သက်ဇင်”</span
-                    >
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="container section-gallery">
-        <!-- HEADER -->
-        <div class="header-wrapper">
-          <div style="width: 100px; visibility: hidden"></div>
-          <div class="header-content">
-            <h2 class="section-title">မှတ်တမ်းဓာတ်ပုံများ</h2>
-            <p class="section-subtitle">
-              အမျိုးသမီးရေးရာ ဝန်ကြီးဌာန၏ မှတ်တမ်းဓာတ်ပုံများ
-            </p>
-            <!-- <div class="divider-container">
-              <div class="divider-line"></div>
-              <div class="divider-icon">
-                <i class="bi bi-record-circle"></i>
-              </div>
-              <div class="divider-line"></div>
-            </div> -->
-            <hr class="divider--shimmer">
-          </div>
-          <div style="width: 100px; visibility: hidden"></div>
-        </div>
-
-        <!-- CAROUSEL -->
-        <div
-          id="photoCarousel"
-          class="carousel slide"
-          data-bs-interval="false"
-          data-bs-wrap="false"
-        >
-          <button
-            class="carousel-control-prev"
-            type="button"
-            data-bs-target="#photoCarousel"
-            data-bs-slide="prev"
-          >
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button
-            class="carousel-control-next"
-            type="button"
-            data-bs-target="#photoCarousel"
-            data-bs-slide="next"
-          >
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
-
-          <div class="carousel-inner">
-            <!-- SLIDE 1 -->
-            <div class="carousel-item active">
-              <div class="row g-4">
-                <div class="col-md-4">
-                  <div class="card-gallery">
-                    <div class="img-wrapper">
-                      <img
-                        src="./image/news-1.jpg"
-                        alt="Gallery Image"
-                      />
-                      <div class="date-badge">
-                        <span class="day">23</span
-                        ><span class="month">MAR</span>
-                      </div>
-                    </div>
-                    <div class="card-body">
-                      <div class="headline">
-                        နိုင်ငံတော်အဆင့် အခမ်းအနားကြီးများတွင် ပါဝင်ခဲ့သည့်
-                        မှတ်တမ်းဓာတ်ပုံများ...
-                      </div>
-                      <div class="meta">
-                        <span><i class="bi bi-calendar"></i> 23 MARCH 2025</span
-                        ><span
-                          ><i class="bi bi-geo-alt-fill"></i> နေပြည်တော်</span
-                        >
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="card-gallery">
-                    <div class="img-wrapper">
-                      <img
-                        src="./image/news-2.jpg"
-                        alt="Gallery Image"
-                      />
-                      <div class="date-badge">
-                        <span class="day">29</span
-                        ><span class="month">OCT</span>
-                      </div>
-                    </div>
-                    <div class="card-body">
-                      <div class="headline">
-                        မရဝိဒယဗုဒ္ဓဟူဌက္တော်အတွင်း၌ ကျင်းပပြုလုပ်ခဲ့သည့်
-                        မာရဝိဒယဗုဒ္ဓပြားတော်ခြားကြီး တန်ဆောင်တိုင်ပွဲတော်...
-                      </div>
-                      <div class="meta">
-                        <span
-                          ><i class="bi bi-calendar"></i> 29 OCTOBER 2025</span
-                        ><span><i class="bi bi-geo-alt-fill"></i> ရန်ကုန်</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="card-gallery">
-                    <div class="img-wrapper">
-                      <img
-                        src="./image/news-3.jpg"
-                        alt="Gallery Image"
-                      />
-                      <div class="date-badge">
-                        <span class="day">03</span
-                        ><span class="month">NOV</span>
-                      </div>
-                    </div>
-                    <div class="card-body">
-                      <div class="headline">
-                        မာရဝိဒယဗုဒ္ဓပြားတော်ခြားကြီး တန်ဆောင်တိုင်ပွဲတော်၊
-                        မီးပုံးပျံလွှတ်တင် ပွဲတော်ပြိုင်ပွဲတွင်
-                        တိုင်းရင်းသားလူမျိုး...
-                      </div>
-                      <div class="meta">
-                        <span
-                          ><i class="bi bi-calendar"></i> 03 NOVEMBER 2025</span
-                        ><span><i class="bi bi-geo-alt-fill"></i> ရန်ကုန်</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-             <div class="carousel-item">
-              <div class="row g-4">
-                <div class="col-md-4">
-                  <div class="card-gallery">
-                    <div class="img-wrapper">
-                      <img
-                        src="./image/news-1.jpg"
-                        alt="Gallery Image"
-                      />
-                      <div class="date-badge">
-                        <span class="day">18</span
-                        ><span class="month">NOV</span>
-                      </div>
-                    </div>
-                    <div class="card-body">
-                      <div class="headline">
-                        တစ်နိုင်ငံလုံး ပစ်ခတ်တိုက်ခိုက်မှုရပ်စဲရေး သဘောတူစာချုပ်
-                        (NCA) (၁၀) နှစ်ပြည့် နှစ်ပတ်လည်နေ့ အခမ်းအနား
-                      </div>
-                      <div class="meta">
-                        <span
-                          ><i class="bi bi-calendar"></i> 18 NOVEMBER 2025</span
-                        ><span
-                          ><i class="bi bi-geo-alt-fill"></i> နေပြည်တော်</span
-                        >
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="card-gallery">
-                    <div class="img-wrapper">
-                      <img
-                        src="./image/news-2.jpg"
-                        alt="Gallery Image"
-                      />
-                      <div class="date-badge">
-                        <span class="day">10</span
-                        ><span class="month">DEC</span>
-                      </div>
-                    </div>
-                    <div class="card-body">
-                      <div class="headline">
-                        အမျိုးသမီးရေးရာဝန်ကြီးဌာနမှ ကျင်းပပြုလုပ်သည့်
-                        နှစ်ပတ်လည် ညီလာခံ အခမ်းအနား...
-                      </div>
-                      <div class="meta">
-                        <span
-                          ><i class="bi bi-calendar"></i> 10 DECEMBER 2025</span
-                        ><span
-                          ><i class="bi bi-geo-alt-fill"></i> နေပြည်တော်</span
-                        >
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="card-gallery">
-                    <div class="img-wrapper">
-                      <img
-                        src="./image/news-3.jpg"
-                        alt="Gallery Image"
-                      />
-                      <div class="date-badge">
-                        <span class="day">25</span
-                        ><span class="month">DEC</span>
-                      </div>
-                    </div>
-                    <div class="card-body">
-                      <div class="headline">
-                        ကချင်ပြည်နယ် မြို့နယ်အသီးသီးရှိ ကျေးရွာများအတွက်
-                        ဆောက်လုပ်ရေး ပစ္စည်းများ လှူဒါန်းခြင်း...
-                      </div>
-                      <div class="meta">
-                        <span
-                          ><i class="bi bi-calendar"></i> 25 DECEMBER 2025</span
-                        ><span
-                          ><i class="bi bi-geo-alt-fill"></i> ကချင်ပြည်နယ်</span
-                        >
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- SLIDE 2 -->
-            <div class="carousel-item">
-              <div class="row g-4">
-                <div class="col-md-4">
-                  <div class="card-gallery">
-                    <div class="img-wrapper">
-                      <img
-                        src="./image/news-4.jpg"
-                        alt="Gallery Image"
-                      />
-                      <div class="date-badge">
-                        <span class="day">18</span
-                        ><span class="month">NOV</span>
-                      </div>
-                    </div>
-                    <div class="card-body">
-                      <div class="headline">
-                        တစ်နိုင်ငံလုံး ပစ်ခတ်တိုက်ခိုက်မှုရပ်စဲရေး သဘောတူစာချုပ်
-                        (NCA) (၁၀) နှစ်ပြည့် နှစ်ပတ်လည်နေ့ အခမ်းအနား
-                      </div>
-                      <div class="meta">
-                        <span
-                          ><i class="bi bi-calendar"></i> 18 NOVEMBER 2025</span
-                        ><span
-                          ><i class="bi bi-geo-alt-fill"></i> နေပြည်တော်</span
-                        >
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="card-gallery">
-                    <div class="img-wrapper">
-                      <img
-                        src="./image/news-2.jpg"
-                        alt="Gallery Image"
-                      />
-                      <div class="date-badge">
-                        <span class="day">10</span
-                        ><span class="month">DEC</span>
-                      </div>
-                    </div>
-                    <div class="card-body">
-                      <div class="headline">
-                        အမျိုးသမီးရေးရာဝန်ကြီးဌာနမှ ကျင်းပပြုလုပ်သည့်
-                        နှစ်ပတ်လည် ညီလာခံ အခမ်းအနား...
-                      </div>
-                      <div class="meta">
-                        <span
-                          ><i class="bi bi-calendar"></i> 10 DECEMBER 2025</span
-                        ><span
-                          ><i class="bi bi-geo-alt-fill"></i> နေပြည်တော်</span
-                        >
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="card-gallery">
-                    <div class="img-wrapper">
-                      <img
-                        src="./image/news-3.jpg"
-                        alt="Gallery Image"
-                      />
-                      <div class="date-badge">
-                        <span class="day">25</span
-                        ><span class="month">DEC</span>
-                      </div>
-                    </div>
-                    <div class="card-body">
-                      <div class="headline">
-                        ကချင်ပြည်နယ် မြို့နယ်အသီးသီးရှိ ကျေးရွာများအတွက်
-                        ဆောက်လုပ်ရေး ပစ္စည်းများ လှူဒါန်းခြင်း...
-                      </div>
-                      <div class="meta">
-                        <span
-                          ><i class="bi bi-calendar"></i> 25 DECEMBER 2025</span
-                        ><span
-                          ><i class="bi bi-geo-alt-fill"></i> ကချင်ပြည်နယ်</span
-                        >
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </main>
 
