@@ -1,0 +1,2443 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ministry of Women's Affairs</title>
+
+    <!-- Bootstrap 5 CSS + Icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+
+    <!-- Google Font (Inter) for modern look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* ==================================================== */
+      /*  GLOBAL VARIABLES & RESET                             */
+      /* ==================================================== */
+      :root {
+        --primary-color: #49a9a3;
+        --secondary-color: #2c5f5b;
+        --dark-blue: #1e7bc0;
+        --accent-yellow: #f4e8d3;
+        --dark-yellow: #a9494f;
+        --sky-blue: #3fb2e8;
+        --sky-blue-dark: #2a8bc2;
+        --bg-light: #f4f7f6;
+        --surface-white: #ffffff;
+        --text-main: #1e293b;
+        --text-muted: #64748b;
+        --radius-lg: 24px;
+        --radius-md: 16px;
+        --radius-pill: 20px;
+        --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        --dark-red: red;
+        --dark-green: green;
+      }
+
+      * {
+        font-family:
+          "Pyidaungsu",
+          system-ui,
+          -apple-system,
+          "Segoe UI",
+          Roboto,
+          sans-serif;
+      }
+      body {
+        background-color: var(--bg-light);
+      }
+
+      /* ==================================================== */
+      /*  HEADER (Logo & Controls)                             */
+      /* ==================================================== */
+      .header-gov {
+        background: var(--surface-white);
+        box-shadow: 0 4px 12px rgba(0, 20, 30, 0.04);
+        border-bottom: 1px solid rgba(0, 40, 60, 0.06);
+        padding: 0.6rem 0;
+      }
+      .header-logo-img {
+        width: 100px;
+        height: 100px;
+        object-fit: contain;
+      }
+      .header-logo-text {
+        font-weight: 700;
+        line-height: 1.7;
+        color: var(--dark-color);
+      }
+      .header-logo-sub {
+        font-weight: 700;
+        line-height: 1.7;
+        color: var(--primary-color);
+        margin-top: -2px;
+      }
+
+      .header-controls .form-control {
+        border-radius: 6px;
+        background: var(--bg-light);
+        border: 1px solid #d0dbe8;
+        font-size: 0.9rem;
+        padding-left: 1rem;
+        height: 40px;
+      }
+      .header-controls .form-control:focus {
+        background: var(--surface-white);
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 3px rgba(49, 166, 245, 0.12);
+      }
+      .header-controls .btn-search {
+        border-radius: 6px;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        background: #eef4fa;
+        border-color: #d0dbe8;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .lang-switch .dropdown-toggle {
+        background: transparent;
+        border: 1px solid #d0dbe8;
+        border-radius: 6px;
+        color: var(--primary-color);
+        font-weight: 500;
+        font-size: 0.9rem;
+        padding: 0.3rem 1rem;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .lang-switch .dropdown-toggle:hover {
+        background: var(--bg-light);
+        border-color: #b0c4db;
+      }
+      .lang-switch .dropdown-menu {
+        border-radius: var(--radius-md);
+        border: 1px solid #e9eef3;
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.05);
+      }
+
+      /* Hover effect for the two flag buttons */
+      .btn-flag {
+        display: inline-block;
+        line-height: 0;
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease;
+        border-radius: 4px;
+      }
+      .btn-flag:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+      }
+      .btn-flag img {
+        display: block;
+      }
+
+      /* ==================================================== */
+      /*  PRIMARY NAVBAR (Blue bg, Yellow hover)               */
+      /* ==================================================== */
+      .nav-primary {
+        background: var(--primary-color); /* deep blue */
+        border-bottom: 5px solid var(--dark-yellow);
+        padding: 3rem 0;
+        margin-top: 0;
+      }
+      .nav-primary .navbar-nav .nav-link {
+        font-weight: 500;
+        color: var(--surface-white) !important;
+        padding: 0.7rem 1rem;
+        font-size: 0.95rem;
+        border-radius: 6px;
+        transition: var(--transition-smooth);
+        position: relative;
+        border-bottom: 3px solid var(--primary-color);
+      }
+      .nav-primary .navbar-nav .nav-link:hover,
+      .nav-primary .navbar-nav .nav-link:focus {
+        border-radius: 0px !important;
+        border-bottom: 3px solid var(--dark-yellow);
+      }
+
+      /* Dropdown Activation */
+      .nav-primary .dropdown:hover .dropdown-menu {
+        display: block;
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0px);
+        transition:
+          opacity 0.2s ease,
+          transform 0.2s ease;
+      }
+      .nav-primary .dropdown .dropdown-menu {
+        display: none;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(6px);
+        transition:
+          opacity 0.15s ease,
+          transform 0.15s ease,
+          visibility 0s linear 0.15s;
+        margin-top: 0.2rem;
+        border: 1px solid #e9edf2;
+        border-radius: 6px;
+        box-shadow: 0 12px 32px rgba(0, 20, 30, 0.08);
+        padding: 0.5rem 0;
+        background: var(--surface-white);
+        min-width: 200px;
+      }
+      .nav-primary .dropdown .dropdown-item {
+        padding: 0.5rem 1.2rem;
+        font-weight: 450;
+        color: var(--secondary-color);
+        font-size: 0.9rem;
+      }
+      .nav-primary .dropdown .dropdown-item:hover {
+        background: var(--bg-light);
+        color: var(--primary-color);
+      }
+
+      /* Custom Caret */
+      .nav-primary .dropdown-toggle::after {
+        display: none;
+      }
+      .nav-primary .has-sub .dropdown-toggle::after {
+        display: inline-block;
+        margin-left: 0.4rem;
+        vertical-align: middle;
+        content: "▾";
+        font-size: 0.7rem;
+        opacity: 0.7;
+        border: none;
+        color: #b0cfdd;
+      }
+
+      /* Mobile Toggler */
+      .nav-primary .navbar-toggler {
+        border-color: rgba(255, 255, 255, 0.3);
+        color: var(--surface-white);
+        margin-right: auto;
+      }
+      .nav-primary .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255,255,255,0.9)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+      }
+
+      /* ==================================================== */
+      /*  MARQUEE ALERT BOX                                    */
+      /* ==================================================== */
+      .alert-marquee {
+        background: var(--primary-color);
+        color: var(--surface-white);
+        /* border-radius: 10px; */
+        padding: 0px 20px;
+        border: none;
+        margin-top: 0.5rem;
+        margin-bottom: 0;
+        font-size: 0.9rem;
+        white-space: nowrap;
+        display: flex;
+        align-items: center;
+      }
+      .alert-marquee .marquee-wrapper {
+        display: flex;
+        align-items: stretch;
+        width: 100%;
+        overflow: hidden;
+      }
+      .alert-marquee .marquee-scroll-area {
+        flex-grow: 1;
+        overflow: hidden;
+        padding: 0.5rem 0;
+        display: flex;
+        align-items: center;
+      }
+      .alert-marquee .marquee-content {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        white-space: nowrap;
+        padding-left: 100%;
+        animation: scrollMarquee 32s linear infinite;
+      }
+      .alert-marquee .marquee-scroll-area:hover .marquee-content {
+        animation-play-state: paused;
+      }
+      .alert-marquee .bi-megaphone {
+        font-size: 1.2rem;
+        margin-right: 0.5rem;
+        color: var(--dark-yellow);
+      }
+      .alert-marquee .badge-urgent {
+        background: var(--dark-yellow);
+        font-weight: 600;
+        border-radius: var(--radius-pill);
+        padding: 0.2rem 0.9rem;
+        font-size: 0.7rem;
+        letter-spacing: 0.3px;
+        color: var(--surface-white);
+        margin-right: 0.5rem;
+      }
+      @keyframes scrollMarquee {
+        0% {
+          transform: translateX(0%);
+        }
+        100% {
+          transform: translateX(-100%);
+        }
+      }
+
+      /* ==================================================== */
+      /*  SECTIONS & TITLES                                    */
+      /* ==================================================== */
+      .container-news,
+      .container-services {
+        padding-top: 10px;
+        padding-bottom: 20px;
+      }
+      .section-title {
+        color: var(--text-main);
+        font-weight: 700;
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+        display: inline-block;
+        border-bottom: 3px solid var(--dark-yellow);
+        padding-bottom: 4px;
+      }
+      .video-section-container {
+        margin-top: 1rem;
+      }
+      .video-section-title {
+        color: var(--text-main);
+        font-weight: 700;
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+        display: inline-block;
+        padding-bottom: 4px;
+      }
+      .video-section-header {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+      .video-section-subtitle {
+        font-size: 1rem;
+        color: var(--text-muted);
+        margin-bottom: 15px;
+      }
+
+      /* ==================================================== */
+      /*  NEWS CARDS                                           */
+      /* ==================================================== */
+      .card-news {
+        background: var(--surface-white);
+        border-radius: 6px;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+        height: 100%;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+      }
+      .card-news .img-wrapper {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+      .card-news .img-wrapper img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.4s ease-in-out;
+      }
+      .card-news:hover .img-wrapper img {
+        cursor: pointer;
+        transform: scale(1.08);
+      }
+      .card-news .aspect-large {
+        aspect-ratio: 16 / 10.5;
+      }
+      .card-news .aspect-medium {
+        aspect-ratio: 16 / 9;
+      }
+      .card-news .aspect-square {
+        aspect-ratio: 1 / 1;
+      }
+
+      /* Text Overlay */
+      .card-news .info-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 20px;
+        background: linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.95) 0%,
+          rgba(0, 0, 0, 0.6) 40%,
+          transparent 100%
+        );
+        color: var(--surface-white);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+      }
+      .card-news .meta-tags {
+        font-size: 0.85rem;
+        margin-bottom: 8px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        color: var(--dark-yellow);
+      }
+      .card-news .meta-tags i {
+        margin-right: 5px;
+      }
+      .card-news .news-title {
+        font-weight: 600;
+        font-size: 1rem;
+        line-height: 1.4;
+        margin-bottom: 6px;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+      .card-news .news-title.small-text {
+        font-size: 0.9rem;
+        -webkit-line-clamp: 2;
+      }
+      .card-news .read-more-btn {
+        margin-top: 1.5rem;
+        color: var(--surface-white);
+        text-decoration: none;
+        font-size: 0.8rem;
+        font-weight: 600;
+        transition: var(--transition-smooth);
+        display: inline-block;
+      }
+      .card-news .read-more-btn:hover {
+        color: var(--dark-yellow);
+      }
+      .card-news .read-more-btn i {
+        font-size: 0.75rem;
+        margin-left: 5px;
+      }
+
+      .bg-yellow-custom {
+        background-color: var(--dark-yellow);
+      }
+
+      .bg-color-custom {
+        background-color: var(--secondary-color);
+      }
+
+      .bg-green-custom {
+        background-color: var(--dark-green);
+      }
+
+      /* Mobile Responsiveness */
+      @media (max-width: 991px) {
+        .card-news .aspect-large,
+        .card-news .aspect-medium,
+        .card-news .aspect-square {
+          aspect-ratio: 16 / 9;
+        }
+        .right-top-wrapper {
+          margin-bottom: 20px;
+        }
+      }
+
+      /* ==================================================== */
+      /*  NEWS CARD WITH DATE BADGE                           */
+      /* ==================================================== */
+      .card-news-date {
+        border: none;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        background: var(--surface-white);
+      }
+      .card-news-date .img-wrapper {
+        position: relative;
+        height: 220px;
+        overflow: hidden;
+      }
+      .card-news-date .img-wrapper img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.4s ease-in-out;
+      }
+
+      .card-news-date:hover .img-wrapper img {
+        cursor: pointer;
+        transform: scale(1.08);
+      }
+      .card-news-date .date-badge {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 60px;
+        text-align: center;
+        color: var(--surface-white);
+        z-index: 2;
+      }
+      .card-news-date .date-badge .day {
+        background-color: var(--dark-yellow);
+        font-size: 1.8rem;
+        font-weight: 700;
+        padding: 8px 0 2px 0;
+        display: block;
+      }
+      .card-news-date .date-badge .month {
+        background-color: #555555;
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        padding: 4px 0 8px 0;
+        display: block;
+      }
+      .card-news-date .card-body-custom {
+        padding: 20px;
+      }
+      .card-news-date .meta-info {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        color: var(--dark-yellow);
+        font-size: 0.8rem;
+        font-weight: 600;
+        margin-bottom: 12px;
+      }
+      .card-news-date .meta-info i {
+        margin-right: 5px;
+      }
+
+      .card-news-date .reading-time {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        color: var(--dark-yellow);
+        font-size: 0.8rem;
+        font-weight: 600;
+        margin-bottom: 12px;
+      }
+      .card-news-date .reading-time i {
+        margin-right: 5px;
+      }
+      .card-news-date .news-title-text {
+        font-weight: 600;
+        font-size: 0.9rem;
+        color: var(--text-main);
+        line-height: 1.5;
+        margin-bottom: 10px;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+      .card-news-date .news-body-text {
+        font-size: 0.8rem;
+        color: var(--text-muted);
+        line-height: 1.6;
+        margin-bottom: 18px;
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+      .card-news-date .read-more-link {
+        color: var(--dark-yellow);
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 0.8rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .card-news-date .read-more-link:hover {
+        color: var(--primary-color);
+      }
+
+      /* ==================================================== */
+      /*  SERVICE CARDS (Yellow/Green/Red)                     */
+      /* ==================================================== */
+      .card-service {
+        height: 100%;
+        padding: 20px 20px;
+        color: var(--surface-white);
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 6px;
+        transition: var(--transition-smooth);
+      }
+      .card-service:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        z-index: 10;
+      }
+      .card-service .icon-wrapper {
+        font-size: 4rem;
+        margin-bottom: 20px;
+        line-height: 1;
+      }
+      .card-service .service-title {
+        font-weight: 800;
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+      }
+      .card-service .service-desc {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin-bottom: 25px;
+        opacity: 0.95;
+      }
+      .card-service .btn-read-more {
+        margin-top: auto;
+        background: transparent;
+        color: var(--surface-white);
+        border: 2px solid var(--surface-white);
+        border-radius: 10px;
+        padding: 5px 20px;
+        font-weight: 700;
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        text-decoration: none;
+        transition: var(--transition-smooth);
+      }
+      .card-service .btn-read-more:hover {
+        cursor: pointer;
+        background: var(--surface-white);
+        color: var(--text-main);
+      }
+      @media (max-width: 768px) {
+        .card-service {
+          padding: 30px 20px;
+        }
+        .card-service:hover {
+          transform: translateY(-3px);
+        }
+      }
+
+      /* ==================================================== */
+      /*  VIDEO CARDS                                          */
+      /* ==================================================== */
+      .card-video {
+        background-color: var(--surface-white);
+        border: 1px solid #e9ecef;
+        border-radius: 4px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        height: 100%;
+        position: relative;
+        transition: var(--transition-smooth);
+      }
+      .card-video:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+      }
+      .card-video .video-wrapper {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        background-color: #000;
+        overflow: hidden;
+      }
+      .card-video .video-wrapper video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+      .card-video .flag-badge {
+        position: absolute;
+        top: -25px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 50px;
+        height: 50px;
+        background-color: var(--surface-white);
+        border-radius: 50%;
+        border: 3px solid var(--surface-white);
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 10;
+        overflow: hidden;
+      }
+      .card-video .flag-badge img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+      .card-video .video-card-body {
+        padding: 35px 20px 25px 20px;
+        text-align: center;
+      }
+      .card-video .video-description {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        color: var(--text-main);
+        margin-bottom: 0;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      /* ==================================================== */
+      /*  DIVIDER & READ MORE BUTTONS                          */
+      /* ==================================================== */
+      .divider-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+      }
+      .divider-line {
+        width: 60px;
+        height: 3px;
+        background-color: var(--dark-yellow);
+      }
+      .divider-icon {
+        padding: 0 10px;
+        color: var(--dark-yellow);
+        font-size: 1.2rem;
+      }
+
+      .icon-divider {
+        position: relative;
+        border-top: 2px solid #e1c157;
+        height: 0;
+        margin: 3rem 0;
+        text-align: center;
+        width: 200px;
+        margin: auto;
+      }
+
+      .icon-divider::after {
+        content: "◆"; /* Can be replaced with an inline SVG or FontAwesome character */
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #ffffff; /* Must match parent section container background color */
+        padding: 0 0.1rem;
+        color: #e1c157;
+        font-size: 1.25rem;
+      }
+
+      .gradient-divider {
+        border: none;
+        height: 3px;
+        /* Fades out smoothly on both left and right sides */
+        background: linear-gradient(
+          to right,
+          transparent,
+          var(--dark-yellow),
+          transparent
+        );
+        margin: 1rem 0;
+      }
+
+      .divider--shimmer {
+        border: none;
+        height: 3px;
+        background: linear-gradient(
+          90deg,
+          transparent 0%,
+          transparent 30%,
+          #fa709a 50%,
+          #fee140 70%,
+          transparent 70%,
+          transparent 100%
+        );
+        margin: 0;
+        border-radius: 4px;
+        background-size: 200% 100%;
+        animation: shimmerMove 3s infinite linear;
+      }
+
+      @keyframes shimmerMove {
+        0% {
+          background-position: 200% 0;
+        }
+        100% {
+          background-position: -200% 0;
+        }
+      }
+
+      .read-more-wrapper {
+        text-align: center;
+        margin-top: 40px;
+      }
+      .btn-read-more-pill {
+        display: inline-block;
+        padding: 10px 40px;
+        border: 2px solid var(--dark-yellow);
+        border-radius: var(--radius-pill);
+        color: var(--dark-yellow);
+        background-color: transparent;
+        font-weight: 700;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        text-decoration: none;
+        transition: var(--transition-smooth);
+      }
+      .btn-read-more-pill:hover {
+        background-color: var(--dark-yellow);
+        color: var(--surface-white);
+      }
+      .row-gap-custom {
+        --bs-gutter-y: 50px;
+      }
+
+      /* ==================================================== */
+      /*  ANNOUNCEMENTS, TENDERS & ADS                         */
+      /* ==================================================== */
+      .section-ads {
+        max-width: 1250px;
+        margin: 0 auto;
+        padding: 40px 15px;
+      }
+      .col-header {
+        text-align: center;
+        margin-bottom: 25px;
+      }
+      .col-title {
+        font-weight: 700;
+        font-size: 1.5rem;
+        color: #222;
+        margin-bottom: 10px;
+      }
+
+      .list-news-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 15px;
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+        border-bottom: 1px solid #e9ecef;
+      }
+      .list-news-item:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+      }
+      .list-news-item .thumb {
+        width: 60px;
+        height: 60px;
+        flex-shrink: 0;
+        border-radius: 3px;
+        overflow: hidden;
+        border: 1px solid #ddd;
+      }
+      .list-news-item .thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .list-news-item .content {
+        flex-grow: 1;
+      }
+      .list-news-item .headline {
+        font-weight: 600;
+        font-size: 0.95rem;
+        line-height: 1.4;
+        color: var(--text-main);
+        margin-bottom: 8px;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+      .list-news-item .meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        font-size: 0.75rem;
+        color: var(--dark-yellow);
+        font-weight: 600;
+      }
+      .list-news-item .meta i {
+        margin-right: 3px;
+      }
+
+      .ad-banner-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+        background-color: var(--surface-white);
+      }
+      .ad-banner-wrapper .ad-border-box {
+        width: 100%;
+        padding: 20px;
+        border: 6px solid var(--sky-blue);
+        background-color: var(--surface-white);
+        position: relative;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+      }
+      .ad-banner-wrapper .ad-gold-frame {
+        border: 3px solid #e6c265;
+        padding: 30px 20px;
+        background: #fcfcfc;
+        text-align: center;
+        position: relative;
+      }
+      .ad-banner-wrapper .ad-gold-frame::before,
+      .ad-banner-wrapper .ad-gold-frame::after {
+        content: "";
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        border: 4px solid #e6c265;
+        pointer-events: none;
+      }
+      .ad-banner-wrapper .ad-gold-frame::before {
+        top: -17px;
+        left: -17px;
+        border-right: none;
+        border-bottom: none;
+      }
+      .ad-banner-wrapper .ad-gold-frame::after {
+        bottom: -17px;
+        right: -17px;
+        border-left: none;
+        border-top: none;
+      }
+      .ad-banner-wrapper .ad-text {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--text-main);
+        line-height: 1.6;
+      }
+      @media (max-width: 991px) {
+        .ad-banner-wrapper {
+          padding: 20px 0;
+          margin-top: 30px;
+        }
+      }
+
+      /* ==================================================== */
+      /*  GALLERY CAROUSEL                                     */
+      /* ==================================================== */
+      .section-gallery {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 40px 15px;
+        position: relative;
+      }
+      .header-wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        margin-bottom: 30px;
+        flex-wrap: wrap;
+        gap: 15px;
+      }
+      .header-content {
+        text-align: center;
+        flex-grow: 1;
+      }
+
+      #photoCarousel {
+        position: relative;
+      }
+      .carousel-control-prev,
+      .carousel-control-next {
+        width: 48px;
+        height: 48px;
+        top: 50%;
+        transform: translateY(-50%);
+        opacity: 1;
+        background-color: var(--dark-yellow);
+        border-radius: 6px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        transition: background-color 0.3s ease;
+      }
+      .carousel-control-prev:hover,
+      .carousel-control-next:hover {
+        background-color: rgba(0, 0, 0, 0.7);
+      }
+      .carousel-control-prev {
+        left: -60px;
+      }
+      .carousel-control-next {
+        right: -60px;
+      }
+      .carousel-control-prev-icon,
+      .carousel-control-next-icon {
+        background-image: none;
+        font-family: "bootstrap-icons";
+        font-size: 1.8rem;
+        color: var(--surface-white);
+        width: auto;
+        height: auto;
+      }
+      .carousel-control-prev-icon::before {
+        content: "\f12f";
+      }
+      .carousel-control-next-icon::before {
+        content: "\f138";
+      }
+
+      .card-gallery {
+        background: var(--surface-white);
+        border: 1px solid #e9ecef;
+        border-radius: 4px;
+        overflow: hidden;
+        transition: var(--transition-smooth);
+      }
+      .card-gallery:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+      }
+      .card-gallery .img-wrapper {
+        position: relative;
+        aspect-ratio: 16 / 10;
+        overflow: hidden;
+      }
+      .card-gallery .img-wrapper img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .card-gallery .date-badge {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 55px;
+        text-align: center;
+        color: var(--surface-white);
+        z-index: 2;
+      }
+      .card-gallery .date-badge .day {
+        background-color: var(--dark-yellow);
+        font-size: 1.6rem;
+        font-weight: 700;
+        padding: 6px 0 2px 0;
+        display: block;
+      }
+      .card-gallery .date-badge .month {
+        background-color: #555555;
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        padding: 4px 0 8px 0;
+        display: block;
+      }
+      .card-gallery .card-body {
+        padding: 20px;
+      }
+      .card-gallery .headline {
+        font-weight: 600;
+        font-size: 0.95rem;
+        line-height: 1.5;
+        color: var(--text-main);
+        margin-bottom: 15px;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+      .card-gallery .meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: #eb6c2f;
+      }
+      .card-gallery .meta i {
+        margin-right: 5px;
+      }
+
+      @media (max-width: 991px) {
+        .carousel-control-prev {
+          left: 10px;
+        }
+        .carousel-control-next {
+          right: 10px;
+        }
+      }
+      @media (max-width: 768px) {
+        .carousel-control-prev,
+        .carousel-control-next {
+          width: 35px;
+          height: 35px;
+        }
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+          font-size: 1.2rem;
+        }
+        .carousel-control-prev {
+          left: 5px;
+        }
+        .carousel-control-next {
+          right: 5px;
+        }
+      }
+
+      /* ==================================================== */
+      /*  FOOTER                                               */
+      /* ==================================================== */
+      .site-footer {
+        background-color: var(--primary-color);
+        color: var(--surface-white);
+        padding: 10px 0 30px 0;
+      }
+      .footer-bottom-bar {
+        background-color: #2d2f33;
+        color: #bbbbbb;
+        text-align: center;
+        padding: 18px 0;
+        font-size: 0.9rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .footer-title {
+        font-weight: 700;
+        font-size: 1.3rem;
+        margin-bottom: 25px;
+        color: var(--surface-white);
+      }
+      .footer-contact-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 15px;
+        margin-bottom: 20px;
+        font-size: 0.95rem;
+        line-height: 1.5;
+      }
+      .footer-contact-item i {
+        font-size: 1.2rem;
+        margin-top: 3px;
+      }
+      .footer-visit-count {
+        margin-top: 25px;
+        font-size: 0.95rem;
+        display: block;
+      }
+      .footer-links {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      .footer-links li {
+        margin-bottom: 12px;
+      }
+      .footer-links a {
+        color: var(--surface-white);
+        text-decoration: none;
+        font-size: 0.95rem;
+        transition: var(--transition-smooth);
+        display: inline-block;
+      }
+      .footer-links a:hover {
+        text-decoration: underline;
+        transform: translateX(4px);
+      }
+      .footer-map-wrapper {
+        position: relative;
+        width: 100%;
+        padding-top: 75%;
+        border-radius: 6px;
+        overflow: hidden;
+        margin-top: 5px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      }
+      .footer-map-wrapper iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+      @media (max-width: 991px) {
+        .footer-title {
+          margin-top: 30px;
+        }
+        .col-lg-3:first-child .footer-title {
+          margin-top: 0;
+        }
+      }
+
+      /* ==================================================== */
+      /*  SCROLL TO TOP BUTTON                                 */
+      /* ==================================================== */
+      #scrollToTopBtn {
+        position: fixed;
+        bottom: 3rem;
+        right: 5rem;
+        z-index: 9999;
+        width: 3rem;
+        height: 3rem;
+        background-color: var(--primary-color);
+        color: var(--surface-white);
+        border: none;
+        border-radius: 6px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        font-size: 1rem;
+        cursor: pointer;
+        transition: var(--transition-smooth);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(20px);
+      }
+      #scrollToTopBtn:hover {
+        background-color: var(--dark-yellow);
+        transform: translateY(-3px);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+      }
+      #scrollToTopBtn.show {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+
+      /* ==================================================== */
+      /*  NAVBAR STICKY ANIMATION                              */
+      /* ==================================================== */
+      .nav-primary {
+        animation: slideDownFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      }
+      .nav-primary.is-stuck {
+        transition:
+          opacity 0.6s ease,
+          transform 0.6s ease,
+          visibility 0.6s ease !important;
+      }
+      @keyframes slideDownFadeIn {
+        0% {
+          opacity: 0;
+          transform: translateY(-100%);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* ==================================================== */
+      /*  MOBILE HEADER RESPONSIVENESS                         */
+      /* ==================================================== */
+      @media (max-width: 767.98px) {
+        .header-gov .header-controls {
+          justify-content: center !important;
+          width: 100%;
+          margin-top: 0.3rem;
+        }
+        .header-gov .header-controls .d-flex.gap-2 {
+          justify-content: center;
+          width: 100%;
+        }
+        .header-gov .row .col-md-4.col-6 {
+          flex: 0 0 auto;
+          width: auto;
+        }
+        .header-gov .row .col-md-8.col-6 {
+          flex: 0 0 auto;
+          width: auto;
+        }
+        .header-gov .row {
+          flex-wrap: wrap;
+        }
+        .header-gov .row .col-6:first-child {
+          flex: 0 0 auto;
+          width: auto;
+        }
+        .header-gov .row .col-6:last-child {
+          flex: 0 0 100%;
+          max-width: 100%;
+          justify-content: center !important;
+          margin-top: 0.2rem;
+        }
+        .nav-primary .navbar-toggler {
+          margin-right: auto;
+          margin-left: 0;
+        }
+        .nav-primary .navbar-collapse {
+          text-align: left;
+        }
+        .nav-primary .navbar-nav .nav-link {
+          color: var(--surface-white) !important;
+        }
+        .alert-marquee {
+          margin-top: 0.8rem;
+        }
+      }
+      @media (max-width: 576px) {
+        .nav-primary .navbar-nav .nav-link {
+          padding: 0.5rem 0.8rem;
+          font-size: 0.9rem;
+        }
+        .alert-marquee .marquee-content {
+          animation-duration: 22s;
+        }
+        .header-controls .input-group {
+          width: auto;
+        }
+      }
+
+      /* ==================================================== */
+      /*  EXTRA HOVER FIX FOR DESKTOP DROPDOWNS                */
+      /* ==================================================== */
+      @media (min-width: 768px) {
+        .nav-primary .dropdown:hover .dropdown-menu {
+          display: block !important;
+        }
+        .nav-primary .dropdown:hover .dropdown-menu.show {
+          display: block !important;
+        }
+      }
+
+      /* ==================================================== */
+      /*  SOCIAL MEDIA ICONS IN FOOTER                         */
+      /* ==================================================== */
+      .footer-social {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        padding: 20px 0 20px 0;
+      }
+      .footer-social a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background-color: var(--dark-yellow);
+        color: var(--surface-white);
+        border-radius: 10%;
+        text-decoration: none;
+        font-size: 1.2rem;
+        transition: var(--transition-smooth);
+      }
+      .footer-social a:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      /* 8 · diagonal corner */
+      .date-diagonal {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 80px;
+        height: 80px;
+        overflow: hidden;
+        pointer-events: none;
+      }
+      .date-diagonal .diag-badge {
+        position: absolute;
+        top: 14px;
+        right: -22px;
+        width: 120px;
+        background: var(--dark-yellow);
+        color: #fff;
+        text-align: center;
+        padding: 0.15rem 0;
+        font-size: 0.65rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        transform: rotate(45deg);
+        box-shadow: 0 4px 12px rgba(15, 52, 96, 0.2);
+      }
+      .date-diagonal .diag-badge .day-diag {
+        font-size: 0.9rem;
+        font-weight: 800;
+        margin-right: 0.2rem;
+      }
+
+      .pagination .page-link {
+        color: var(--text-main);
+        border: 1px solid #dee2e6;
+        transition: var(--transition-smooth);
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+      .pagination .page-link:hover {
+        background-color: var(--primary-color);
+        color: #fff;
+        border-color: var(--primary-color);
+      }
+      .pagination .page-item.active .page-link {
+        background-color: var(--dark-yellow);
+        border-color: var(--dark-yellow);
+        color: #fff;
+      }
+      .pagination .page-item.disabled .page-link {
+        opacity: 0.5;
+        pointer-events: none;
+      }
+
+      /* --- Breadcrumb & Title for "အခြားသတင်းများ" --- */
+.custom-breadcrumb {
+    background: transparent;
+    padding: 0.5rem 0 0.2rem 0;
+    margin-bottom: 0.2rem;
+    font-size: 0.85rem;
+}
+.custom-breadcrumb .breadcrumb-item a {
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: var(--transition-smooth);
+}
+.custom-breadcrumb .breadcrumb-item a:hover {
+    color: var(--dark-yellow);
+    text-decoration: underline;
+}
+.custom-breadcrumb .breadcrumb-item.active {
+    color: var(--dark-yellow);
+    font-weight: 600;
+}
+.custom-breadcrumb .breadcrumb-item + .breadcrumb-item::before {
+    content: "/";
+    color: var(--text-muted);
+    font-weight: 300;
+    padding: 0 0.5rem;
+}
+
+
+
+.other-news-title {
+    color: var(--text-main);
+        font-weight: 700;
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+        display: inline-block;
+        border-bottom: 3px solid var(--dark-yellow);
+        padding-bottom: 4px;
+}
+
+@media (max-width: 576px) {
+    .other-news-title {
+        font-size: 1.5rem;
+    }
+    .custom-breadcrumb {
+        font-size: 0.75rem;
+    }
+}
+    </style>
+  </head>
+  <body>
+    <!-- HEADER: left logo + two lines, right: language switcher + search (centered on mobile) -->
+    <header class="header-gov">
+      <div class="container">
+        <div class="row align-items-center g-2">
+          <!-- left: logo + two lines -->
+          <div class="col-6 col-md-6 d-flex align-items-center">
+            <div class="me-2">
+              <img class="header-logo-img" src="./mowa-logo.png" alt="" />
+            </div>
+            <div class="logo-wrap d-flex flex-column">
+              <span class="header-logo-text fs-4"
+                >ပြည်ထောင်စုသမ္မတမြန်မာနိုင်ငံတော်</span
+              >
+              <span class="header-logo-sub fs-4"
+                >အမျိုးသမီးရေးရာဝန်ကြီးဌာန</span
+              >
+            </div>
+          </div>
+          <!-- right: language switcher + search (centered on mobile via flex) -->
+          <div
+            class="col-6 col-md-6 d-flex justify-content-end header-controls"
+          >
+            <div class="d-flex gap-2 align-items-center flex-wrap">
+              <!-- language switcher: Myanmar + English -->
+              <!-- <div class="lang-switch dropdown">
+                <button
+                  class="dropdown-toggle d-flex align-items-center gap-1"
+                  type="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  <i class="bi bi-globe2"></i> <span>EN</span>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end">
+                  <li><a class="dropdown-item" href="#">English</a></li>
+                  <li><a class="dropdown-item" href="#">မြန်မာ</a></li>
+                </ul>
+              </div> -->
+              <!-- ============================================== -->
+              <!-- TWO SEPARATE FLAG BUTTONS START                -->
+              <!-- ============================================== -->
+              <div class="d-flex align-items-center gap-1">
+                <!-- Myanmar Flag Button -->
+                <a href="#" class="btn-flag" title="မြန်မာ">
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Flag_of_Myanmar.svg"
+                    alt="MM"
+                    style="
+                      width: 30px;
+                      height: 25px;
+                      object-fit: cover;
+                      margin: 10px;
+                    "
+                  />
+                </a>
+                <!-- English Flag Button -->
+                <a href="#" class="btn-flag" title="English">
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Flag_of_the_United_Kingdom_%281-2%29.svg"
+                    alt="EN"
+                    style="
+                      width: 30px;
+                      height: 25px;
+                      object-fit: cover;
+                      margin: 10px;
+                    "
+                  />
+                </a>
+              </div>
+              <!-- ============================================== -->
+              <!-- TWO SEPARATE FLAG BUTTONS END                  -->
+              <!-- ============================================== -->
+
+              <!-- search box -->
+              <form class="d-flex" role="search">
+                <div class="input-group">
+                  <input
+                    class="form-control form-control-sm"
+                    type="search"
+                    placeholder="ရှာဖွေရန် ..."
+                    aria-label="Search"
+                  />
+                  <button class="btn btn-sm btn-search" type="submit">
+                    <i class="bi bi-search"></i>
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- NAVBAR: blue bg, white text, yellow hover, toggler left on mobile -->
+    <!-- NAVBAR: blue bg, white text, yellow hover, toggler left on mobile -->
+    <nav
+      class="navbar navbar-expand-md nav-primary py-3 sticky-top"
+      id="stickyNavbar"
+    >
+      <div class="container">
+        <button
+          class="navbar-toggler border-0"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mainNav"
+          aria-controls="mainNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNav">
+          <ul class="navbar-nav me-auto mb-2 mb-md-0 flex-wrap">
+            <!-- Home -->
+            <li class="nav-item">
+              <a class="nav-link" href="#"
+                ><i class="bi bi-house-door me-1"></i>ပင်မစာမျက်နှာ</a
+              >
+            </li>
+            <!-- About -->
+            <li class="nav-item dropdown has-sub">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="aboutDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                >ဌာနအကြောင်း</a
+              >
+              <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
+                <li>
+                  <a class="dropdown-item" href="#"
+                    >ရည်မှန်းချက်နှင့် မျှော်မှန်းချက်</a
+                  >
+                </li>
+                <li><a class="dropdown-item" href="#">သမိုင်းကြောင်း</a></li>
+                <li><a class="dropdown-item" href="#">ဦးဆောင်အဖွဲ့</a></li>
+                <li><a class="dropdown-item" href="#">ဆက်သွယ်ရန်</a></li>
+              </ul>
+            </li>
+            <!-- Services (Women-focused) -->
+            <li class="nav-item dropdown has-sub">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="servicesDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                >ဝန်ဆောင်မှုများ</a
+              >
+              <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+                <li>
+                  <a class="dropdown-item" href="#"
+                    >ကျားမတန်းတူရေး မြှင့်တင်ခြင်း</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#"
+                    >အမျိုးသမီးစွမ်းရည်မြှင့်တင်ရေး သင်တန်းများ</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#"
+                    >အိမ်တွင်းအကြမ်းဖက်မှု တားဆီးကာကွယ်ရေး</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#"
+                    >ဥပဒေအကူအညီနှင့် ကာကွယ်စောင့်ရှောက်ရေး</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <!-- News -->
+            <li class="nav-item"><a class="nav-link" href="#">သတင်းများ</a></li>
+            <!-- Departments (Women-focused) -->
+            <li class="nav-item dropdown has-sub">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="deptDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                >ဌာနများ</a
+              >
+              <ul class="dropdown-menu" aria-labelledby="deptDropdown">
+                <li>
+                  <a class="dropdown-item" href="#"
+                    >အမျိုးသမီးဖွံ့ဖြိုးတိုးတက်ရေးဌာန</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#"
+                    >ကျားမတန်းတူရေးနှင့် မူဝါဒရေးရာဌာန</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#"
+                    >အမျိုးသမီးအခွင့်အရေး ကာကွယ်စောင့်ရှောက်ရေးဌာန</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#"
+                    >သုတေသနနှင့် စီမံကိန်းရေးဆွဲရေးဌာန</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <!-- Contact -->
+            <li class="nav-item">
+              <a class="nav-link" href="#">ဆက်သွယ်ရန်</a>
+            </li>
+            <!-- Careers -->
+            <li class="nav-item dropdown has-sub">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="careerDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                >အလုပ်အကိုင်များ</a
+              >
+              <ul class="dropdown-menu" aria-labelledby="careerDropdown">
+                <li>
+                  <a class="dropdown-item" href="#">ရာထူးလစ်လပ်နေရာများ</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#">အလုပ်သင်အစီအစဉ်များ</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#">အကျိုးခံစားခွင့်များ</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <button
+      id="scrollToTopBtn"
+      onclick="scrollToTop()"
+      aria-label="Scroll to top"
+    >
+      <i class="bi bi-chevron-up"></i>
+    </button>
+
+    <!-- main content demo -->
+    <main class="content-placeholder">
+
+      <div class="container container-news pt-4 pb-3">
+    <div class="row">
+        <div class="col-12">
+            <!-- Breadcrumb -->
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb custom-breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">ပင်မစာမျက်နှာ</a></li>
+                    <li class="breadcrumb-item"><a href="#">သတင်းမီဒီယာ</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">အခြားသတင်းများ</li>
+                </ol>
+            </nav>
+            <!-- Title -->
+            <h1 class="other-news-title">အခြားသတင်းများ</h1>
+            <!-- Optional Divider -->
+            <hr class="gradient-divider my-3" />
+        </div>
+    </div>
+</div>
+
+      <div class="container container-news">
+        <!-- Section Header -->
+
+        <div class="row g-4 row-gap-custom">
+          <div class="col-lg-4 col-md-6">
+            <div class="card-news-date">
+              <div class="img-wrapper">
+                <img
+                  src="https://images.unsplash.com/photo-1544531586-fde5298cdd40?q=80&w=800&auto=format&fit=crop"
+                  alt="News Image"
+                />
+
+                <div class="date-diagonal">
+                  <div class="diag-badge">
+                    <span class="day-diag">27</span> FEB
+                  </div>
+                </div>
+              </div>
+              <div class="card-body-custom">
+                <div class="meta-info">
+                  <span class="date"
+                    ><i class="bi bi-calendar"></i> 27 FEBRUARY 2026</span
+                  >
+                  <span class="location"
+                    ><i class="bi bi-geo-alt-fill"></i> နေပြည်တော်</span
+                  >
+                 
+                </div>
+                <h3 class="news-title-text">
+                  အမျိုးသမီးရေးရာဝန်ကြီးဌာန၊ ဒုတိယဝန်ကြီး ဒေါ်စန်းစန်းနွယ်
+                  မြန်မာနိုင်ငံရှိ အမျိုးသမီးများ၏ အခွင့်အရေးနှင့် ဖွံ့ဖြိုးရေး
+                  လုပ်ငန်းများ အကြောင်း ဆွေးနွေး
+                </h3>
+                <p class="news-body-text">
+                  ရန်ကုန်တိုင်းဒေသကြီး၊ အင်းစိန်မြို့နယ်ရှိ
+                  အမျိုးသမီးရေးရာဝန်ကြီးဌာန၌ ကျင်းပပြုလုပ်ခဲ့သည့်
+                  အမျိုးသမီးများ၏ စွမ်းဆောင်ရည်မြှင့်တင်ရေး
+                  အလုပ်ရုံဆွေးနွေးပွဲတွင် ဒုတိယဝန်ကြီးက အမျိုးသမီးများ၏
+                  ခေါင်းဆောင်မှုစွမ်းရည်နှင့် စီးပွားရေးဆိုင်ရာ
+                  အခွင့်အလမ်းများအကြောင်း ဟောပြောခဲ့ပါသည်။
+                </p>
+                <div class="reading-time"><span><i class="bi bi-clock"></i> ဖတ်ရန် ၄ မိနစ်</span></div>
+                <a href="#" class="read-more-link"
+                  >ဆက်လက်ဖတ်ရှုရန် <i class="bi bi-arrow-right"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6">
+            <div class="card-news-date">
+              <div class="img-wrapper">
+                <img
+                  src="https://images.unsplash.com/photo-1544531586-fde5298cdd40?q=80&w=800&auto=format&fit=crop"
+                  alt="News Image"
+                />
+                <!-- <div class="date-badge">
+                  <span class="day">27</span>
+                  <span class="month">FEB</span>
+                </div> -->
+
+                <div class="date-diagonal">
+                  <div class="diag-badge">
+                    <span class="day-diag">27</span> FEB
+                  </div>
+                </div>
+              </div>
+              <div class="card-body-custom">
+                <div class="meta-info">
+                  <span class="date"
+                    ><i class="bi bi-calendar"></i> 27 FEBRUARY 2026</span
+                  >
+                  <span class="location"
+                    ><i class="bi bi-geo-alt-fill"></i> နေပြည်တော်</span
+                  >
+                  
+                 
+                </div>
+               
+                <h3 class="news-title-text">
+                  အမျိုးသမီးရေးရာဝန်ကြီးဌာနမှ ကျင်းပသည့် ကျားမတန်းတူရေး
+                  ဆွေးနွေးပွဲသို့ အရပ်ဘက်အဖွဲ့အစည်းများ တက်ရောက်
+                </h3>
+                <p class="news-body-text">
+                  နေပြည်တော်ရှိ အမျိုးသမီးရေးရာဝန်ကြီးဌာန၏ ခန်းမတွင်
+                  ကျင်းပပြုလုပ်ခဲ့သည့် ကျားမတန်းတူရေးနှင့် အမျိုးသမီးများ၏
+                  နိုင်ငံရေးပါဝင်မှုဆိုင်ရာ အလုပ်ရုံဆွေးနွေးပွဲသို့
+                  အရပ်ဘက်လူမှုအဖွဲ့အစည်းများမှ ကိုယ်စားလှယ်များ
+                  တက်ရောက်ခဲ့ကြသည်။
+                </p>
+                 <div class="reading-time"><span><i class="bi bi-clock"></i> ဖတ်ရန် ၄ မိနစ်</span></div>
+                
+                <a href="#" class="read-more-link"
+                  >ဆက်လက်ဖတ်ရှုရန် <i class="bi bi-arrow-right"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6">
+            <div class="card-news-date">
+              <div class="img-wrapper">
+                <img
+                  src="https://images.unsplash.com/photo-1544531586-fde5298cdd40?q=80&w=800&auto=format&fit=crop"
+                  alt="News Image"
+                />
+                <!-- <div class="date-badge">
+                  <span class="day">27</span>
+                  <span class="month">FEB</span>
+                </div> -->
+                <div class="date-diagonal">
+                  <div class="diag-badge">
+                    <span class="day-diag">27</span> FEB
+                  </div>
+                </div>
+              </div>
+              <div class="card-body-custom">
+                <div class="meta-info">
+                  <span class="date"
+                    ><i class="bi bi-calendar"></i> 27 FEB 2026</span
+                  >
+                  <span class="location"
+                    ><i class="bi bi-geo-alt-fill"></i> နေပြည်တော်</span
+                  >
+                  <span><i class="bi bi-clock"></i> ဖတ်ရန် ၄ မိနစ်</span>
+                </div>
+                <h3 class="news-title-text">
+                  အမျိုးသမီးများအတွက် ဒီဂျစ်တယ် ငွေကြေးအသိပညာပေး သင်တန်းများ
+                  ဖွင့်လှစ်
+                </h3>
+                <p class="news-body-text">
+                  အမျိုးသမီးရေးရာဝန်ကြီးဌာနနှင့် မြန်မာနိုင်ငံတော်ဗဟိုဘဏ် တို့
+                  ပူးပေါင်းဆောင်ရွက်သည့် ဒီဂျစ်တယ် ဘဏ်လုပ်ငန်းနှင့်
+                  ငွေကြေးဆိုင်ရာ အသိပညာပေး သင်တန်းများကို
+                  ရန်ကုန်တိုင်းဒေသကြီးတွင် စတင်ဖွင့်လှစ်ခဲ့ပြီး
+                  အမျိုးသမီးစီးပွားရေးလုပ်ငန်းရှင်များ တက်ရောက်ခဲ့ကြသည်။
+                </p>
+                <a href="#" class="read-more-link"
+                  >ဆက်လက်ဖတ်ရှုရန် <i class="bi bi-arrow-right"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6">
+            <div class="card-news-date">
+              <div class="img-wrapper">
+                <img
+                  src="https://images.unsplash.com/photo-1544531586-fde5298cdd40?q=80&w=800&auto=format&fit=crop"
+                  alt="News Image"
+                />
+                <!-- <div class="date-badge">
+                  <span class="day">27</span>
+                  <span class="month">FEB</span>
+                </div> -->
+                <div class="date-diagonal">
+                  <div class="diag-badge">
+                    <span class="day-diag">27</span> FEB
+                  </div>
+                </div>
+              </div>
+              <div class="card-body-custom">
+                <div class="meta-info">
+                  <span class="date"
+                    ><i class="bi bi-calendar"></i> 27 FEBRUARY 2026</span
+                  >
+                  <span class="location"
+                    ><i class="bi bi-geo-alt-fill"></i> နေပြည်တော်</span
+                  >
+                </div>
+                <h3 class="news-title-text">
+                  အမျိုးသမီးရေးရာဝန်ကြီးဌာနမှ ကျင်းပသည့် အိမ်တွင်းအကြမ်းဖက်မှု
+                  တားဆီးရေး အသိပညာပေး ဟောပြောပွဲ
+                </h3>
+                <p class="news-body-text">
+                  မန္တလေးမြို့ရှိ အမျိုးသမီးရေးရာဝန်ကြီးဌာနရုံးခွဲတွင်
+                  ကျင်းပပြုလုပ်သည့် အိမ်တွင်းအကြမ်းဖက်မှု ကာကွယ်တားဆီးရေး
+                  အသိပညာပေး ဟောပြောပွဲသို့ ဒေသခံ အမျိုးသမီးများ၊ မိသားစုဝင်များ
+                  အများအပြား တက်ရောက်၍ သိသင့်သည့် ဥပဒေရေးရာအချက်များ ကို
+                  ဆွေးနွေးခဲ့ကြသည်။
+                </p>
+                <a href="#" class="read-more-link"
+                  >ဆက်လက်ဖတ်ရှုရန် <i class="bi bi-arrow-right"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="card-news-date">
+              <div class="img-wrapper">
+                <img
+                  src="https://images.unsplash.com/photo-1544531586-fde5298cdd40?q=80&w=800&auto=format&fit=crop"
+                  alt="News Image"
+                />
+
+                <div class="date-diagonal">
+                  <div class="diag-badge">
+                    <span class="day-diag">27</span> FEB
+                  </div>
+                </div>
+              </div>
+              <div class="card-body-custom">
+                <div class="meta-info">
+                  <span class="date"
+                    ><i class="bi bi-calendar"></i> 27 FEBRUARY 2026</span
+                  >
+                  <span class="location"
+                    ><i class="bi bi-geo-alt-fill"></i> နေပြည်တော်</span
+                  >
+                </div>
+                <h3 class="news-title-text">
+                  အမျိုးသမီးရေးရာဝန်ကြီးဌာန၊ ဒုတိယဝန်ကြီး ဒေါ်စန်းစန်းနွယ်
+                  မြန်မာနိုင်ငံရှိ အမျိုးသမီးများ၏ အခွင့်အရေးနှင့် ဖွံ့ဖြိုးရေး
+                  လုပ်ငန်းများ အကြောင်း ဆွေးနွေး
+                </h3>
+                <p class="news-body-text">
+                  ရန်ကုန်တိုင်းဒေသကြီး၊ အင်းစိန်မြို့နယ်ရှိ
+                  အမျိုးသမီးရေးရာဝန်ကြီးဌာန၌ ကျင်းပပြုလုပ်ခဲ့သည့်
+                  အမျိုးသမီးများ၏ စွမ်းဆောင်ရည်မြှင့်တင်ရေး
+                  အလုပ်ရုံဆွေးနွေးပွဲတွင် ဒုတိယဝန်ကြီးက အမျိုးသမီးများ၏
+                  ခေါင်းဆောင်မှုစွမ်းရည်နှင့် စီးပွားရေးဆိုင်ရာ
+                  အခွင့်အလမ်းများအကြောင်း ဟောပြောခဲ့ပါသည်။
+                </p>
+                <a href="#" class="read-more-link"
+                  >ဆက်လက်ဖတ်ရှုရန် <i class="bi bi-arrow-right"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6">
+            <div class="card-news-date">
+              <div class="img-wrapper">
+                <img
+                  src="https://images.unsplash.com/photo-1544531586-fde5298cdd40?q=80&w=800&auto=format&fit=crop"
+                  alt="News Image"
+                />
+                <!-- <div class="date-badge">
+                  <span class="day">27</span>
+                  <span class="month">FEB</span>
+                </div> -->
+
+                <div class="date-diagonal">
+                  <div class="diag-badge">
+                    <span class="day-diag">27</span> FEB
+                  </div>
+                </div>
+              </div>
+              <div class="card-body-custom">
+                <div class="meta-info">
+                  <span class="date"
+                    ><i class="bi bi-calendar"></i> 27 FEBRUARY 2026</span
+                  >
+                  <span class="location"
+                    ><i class="bi bi-geo-alt-fill"></i> နေပြည်တော်</span
+                  >
+                </div>
+                <h3 class="news-title-text">
+                  အမျိုးသမီးရေးရာဝန်ကြီးဌာနမှ ကျင်းပသည့် ကျားမတန်းတူရေး
+                  ဆွေးနွေးပွဲသို့ အရပ်ဘက်အဖွဲ့အစည်းများ တက်ရောက်
+                </h3>
+                <p class="news-body-text">
+                  နေပြည်တော်ရှိ အမျိုးသမီးရေးရာဝန်ကြီးဌာန၏ ခန်းမတွင်
+                  ကျင်းပပြုလုပ်ခဲ့သည့် ကျားမတန်းတူရေးနှင့် အမျိုးသမီးများ၏
+                  နိုင်ငံရေးပါဝင်မှုဆိုင်ရာ အလုပ်ရုံဆွေးနွေးပွဲသို့
+                  အရပ်ဘက်လူမှုအဖွဲ့အစည်းများမှ ကိုယ်စားလှယ်များ
+                  တက်ရောက်ခဲ့ကြသည်။
+                </p>
+                <a href="#" class="read-more-link"
+                  >ဆက်လက်ဖတ်ရှုရန် <i class="bi bi-arrow-right"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6">
+            <div class="card-news-date">
+              <div class="img-wrapper">
+                <img
+                  src="https://images.unsplash.com/photo-1544531586-fde5298cdd40?q=80&w=800&auto=format&fit=crop"
+                  alt="News Image"
+                />
+                <!-- <div class="date-badge">
+                  <span class="day">27</span>
+                  <span class="month">FEB</span>
+                </div> -->
+                <div class="date-diagonal">
+                  <div class="diag-badge">
+                    <span class="day-diag">27</span> FEB
+                  </div>
+                </div>
+              </div>
+              <div class="card-body-custom">
+                <div class="meta-info">
+                  <span class="date"
+                    ><i class="bi bi-calendar"></i> 27 FEBRUARY 2026</span
+                  >
+                  <span class="location"
+                    ><i class="bi bi-geo-alt-fill"></i> နေပြည်တော်</span
+                  >
+                </div>
+                <h3 class="news-title-text">
+                  အမျိုးသမီးများအတွက် ဒီဂျစ်တယ် ငွေကြေးအသိပညာပေး သင်တန်းများ
+                  ဖွင့်လှစ်
+                </h3>
+                <p class="news-body-text">
+                  အမျိုးသမီးရေးရာဝန်ကြီးဌာနနှင့် မြန်မာနိုင်ငံတော်ဗဟိုဘဏ် တို့
+                  ပူးပေါင်းဆောင်ရွက်သည့် ဒီဂျစ်တယ် ဘဏ်လုပ်ငန်းနှင့်
+                  ငွေကြေးဆိုင်ရာ အသိပညာပေး သင်တန်းများကို
+                  ရန်ကုန်တိုင်းဒေသကြီးတွင် စတင်ဖွင့်လှစ်ခဲ့ပြီး
+                  အမျိုးသမီးစီးပွားရေးလုပ်ငန်းရှင်များ တက်ရောက်ခဲ့ကြသည်။
+                </p>
+                <a href="#" class="read-more-link"
+                  >ဆက်လက်ဖတ်ရှုရန် <i class="bi bi-arrow-right"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6">
+            <div class="card-news-date">
+              <div class="img-wrapper">
+                <img
+                  src="https://images.unsplash.com/photo-1544531586-fde5298cdd40?q=80&w=800&auto=format&fit=crop"
+                  alt="News Image"
+                />
+                <!-- <div class="date-badge">
+                  <span class="day">27</span>
+                  <span class="month">FEB</span>
+                </div> -->
+                <div class="date-diagonal">
+                  <div class="diag-badge">
+                    <span class="day-diag">27</span> FEB
+                  </div>
+                </div>
+              </div>
+              <div class="card-body-custom">
+                <div class="meta-info">
+                  <span class="date"
+                    ><i class="bi bi-calendar"></i> 27 FEBRUARY 2026</span
+                  >
+                  <span class="location"
+                    ><i class="bi bi-geo-alt-fill"></i> နေပြည်တော်</span
+                  >
+                </div>
+                <h3 class="news-title-text">
+                  အမျိုးသမီးရေးရာဝန်ကြီးဌာနမှ ကျင်းပသည့် အိမ်တွင်းအကြမ်းဖက်မှု
+                  တားဆီးရေး အသိပညာပေး ဟောပြောပွဲ
+                </h3>
+                <p class="news-body-text">
+                  မန္တလေးမြို့ရှိ အမျိုးသမီးရေးရာဝန်ကြီးဌာနရုံးခွဲတွင်
+                  ကျင်းပပြုလုပ်သည့် အိမ်တွင်းအကြမ်းဖက်မှု ကာကွယ်တားဆီးရေး
+                  အသိပညာပေး ဟောပြောပွဲသို့ ဒေသခံ အမျိုးသမီးများ၊ မိသားစုဝင်များ
+                  အများအပြား တက်ရောက်၍ သိသင့်သည့် ဥပဒေရေးရာအချက်များ ကို
+                  ဆွေးနွေးခဲ့ကြသည်။
+                </p>
+                <a href="#" class="read-more-link"
+                  >ဆက်လက်ဖတ်ရှုရန် <i class="bi bi-arrow-right"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6">
+            <div class="card-news-date">
+              <div class="img-wrapper">
+                <img
+                  src="https://images.unsplash.com/photo-1544531586-fde5298cdd40?q=80&w=800&auto=format&fit=crop"
+                  alt="News Image"
+                />
+
+                <div class="date-diagonal">
+                  <div class="diag-badge">
+                    <span class="day-diag">27</span> FEB
+                  </div>
+                </div>
+              </div>
+              <div class="card-body-custom">
+                <div class="meta-info">
+                  <span class="date"
+                    ><i class="bi bi-calendar"></i> 27 FEBRUARY 2026</span
+                  >
+                  <span class="location"
+                    ><i class="bi bi-geo-alt-fill"></i> နေပြည်တော်</span
+                  >
+                </div>
+                <h3 class="news-title-text">
+                  အမျိုးသမီးရေးရာဝန်ကြီးဌာန၊ ဒုတိယဝန်ကြီး ဒေါ်စန်းစန်းနွယ်
+                  မြန်မာနိုင်ငံရှိ အမျိုးသမီးများ၏ အခွင့်အရေးနှင့် ဖွံ့ဖြိုးရေး
+                  လုပ်ငန်းများ အကြောင်း ဆွေးနွေး
+                </h3>
+                <p class="news-body-text">
+                  ရန်ကုန်တိုင်းဒေသကြီး၊ အင်းစိန်မြို့နယ်ရှိ
+                  အမျိုးသမီးရေးရာဝန်ကြီးဌာန၌ ကျင်းပပြုလုပ်ခဲ့သည့်
+                  အမျိုးသမီးများ၏ စွမ်းဆောင်ရည်မြှင့်တင်ရေး
+                  အလုပ်ရုံဆွေးနွေးပွဲတွင် ဒုတိယဝန်ကြီးက အမျိုးသမီးများ၏
+                  ခေါင်းဆောင်မှုစွမ်းရည်နှင့် စီးပွားရေးဆိုင်ရာ
+                  အခွင့်အလမ်းများအကြောင်း ဟောပြောခဲ့ပါသည်။
+                </p>
+                <a href="#" class="read-more-link"
+                  >ဆက်လက်ဖတ်ရှုရန် <i class="bi bi-arrow-right"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6">
+            <div class="card-news-date">
+              <div class="img-wrapper">
+                <img
+                  src="https://images.unsplash.com/photo-1544531586-fde5298cdd40?q=80&w=800&auto=format&fit=crop"
+                  alt="News Image"
+                />
+                <!-- <div class="date-badge">
+                  <span class="day">27</span>
+                  <span class="month">FEB</span>
+                </div> -->
+
+                <div class="date-diagonal">
+                  <div class="diag-badge">
+                    <span class="day-diag">27</span> FEB
+                  </div>
+                </div>
+              </div>
+              <div class="card-body-custom">
+                <div class="meta-info">
+                  <span class="date"
+                    ><i class="bi bi-calendar"></i> 27 FEBRUARY 2026</span
+                  >
+                  <span class="location"
+                    ><i class="bi bi-geo-alt-fill"></i> နေပြည်တော်</span
+                  >
+                </div>
+                <h3 class="news-title-text">
+                  အမျိုးသမီးရေးရာဝန်ကြီးဌာနမှ ကျင်းပသည့် ကျားမတန်းတူရေး
+                  ဆွေးနွေးပွဲသို့ အရပ်ဘက်အဖွဲ့အစည်းများ တက်ရောက်
+                </h3>
+                <p class="news-body-text">
+                  နေပြည်တော်ရှိ အမျိုးသမီးရေးရာဝန်ကြီးဌာန၏ ခန်းမတွင်
+                  ကျင်းပပြုလုပ်ခဲ့သည့် ကျားမတန်းတူရေးနှင့် အမျိုးသမီးများ၏
+                  နိုင်ငံရေးပါဝင်မှုဆိုင်ရာ အလုပ်ရုံဆွေးနွေးပွဲသို့
+                  အရပ်ဘက်လူမှုအဖွဲ့အစည်းများမှ ကိုယ်စားလှယ်များ
+                  တက်ရောက်ခဲ့ကြသည်။
+                </p>
+                <a href="#" class="read-more-link"
+                  >ဆက်လက်ဖတ်ရှုရန် <i class="bi bi-arrow-right"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6">
+            <div class="card-news-date">
+              <div class="img-wrapper">
+                <img
+                  src="https://images.unsplash.com/photo-1544531586-fde5298cdd40?q=80&w=800&auto=format&fit=crop"
+                  alt="News Image"
+                />
+                <!-- <div class="date-badge">
+                  <span class="day">27</span>
+                  <span class="month">FEB</span>
+                </div> -->
+                <div class="date-diagonal">
+                  <div class="diag-badge">
+                    <span class="day-diag">27</span> FEB
+                  </div>
+                </div>
+              </div>
+              <div class="card-body-custom">
+                <div class="meta-info">
+                  <span class="date"
+                    ><i class="bi bi-calendar"></i> 27 FEBRUARY 2026</span
+                  >
+                  <span class="location"
+                    ><i class="bi bi-geo-alt-fill"></i> နေပြည်တော်</span
+                  >
+                </div>
+                <h3 class="news-title-text">
+                  အမျိုးသမီးများအတွက် ဒီဂျစ်တယ် ငွေကြေးအသိပညာပေး သင်တန်းများ
+                  ဖွင့်လှစ်
+                </h3>
+                <p class="news-body-text">
+                  အမျိုးသမီးရေးရာဝန်ကြီးဌာနနှင့် မြန်မာနိုင်ငံတော်ဗဟိုဘဏ် တို့
+                  ပူးပေါင်းဆောင်ရွက်သည့် ဒီဂျစ်တယ် ဘဏ်လုပ်ငန်းနှင့်
+                  ငွေကြေးဆိုင်ရာ အသိပညာပေး သင်တန်းများကို
+                  ရန်ကုန်တိုင်းဒေသကြီးတွင် စတင်ဖွင့်လှစ်ခဲ့ပြီး
+                  အမျိုးသမီးစီးပွားရေးလုပ်ငန်းရှင်များ တက်ရောက်ခဲ့ကြသည်။
+                </p>
+                <a href="#" class="read-more-link"
+                  >ဆက်လက်ဖတ်ရှုရန် <i class="bi bi-arrow-right"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6">
+            <div class="card-news-date">
+              <div class="img-wrapper">
+                <img
+                  src="https://images.unsplash.com/photo-1544531586-fde5298cdd40?q=80&w=800&auto=format&fit=crop"
+                  alt="News Image"
+                />
+                <!-- <div class="date-badge">
+                  <span class="day">27</span>
+                  <span class="month">FEB</span>
+                </div> -->
+                <div class="date-diagonal">
+                  <div class="diag-badge">
+                    <span class="day-diag">27</span> FEB
+                  </div>
+                </div>
+              </div>
+              <div class="card-body-custom">
+                <div class="meta-info">
+                  <span class="date"
+                    ><i class="bi bi-calendar"></i> 27 FEBRUARY 2026</span
+                  >
+                  <span class="location"
+                    ><i class="bi bi-geo-alt-fill"></i> နေပြည်တော်</span
+                  >
+                </div>
+                <h3 class="news-title-text">
+                  အမျိုးသမီးရေးရာဝန်ကြီးဌာနမှ ကျင်းပသည့် အိမ်တွင်းအကြမ်းဖက်မှု
+                  တားဆီးရေး အသိပညာပေး ဟောပြောပွဲ
+                </h3>
+                <p class="news-body-text">
+                  မန္တလေးမြို့ရှိ အမျိုးသမီးရေးရာဝန်ကြီးဌာနရုံးခွဲတွင်
+                  ကျင်းပပြုလုပ်သည့် အိမ်တွင်းအကြမ်းဖက်မှု ကာကွယ်တားဆီးရေး
+                  အသိပညာပေး ဟောပြောပွဲသို့ ဒေသခံ အမျိုးသမီးများ၊ မိသားစုဝင်များ
+                  အများအပြား တက်ရောက်၍ သိသင့်သည့် ဥပဒေရေးရာအချက်များ ကို
+                  ဆွေးနွေးခဲ့ကြသည်။
+                </p>
+                <a href="#" class="read-more-link"
+                  >ဆက်လက်ဖတ်ရှုရန် <i class="bi bi-arrow-right"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== PAGINATION (placeholder for Laravel) ===== -->
+        <nav aria-label="News pagination" class="mt-4">
+          <ul class="pagination justify-content-center">
+            <!-- First -->
+            <li class="page-item disabled">
+              <a class="page-link" href="#" tabindex="-1" aria-disabled="true">
+                <i class="bi bi-chevron-double-left"></i> ပထမ
+              </a>
+            </li>
+            <!-- Previous -->
+            <li class="page-item disabled">
+              <a class="page-link" href="#" tabindex="-1" aria-disabled="true">
+                <i class="bi bi-chevron-left"></i> နောက်သို့
+              </a>
+            </li>
+            <!-- Page numbers -->
+            <li class="page-item active">
+              <a class="page-link" href="#">1</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">4</a></li>
+            <li class="page-item"><a class="page-link" href="#">5</a></li>
+            <!-- Next -->
+            <li class="page-item">
+              <a class="page-link" href="#">
+                ရှေ့သို့ <i class="bi bi-chevron-right"></i>
+              </a>
+            </li>
+            <!-- Last -->
+            <li class="page-item">
+              <a class="page-link" href="#">
+                နောက်ဆုံး <i class="bi bi-chevron-double-right"></i>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </main>
+
+    <!-- MAIN FOOTER SECTION -->
+    <!-- MAIN FOOTER SECTION -->
+    <footer class="site-footer">
+      <div class="container">
+        <!-- ==================================================== -->
+        <!-- SOCIAL MEDIA ICONS ROW                                -->
+        <!-- ==================================================== -->
+        <div class="footer-social">
+          <a href="#" title="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="#" title="YouTube"><i class="bi bi-youtube"></i></a>
+          <a href="#" title="Twitter / X"><i class="bi bi-twitter-x"></i></a>
+          <a href="#" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+          <a href="#" title="Instagram"><i class="bi bi-instagram"></i></a>
+        </div>
+        <!-- ==================================================== -->
+        <!-- END SOCIAL MEDIA ICONS ROW                            -->
+        <!-- ==================================================== -->
+
+        <div class="row g-4">
+          <!-- COLUMN 1: Contact Us -->
+          <div class="col-lg-3 col-md-6 col-12">
+            <h4 class="footer-title">Contact Us</h4>
+            <div class="footer-contact-item">
+              <i class="bi bi-geo-alt-fill"></i>
+              <span>အမျိုးသမီးရေးရာဝန်ကြီးဌာန၊ ရုံးအမှတ် ၁၄၊ နေပြည်တော်။</span>
+            </div>
+            <div class="footer-contact-item">
+              <i class="bi bi-telephone-fill"></i>
+              <span>067-1231231</span>
+            </div>
+            <div class="footer-contact-item">
+              <i class="bi bi-envelope-fill"></i>
+              <span>moea.egov.2022@gmail.com</span>
+            </div>
+            <span class="footer-visit-count">Total Visits: 9261799</span>
+          </div>
+
+          <!-- COLUMN 2: Newspaper -->
+          <div class="col-lg-3 col-md-6 col-12">
+            <h4 class="footer-title">Newspaper</h4>
+            <ul class="footer-links">
+              <li><a href="#">မြန်မာ့အလင်း</a></li>
+              <li><a href="#">ကြေးမုံ</a></li>
+              <li><a href="#">မြေတီ</a></li>
+              <li><a href="#">Global New Light of Myanmar</a></li>
+            </ul>
+          </div>
+
+          <!-- COLUMN 3: Useful Link -->
+          <div class="col-lg-3 col-md-6 col-12">
+            <h4 class="footer-title">Useful Link</h4>
+            <ul class="footer-links">
+              <li>
+                <a href="#"
+                  >၂၀၂၀ ပြည့်နှစ် ပါတီနိုင်ငံရေးအသင်းအဖွဲ့များ၏
+                  မဲဆန္ဒရှင်စာရင်းနှင့် တရားဝင်မဲပြုမှုစီးခြင်းကိစ္စများ</a
+                >
+              </li>
+              <li><a href="#">မြန်မာ့ပြည်ထောင်စုသမ္မတနိုင်ငံ၏ အလံတော်</a></li>
+              <li><a href="#">Myanmar National Portal</a></li>
+              <li><a href="#">ဝန်ကြီးဌာန website များ</a></li>
+            </ul>
+          </div>
+
+          <!-- COLUMN 4: Location Map -->
+          <div class="col-lg-3 col-md-6 col-12">
+            <h4 class="footer-title">Location Map</h4>
+            <div class="footer-map-wrapper">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3819.580619977427!2d96.1296285750573!3d19.77359008654159!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30c1f2a2c2d2a2f7%3A0x5d8e3e8e1a0e5a5e!2sMinistry%20Zone!5e0!3m2!1sen!2smm!4v1700000000000!5m2!1sen!2smm"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- BOTTOM COPYRIGHT BAR -->
+    <div class="footer-bottom-bar">
+      &copy; Copyright MOWA 2026. All Rights Reserved.
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      (function () {
+        // hover behaviour for sub-menus (desktop)
+        const dropdowns = document.querySelectorAll(".nav-primary .dropdown");
+        dropdowns.forEach((dd) => {
+          dd.addEventListener("mouseenter", function (e) {
+            if (window.innerWidth >= 768) {
+              this.querySelector(".dropdown-menu")?.classList.add("show");
+            }
+          });
+          dd.addEventListener("mouseleave", function (e) {
+            if (window.innerWidth >= 768) {
+              this.querySelector(".dropdown-menu")?.classList.remove("show");
+            }
+          });
+        });
+      })();
+    </script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const navbar = document.getElementById("stickyNavbar");
+        let isStuck = false;
+
+        function checkSticky() {
+          if (window.scrollY > 10) {
+            if (!isStuck) {
+              navbar.classList.add("is-stuck");
+              isStuck = true;
+            }
+          } else {
+            if (isStuck) {
+              navbar.classList.remove("is-stuck");
+              isStuck = false;
+            }
+          }
+        }
+        checkSticky();
+        window.addEventListener("scroll", checkSticky);
+      });
+
+      const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+      window.onscroll = function () {
+        if (
+          document.body.scrollTop > 300 ||
+          document.documentElement.scrollTop > 300
+        ) {
+          scrollToTopBtn.classList.add("show");
+        } else {
+          scrollToTopBtn.classList.remove("show");
+        }
+      };
+      function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,1907 @@
+<!doctype html>
+<html lang="my">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Design 1 · Ministry of Women's Affairs</title>
+
+    <!-- Bootstrap 5 CSS + Icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+
+    <!-- Google Font (Inter + Merriweather for Design 1) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Merriweather:ital,wght@0,400;0,700;0,900;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* ============================================================
+         GLOBAL VARIABLES & RESET (shared across all designs)
+         ============================================================ */
+      :root {
+        --primary-color: #49a9a3;
+        --secondary-color: #2c5f5b;
+        --dark-blue: #1e7bc0;
+        --accent-yellow: #f4e8d3;
+        --dark-yellow: #a9494f;
+        --sky-blue: #3fb2e8;
+        --sky-blue-dark: #2a8bc2;
+        --bg-light: #f4f7f6;
+        --surface-white: #ffffff;
+        --text-main: #1e293b;
+        --text-muted: #64748b;
+        --radius-lg: 24px;
+        --radius-md: 16px;
+        --radius-pill: 20px;
+        --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        --dark-red: red;
+        --dark-green: green;
+      }
+
+      * {
+        font-family:
+          "Pyidaungsu",
+          system-ui,
+          -apple-system,
+          "Segoe UI",
+          Roboto,
+          sans-serif;
+      }
+      body {
+        background-color: var(--bg-light);
+      }
+
+      /* ============================================================
+         HEADER (shared)
+         ============================================================ */
+      .header-gov {
+        background: var(--surface-white);
+        box-shadow: 0 4px 12px rgba(0, 20, 30, 0.04);
+        border-bottom: 1px solid rgba(0, 40, 60, 0.06);
+        padding: 0.6rem 0;
+      }
+      .header-logo-img {
+        width: 100px;
+        height: 100px;
+        object-fit: contain;
+      }
+      .header-logo-text {
+        font-weight: 700;
+        line-height: 1.7;
+        color: var(--dark-color);
+      }
+      .header-logo-sub {
+        font-weight: 700;
+        line-height: 1.7;
+        color: var(--primary-color);
+        margin-top: -2px;
+      }
+
+      .header-controls .form-control {
+        border-radius: 6px;
+        background: var(--bg-light);
+        border: 1px solid #d0dbe8;
+        font-size: 0.9rem;
+        padding-left: 1rem;
+        height: 40px;
+      }
+      .header-controls .form-control:focus {
+        background: var(--surface-white);
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 3px rgba(49, 166, 245, 0.12);
+      }
+      .header-controls .btn-search {
+        border-radius: 6px;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        background: #eef4fa;
+        border-color: #d0dbe8;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .btn-flag {
+        display: inline-block;
+        line-height: 0;
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease;
+        border-radius: 4px;
+      }
+      .btn-flag:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+      }
+      .btn-flag img {
+        display: block;
+      }
+
+      /* ============================================================
+         NAVBAR (shared)
+         ============================================================ */
+      .nav-primary {
+        background: var(--primary-color);
+        border-bottom: 5px solid var(--dark-yellow);
+        padding: 0.75rem 0;
+        margin-top: 0;
+      }
+      .nav-primary .navbar-nav .nav-link {
+        font-weight: 500;
+        color: var(--surface-white) !important;
+        padding: 0.7rem 1rem;
+        font-size: 0.95rem;
+        border-radius: 6px;
+        transition: var(--transition-smooth);
+        position: relative;
+        border-bottom: 3px solid var(--primary-color);
+      }
+      .nav-primary .navbar-nav .nav-link:hover,
+      .nav-primary .navbar-nav .nav-link:focus {
+        border-radius: 0px !important;
+        border-bottom: 3px solid var(--dark-yellow);
+      }
+      .nav-primary .dropdown:hover .dropdown-menu {
+        display: block;
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0px);
+        transition:
+          opacity 0.2s ease,
+          transform 0.2s ease;
+      }
+      .nav-primary .dropdown .dropdown-menu {
+        display: none;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(6px);
+        transition:
+          opacity 0.15s ease,
+          transform 0.15s ease,
+          visibility 0s linear 0.15s;
+        margin-top: 0.2rem;
+        border: 1px solid #e9edf2;
+        border-radius: 6px;
+        box-shadow: 0 12px 32px rgba(0, 20, 30, 0.08);
+        padding: 0.5rem 0;
+        background: var(--surface-white);
+        min-width: 200px;
+      }
+      .nav-primary .dropdown .dropdown-item {
+        padding: 0.5rem 1.2rem;
+        font-weight: 450;
+        color: var(--secondary-color);
+        font-size: 0.9rem;
+      }
+      .nav-primary .dropdown .dropdown-item:hover {
+        background: var(--bg-light);
+        color: var(--primary-color);
+      }
+      .nav-primary .dropdown-toggle::after {
+        display: none;
+      }
+      .nav-primary .has-sub .dropdown-toggle::after {
+        display: inline-block;
+        margin-left: 0.4rem;
+        vertical-align: middle;
+        content: "▾";
+        font-size: 0.7rem;
+        opacity: 0.7;
+        border: none;
+        color: #b0cfdd;
+      }
+      .nav-primary .navbar-toggler {
+        border-color: rgba(255, 255, 255, 0.3);
+        color: var(--surface-white);
+        margin-right: auto;
+      }
+      .nav-primary .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255,255,255,0.9)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+      }
+      .nav-primary {
+        animation: slideDownFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      }
+      .nav-primary.is-stuck {
+        transition:
+          opacity 0.6s ease,
+          transform 0.6s ease,
+          visibility 0.6s ease !important;
+      }
+      @keyframes slideDownFadeIn {
+        0% {
+          opacity: 0;
+          transform: translateY(-100%);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* ============================================================
+         FOOTER (shared)
+         ============================================================ */
+      .site-footer {
+        background-color: var(--primary-color);
+        color: var(--surface-white);
+        padding: 10px 0 30px 0;
+      }
+      .footer-bottom-bar {
+        background-color: #2d2f33;
+        color: #bbbbbb;
+        text-align: center;
+        padding: 18px 0;
+        font-size: 0.9rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .footer-title {
+        font-weight: 700;
+        font-size: 1.3rem;
+        margin-bottom: 25px;
+        color: var(--surface-white);
+      }
+      .footer-contact-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 15px;
+        margin-bottom: 20px;
+        font-size: 0.95rem;
+        line-height: 1.5;
+      }
+      .footer-contact-item i {
+        font-size: 1.2rem;
+        margin-top: 3px;
+      }
+      .footer-visit-count {
+        margin-top: 25px;
+        font-size: 0.95rem;
+        display: block;
+      }
+      .footer-links {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      .footer-links li {
+        margin-bottom: 12px;
+      }
+      .footer-links a {
+        color: var(--surface-white);
+        text-decoration: none;
+        font-size: 0.95rem;
+        transition: var(--transition-smooth);
+        display: inline-block;
+      }
+      .footer-links a:hover {
+        text-decoration: underline;
+        transform: translateX(4px);
+      }
+      .footer-map-wrapper {
+        position: relative;
+        width: 100%;
+        padding-top: 75%;
+        border-radius: 6px;
+        overflow: hidden;
+        margin-top: 5px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      }
+      .footer-map-wrapper iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+      .footer-social {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        padding: 20px 0 20px 0;
+      }
+      .footer-social a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background-color: var(--dark-yellow);
+        color: var(--surface-white);
+        border-radius: 10%;
+        text-decoration: none;
+        font-size: 1.2rem;
+        transition: var(--transition-smooth);
+      }
+      .footer-social a:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      /* ============================================================
+         SCROLL TO TOP (shared)
+         ============================================================ */
+      #scrollToTopBtn {
+        position: fixed;
+        bottom: 3rem;
+        right: 5rem;
+        z-index: 9999;
+        width: 3rem;
+        height: 3rem;
+        background-color: var(--primary-color);
+        color: var(--surface-white);
+        border: none;
+        border-radius: 6px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        font-size: 1rem;
+        cursor: pointer;
+        transition: var(--transition-smooth);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(20px);
+      }
+      #scrollToTopBtn:hover {
+        background-color: var(--dark-yellow);
+        transform: translateY(-3px);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+      }
+      #scrollToTopBtn.show {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+
+      /* ============================================================
+         RESPONSIVE OVERLAYS (shared)
+         ============================================================ */
+      @media (max-width: 767.98px) {
+        .header-gov .header-controls {
+          justify-content: center !important;
+          width: 100%;
+          margin-top: 0.3rem;
+        }
+        .header-gov .header-controls .d-flex.gap-2 {
+          justify-content: center;
+          width: 100%;
+        }
+        .header-gov .row .col-md-4.col-6 {
+          flex: 0 0 auto;
+          width: auto;
+        }
+        .header-gov .row .col-md-8.col-6 {
+          flex: 0 0 auto;
+          width: auto;
+        }
+        .header-gov .row {
+          flex-wrap: wrap;
+        }
+        .header-gov .row .col-6:first-child {
+          flex: 0 0 auto;
+          width: auto;
+        }
+        .header-gov .row .col-6:last-child {
+          flex: 0 0 100%;
+          max-width: 100%;
+          justify-content: center !important;
+          margin-top: 0.2rem;
+        }
+        .nav-primary .navbar-toggler {
+          margin-right: auto;
+          margin-left: 0;
+        }
+        .nav-primary .navbar-collapse {
+          text-align: left;
+        }
+        .nav-primary .navbar-nav .nav-link {
+          color: var(--surface-white) !important;
+        }
+      }
+      @media (max-width: 576px) {
+        .nav-primary .navbar-nav .nav-link {
+          padding: 0.5rem 0.8rem;
+          font-size: 0.9rem;
+        }
+        .header-controls .input-group {
+          width: auto;
+        }
+      }
+      @media (min-width: 768px) {
+        .nav-primary .dropdown:hover .dropdown-menu {
+          display: block !important;
+        }
+        .nav-primary .dropdown:hover .dropdown-menu.show {
+          display: block !important;
+        }
+      }
+      @media (max-width: 991px) {
+        .footer-title {
+          margin-top: 30px;
+        }
+        .col-lg-3:first-child .footer-title {
+          margin-top: 0;
+        }
+      }
+
+      /* ============================================================
+         DESIGN 1 — CLASSIC / EDITORIAL
+         ============================================================ */
+      .design-1 {
+        --article-font: "Merriweather", Georgia, serif;
+        --accent-color: #8b3a3a;
+        --divider-color: #d4c5a0;
+        --bg-soft: #faf8f5;
+      }
+      .design-1 body {
+        background: var(--bg-soft);
+      }
+      .design-1 .content-placeholder {
+        background: var(--bg-soft);
+      }
+      .design-1 .article-wrapper {
+        max-width: 820px;
+        margin: 0 auto;
+        padding: 2rem 0;
+      }
+      .design-1 .article-header {
+        text-align: center;
+        padding-bottom: 1.5rem;
+        border-bottom: 3px double var(--divider-color);
+        margin-bottom: 2rem;
+      }
+      .design-1 .article-kicker {
+        font-family: var(--article-font);
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: var(--accent-color);
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+      }
+      .design-1 .article-title {
+        font-family: var(--article-font);
+        font-weight: 900;
+        font-size: 2.2rem;
+        line-height: 1.3;
+        color: #1a1a1a;
+        margin-bottom: 0.75rem;
+      }
+      .design-1 .article-byline {
+        font-family: var(--article-font);
+        font-size: 0.85rem;
+        color: #666;
+        font-style: italic;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+      }
+      .design-1 .article-byline i {
+        color: var(--accent-color);
+        margin-right: 4px;
+      }
+      .design-1 .article-featured-img {
+        margin-bottom: 2rem;
+        border-radius: 4px;
+        overflow: hidden;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+        position: relative;
+      }
+      .design-1 .article-featured-img img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+      .design-1 .img-caption {
+        font-family: var(--article-font);
+        font-size: 0.8rem;
+        color: #777;
+        text-align: center;
+        padding: 0.5rem 0;
+        font-style: italic;
+        border-bottom: 1px solid #eee;
+      }
+      .design-1 .article-body {
+        font-family: var(--article-font);
+        font-size: 1.05rem;
+        line-height: 1.9;
+        color: #222;
+      }
+      .design-1 .article-body p {
+        margin-bottom: 1.25rem;
+      }
+      .design-1 .article-body p:first-of-type::first-letter {
+        font-size: 3.2rem;
+        font-weight: 700;
+        float: left;
+        line-height: 1;
+        margin-right: 0.5rem;
+        color: var(--accent-color);
+        font-family: var(--article-font);
+      }
+      .design-1 .article-body .dropcap {
+        font-size: 3.2rem;
+        font-weight: 700;
+        float: left;
+        line-height: 1;
+        margin-right: 0.5rem;
+        color: var(--accent-color);
+        font-family: var(--article-font);
+      }
+      .design-1 .article-divider {
+        text-align: center;
+        color: var(--divider-color);
+        font-size: 1.5rem;
+        letter-spacing: 0.5rem;
+        margin: 1.5rem 0;
+      }
+      .design-1 .article-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-top: 2rem;
+        padding-top: 1.5rem;
+        border-top: 1px solid #e0d6c8;
+      }
+      .design-1 .article-tags .tag {
+        font-family: var(--article-font);
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        background: #ede8df;
+        color: #5a4a3a;
+        padding: 0.25rem 1rem;
+        border-radius: 20px;
+        transition: var(--transition-smooth);
+        text-decoration: none;
+      }
+      .design-1 .article-tags .tag:hover {
+        background: var(--accent-color);
+        color: #fff;
+      }
+      .design-1 .related-sidebar {
+        background: #f5f0ea;
+        padding: 1.5rem;
+        border-radius: 4px;
+        border-left: 4px solid var(--accent-color);
+      }
+      .design-1 .related-sidebar h4 {
+        font-family: var(--article-font);
+        font-weight: 700;
+        font-size: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: var(--accent-color);
+        margin-bottom: 1rem;
+      }
+      .design-1 .related-sidebar .list-item {
+        padding: 0.6rem 0;
+        border-bottom: 1px solid #e0d6c8;
+        font-family: var(--article-font);
+        font-size: 0.9rem;
+      }
+      .design-1 .related-sidebar .list-item:last-child {
+        border-bottom: none;
+      }
+      .design-1 .related-sidebar .list-item a {
+        color: #333;
+        text-decoration: none;
+        transition: var(--transition-smooth);
+      }
+      .design-1 .related-sidebar .list-item a:hover {
+        color: var(--accent-color);
+        text-decoration: underline;
+      }
+      .design-1 .related-sidebar .list-item .date {
+        font-size: 0.7rem;
+        color: #888;
+        display: block;
+        margin-top: 0.2rem;
+      }
+
+      /* ============================================================
+         DESIGN 2 — MAGAZINE STYLE
+         ============================================================ */
+      .design-2 {
+        --magenta: #c0392b;
+        --gold: #d4a017;
+        --dark-bg: #1a1a2e;
+      }
+      .design-2 body {
+        background: #f0ece6;
+      }
+      .design-2 .content-placeholder {
+        background: #f0ece6;
+      }
+      .design-2 .magazine-hero {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 21 / 9;
+        overflow: hidden;
+        border-radius: 0 0 30px 30px;
+        margin-bottom: 2rem;
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+      }
+      .design-2 .magazine-hero img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .design-2 .magazine-hero-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 3rem 4rem 2.5rem;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, transparent 100%);
+        color: #fff;
+      }
+      .design-2 .magazine-hero-overlay .kicker {
+        font-family: "Inter", sans-serif;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        color: var(--gold);
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+      }
+      .design-2 .magazine-hero-overlay h1 {
+        font-family: "Inter", sans-serif;
+        font-weight: 800;
+        font-size: 2.6rem;
+        line-height: 1.2;
+        margin-bottom: 0.5rem;
+        text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+      }
+      .design-2 .magazine-hero-overlay .meta {
+        font-family: "Inter", sans-serif;
+        font-size: 0.85rem;
+        opacity: 0.85;
+        display: flex;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+      }
+      .design-2 .magazine-hero-overlay .meta i {
+        margin-right: 4px;
+        color: var(--gold);
+      }
+      .design-2 .magazine-body {
+        max-width: 860px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+      }
+      .design-2 .magazine-body .lead {
+        font-family: "Inter", sans-serif;
+        font-size: 1.15rem;
+        font-weight: 500;
+        color: #2c3e50;
+        line-height: 1.8;
+        padding: 1.5rem 2rem;
+        background: #fff;
+        border-radius: 12px;
+        border-left: 5px solid var(--gold);
+        margin-bottom: 2rem;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+      }
+      .design-2 .magazine-body .lead i {
+        color: var(--gold);
+        margin-right: 8px;
+      }
+      .design-2 .magazine-body p {
+        font-family: "Inter", sans-serif;
+        font-size: 1rem;
+        line-height: 1.9;
+        color: #1e293b;
+        margin-bottom: 1.25rem;
+      }
+      .design-2 .magazine-body p strong {
+        color: var(--magenta);
+      }
+      .design-2 .magazine-body .pull-quote {
+        font-family: "Inter", sans-serif;
+        font-size: 1.5rem;
+        font-weight: 700;
+        line-height: 1.4;
+        color: var(--dark-bg);
+        padding: 1.5rem 2rem;
+        margin: 1.5rem 0;
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+        position: relative;
+      }
+      .design-2 .magazine-body .pull-quote::before {
+        content: "\201C";
+        font-size: 4rem;
+        color: var(--gold);
+        position: absolute;
+        top: -0.5rem;
+        left: 0.5rem;
+        opacity: 0.3;
+        font-family: Georgia, serif;
+      }
+      .design-2 .magazine-body .pull-quote .attribution {
+        display: block;
+        font-size: 0.8rem;
+        font-weight: 400;
+        color: #888;
+        margin-top: 0.5rem;
+      }
+      .design-2 .magazine-sidebar {
+        background: #fff;
+        border-radius: 16px;
+        padding: 1.8rem;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+        border-top: 4px solid var(--gold);
+      }
+      .design-2 .magazine-sidebar h4 {
+        font-family: "Inter", sans-serif;
+        font-weight: 700;
+        font-size: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: var(--magenta);
+        margin-bottom: 1.2rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid #f0ece6;
+      }
+      .design-2 .magazine-sidebar .rel-item {
+        display: flex;
+        gap: 0.8rem;
+        padding: 0.8rem 0;
+        border-bottom: 1px solid #f0ece6;
+        align-items: flex-start;
+      }
+      .design-2 .magazine-sidebar .rel-item:last-child {
+        border-bottom: none;
+      }
+      .design-2 .magazine-sidebar .rel-item .num {
+        font-family: "Inter", sans-serif;
+        font-weight: 800;
+        font-size: 1.2rem;
+        color: var(--gold);
+        min-width: 28px;
+      }
+      .design-2 .magazine-sidebar .rel-item .text {
+        font-family: "Inter", sans-serif;
+        font-size: 0.85rem;
+        font-weight: 500;
+        color: #1e293b;
+        line-height: 1.4;
+      }
+      .design-2 .magazine-sidebar .rel-item .text a {
+        color: inherit;
+        text-decoration: none;
+        transition: var(--transition-smooth);
+      }
+      .design-2 .magazine-sidebar .rel-item .text a:hover {
+        color: var(--magenta);
+      }
+      .design-2 .magazine-sidebar .rel-item .text .date {
+        font-weight: 400;
+        font-size: 0.7rem;
+        color: #999;
+        display: block;
+        margin-top: 0.2rem;
+      }
+
+      /* ============================================================
+         DESIGN 3 — MODERN CARD-BASED
+         ============================================================ */
+      .design-3 {
+        --gradient-start: #667eea;
+        --gradient-end: #764ba2;
+        --card-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+      }
+      .design-3 body {
+        background: #f8f9fe;
+      }
+      .design-3 .content-placeholder {
+        background: #f8f9fe;
+      }
+      .design-3 .page-header {
+        background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+        padding: 2.5rem 0 2rem;
+        margin-bottom: 2rem;
+        border-radius: 0 0 30px 30px;
+        color: #fff;
+        position: relative;
+        overflow: hidden;
+      }
+      .design-3 .page-header::after {
+        content: "";
+        position: absolute;
+        top: -50%;
+        right: -10%;
+        width: 300px;
+        height: 300px;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 50%;
+        pointer-events: none;
+      }
+      .design-3 .page-header::before {
+        content: "";
+        position: absolute;
+        bottom: -30%;
+        left: -5%;
+        width: 200px;
+        height: 200px;
+        background: rgba(255, 255, 255, 0.04);
+        border-radius: 50%;
+        pointer-events: none;
+      }
+      .design-3 .page-header .breadcrumb-custom {
+        font-size: 0.8rem;
+        opacity: 0.8;
+        margin-bottom: 0.5rem;
+      }
+      .design-3 .page-header .breadcrumb-custom a {
+        color: #fff;
+        text-decoration: none;
+      }
+      .design-3 .page-header .breadcrumb-custom a:hover {
+        text-decoration: underline;
+      }
+      .design-3 .page-header .breadcrumb-custom .sep {
+        margin: 0 0.5rem;
+        opacity: 0.5;
+      }
+      .design-3 .page-header h1 {
+        font-family: "Inter", sans-serif;
+        font-weight: 800;
+        font-size: 2rem;
+        margin-bottom: 0.25rem;
+        position: relative;
+        z-index: 1;
+      }
+      .design-3 .page-header .sub {
+        font-family: "Inter", sans-serif;
+        font-weight: 400;
+        opacity: 0.85;
+        font-size: 0.95rem;
+        position: relative;
+        z-index: 1;
+      }
+      .design-3 .card-article {
+        background: #fff;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: var(--card-shadow);
+        transition: var(--transition-smooth);
+      }
+      .design-3 .card-article:hover {
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+      }
+      .design-3 .card-article .card-img {
+        position: relative;
+        aspect-ratio: 16 / 9;
+        overflow: hidden;
+      }
+      .design-3 .card-article .card-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .design-3 .card-article .card-img .badge-date {
+        position: absolute;
+        bottom: 1rem;
+        left: 1rem;
+        background: rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(6px);
+        color: #fff;
+        padding: 0.3rem 1rem;
+        border-radius: 30px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .design-3 .card-article .card-img .badge-date i {
+        font-size: 0.8rem;
+      }
+      .design-3 .card-article .card-img .badge-category {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+        color: #fff;
+        padding: 0.2rem 1rem;
+        border-radius: 30px;
+        font-size: 0.7rem;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+      }
+      .design-3 .card-article .card-body {
+        padding: 1.8rem 2rem 2rem;
+      }
+      .design-3 .card-article .card-body .meta-row {
+        display: flex;
+        gap: 1.2rem;
+        font-size: 0.8rem;
+        color: #888;
+        margin-bottom: 0.8rem;
+        flex-wrap: wrap;
+      }
+      .design-3 .card-article .card-body .meta-row i {
+        color: var(--gradient-start);
+        margin-right: 4px;
+      }
+      .design-3 .card-article .card-body h2 {
+        font-family: "Inter", sans-serif;
+        font-weight: 700;
+        font-size: 1.5rem;
+        line-height: 1.4;
+        color: #1a1a2e;
+        margin-bottom: 0.8rem;
+      }
+      .design-3 .card-article .card-body h2 a {
+        color: inherit;
+        text-decoration: none;
+        transition: var(--transition-smooth);
+      }
+      .design-3 .card-article .card-body h2 a:hover {
+        color: var(--gradient-end);
+      }
+      .design-3 .card-article .card-body p {
+        font-family: "Inter", sans-serif;
+        font-size: 0.95rem;
+        line-height: 1.8;
+        color: #444;
+        margin-bottom: 1rem;
+      }
+      .design-3 .card-article .card-body .read-more {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-weight: 600;
+        font-size: 0.85rem;
+        color: var(--gradient-start);
+        text-decoration: none;
+        transition: var(--transition-smooth);
+      }
+      .design-3 .card-article .card-body .read-more:hover {
+        gap: 12px;
+        color: var(--gradient-end);
+      }
+      .design-3 .card-article .card-body .read-more i {
+        transition: var(--transition-smooth);
+      }
+      .design-3 .card-article .card-body .read-more:hover i {
+        transform: translateX(4px);
+      }
+      .design-3 .card-sidebar {
+        background: #fff;
+        border-radius: 20px;
+        padding: 1.8rem;
+        box-shadow: var(--card-shadow);
+      }
+      .design-3 .card-sidebar h4 {
+        font-family: "Inter", sans-serif;
+        font-weight: 700;
+        font-size: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: var(--gradient-start);
+        margin-bottom: 1.2rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 3px solid #f0f0f5;
+      }
+      .design-3 .card-sidebar .rel-card {
+        display: flex;
+        gap: 1rem;
+        padding: 0.8rem 0;
+        border-bottom: 1px solid #f0f0f5;
+        align-items: center;
+        transition: var(--transition-smooth);
+        cursor: pointer;
+        border-radius: 8px;
+        padding: 0.8rem 0.5rem;
+      }
+      .design-3 .card-sidebar .rel-card:hover {
+        background: #f8f9fe;
+        margin: 0 -0.5rem;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+      }
+      .design-3 .card-sidebar .rel-card:last-child {
+        border-bottom: none;
+      }
+      .design-3 .card-sidebar .rel-card .thumb {
+        flex-shrink: 0;
+        width: 65px;
+        height: 65px;
+        border-radius: 12px;
+        overflow: hidden;
+        background: #e9ecef;
+      }
+      .design-3 .card-sidebar .rel-card .thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .design-3 .card-sidebar .rel-card .info {
+        flex: 1;
+        min-width: 0;
+      }
+      .design-3 .card-sidebar .rel-card .info .title {
+        font-family: "Inter", sans-serif;
+        font-size: 0.85rem;
+        font-weight: 600;
+        line-height: 1.4;
+        color: #1a1a2e;
+        transition: var(--transition-smooth);
+      }
+      .design-3 .card-sidebar .rel-card .info .title a {
+        color: inherit;
+        text-decoration: none;
+      }
+      .design-3 .card-sidebar .rel-card:hover .info .title {
+        color: var(--gradient-end);
+      }
+      .design-3 .card-sidebar .rel-card .info .date {
+        font-size: 0.7rem;
+        color: #999;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        margin-top: 0.2rem;
+      }
+      .design-3 .card-sidebar .rel-card .info .date i {
+        font-size: 0.6rem;
+        color: var(--gradient-start);
+      }
+
+      /* ============================================================
+         DESIGN SWITCHER (fixed top bar)
+         ============================================================ */
+      .design-switcher {
+        position: fixed;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+        z-index: 99999;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        background: rgba(255, 255, 255, 0.92);
+        backdrop-filter: blur(12px);
+        padding: 10px 8px;
+        border-radius: 12px 0 0 12px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-right: none;
+      }
+      .design-switcher .switcher-label {
+        font-size: 0.55rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: #888;
+        text-align: center;
+        font-weight: 700;
+        padding-bottom: 4px;
+        border-bottom: 1px solid #eee;
+        margin-bottom: 4px;
+      }
+      .design-switcher .btn-switch {
+        border: none;
+        background: transparent;
+        padding: 6px 10px;
+        border-radius: 8px;
+        font-size: 0.7rem;
+        font-weight: 600;
+        color: #555;
+        cursor: pointer;
+        transition: var(--transition-smooth);
+        text-align: center;
+        line-height: 1.3;
+        border: 2px solid transparent;
+        min-width: 52px;
+      }
+      .design-switcher .btn-switch:hover {
+        background: #f0f0f5;
+        color: #1a1a2e;
+      }
+      .design-switcher .btn-switch.active {
+        background: var(--primary-color);
+        color: #fff;
+        border-color: var(--primary-color);
+        box-shadow: 0 4px 12px rgba(73, 169, 163, 0.3);
+      }
+      .design-switcher .btn-switch .badge-dot {
+        display: block;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        margin: 3px auto 0;
+      }
+      .design-switcher .btn-switch .badge-dot.d1 {
+        background: #8b3a3a;
+      }
+      .design-switcher .btn-switch .badge-dot.d2 {
+        background: #d4a017;
+      }
+      .design-switcher .btn-switch .badge-dot.d3 {
+        background: #764ba2;
+      }
+
+      /* Hide all designs by default, show only active */
+      .design-page {
+        display: none;
+      }
+      .design-page.active {
+        display: block;
+      }
+
+      /* Responsive tweaks for switcher */
+      @media (max-width: 768px) {
+        .design-switcher {
+          top: auto;
+          bottom: 6rem;
+          right: 0.5rem;
+          transform: none;
+          flex-direction: row;
+          border-radius: 12px;
+          padding: 6px 10px;
+          gap: 4px;
+          border: 1px solid rgba(255, 255, 255, 0.3);
+          border-right: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .design-switcher .switcher-label {
+          display: none;
+        }
+        .design-switcher .btn-switch {
+          font-size: 0.6rem;
+          padding: 4px 8px;
+          min-width: auto;
+        }
+        .design-switcher .btn-switch .badge-dot {
+          display: none;
+        }
+      }
+
+      /* ============================================================
+         RESPONSIVE: Design 1
+         ============================================================ */
+      @media (max-width: 768px) {
+        .design-1 .article-title {
+          font-size: 1.6rem;
+        }
+        .design-1 .article-body {
+          font-size: 0.95rem;
+        }
+        .design-1 .article-body p:first-of-type::first-letter {
+          font-size: 2.4rem;
+        }
+        .design-2 .magazine-hero-overlay {
+          padding: 1.5rem 1.5rem 1.5rem;
+        }
+        .design-2 .magazine-hero-overlay h1 {
+          font-size: 1.6rem;
+        }
+        .design-2 .magazine-hero {
+          aspect-ratio: 16 / 10;
+        }
+        .design-3 .page-header h1 {
+          font-size: 1.5rem;
+        }
+        .design-3 .card-article .card-body {
+          padding: 1.2rem;
+        }
+        .design-3 .card-article .card-body h2 {
+          font-size: 1.2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ============================================================
+    DESIGN SWITCHER (floating)
+    ============================================================ -->
+    <div class="design-switcher" id="designSwitcher">
+      <div class="switcher-label">Design</div>
+      <button class="btn-switch active" data-design="design1">
+        01
+        <span class="badge-dot d1"></span>
+      </button>
+      <button class="btn-switch" data-design="design2">
+        02
+        <span class="badge-dot d2"></span>
+      </button>
+      <button class="btn-switch" data-design="design3">
+        03
+        <span class="badge-dot d3"></span>
+      </button>
+    </div>
+
+    <!-- ============================================================
+    HEADER (shared)
+    ============================================================ -->
+    <header class="header-gov">
+      <div class="container">
+        <div class="row align-items-center g-2">
+          <div class="col-6 col-md-6 d-flex align-items-center">
+            <div class="me-2">
+              <img class="header-logo-img" src="./mowa-logo.png" alt="MOWA Logo" />
+            </div>
+            <div class="logo-wrap d-flex flex-column">
+              <span class="header-logo-text fs-4"
+                >ပြည်ထောင်စုသမ္မတမြန်မာနိုင်ငံတော်</span
+              >
+              <span class="header-logo-sub fs-4"
+                >အမျိုးသမီးရေးရာဝန်ကြီးဌာန</span
+              >
+            </div>
+          </div>
+          <div
+            class="col-6 col-md-6 d-flex justify-content-end header-controls"
+          >
+            <div class="d-flex gap-2 align-items-center flex-wrap">
+              <div class="d-flex align-items-center gap-1">
+                <a href="#" class="btn-flag" title="မြန်မာ">
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Flag_of_Myanmar.svg"
+                    alt="Myanmar flag"
+                    style="width: 30px; height: 25px; object-fit: cover; margin: 10px"
+                  />
+                </a>
+                <a href="#" class="btn-flag" title="English">
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Flag_of_the_United_Kingdom_%281-2%29.svg"
+                    alt="UK flag"
+                    style="width: 30px; height: 25px; object-fit: cover; margin: 10px"
+                  />
+                </a>
+              </div>
+              <form class="d-flex" role="search">
+                <div class="input-group">
+                  <input
+                    class="form-control form-control-sm"
+                    type="search"
+                    placeholder="ရှာဖွေရန် ..."
+                    aria-label="Search"
+                  />
+                  <button class="btn btn-sm btn-search" type="submit">
+                    <i class="bi bi-search"></i>
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ============================================================
+    NAVBAR (shared)
+    ============================================================ -->
+    <nav
+      class="navbar navbar-expand-md nav-primary py-3 sticky-top"
+      id="stickyNavbar"
+    >
+      <div class="container">
+        <button
+          class="navbar-toggler border-0"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mainNav"
+          aria-controls="mainNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNav">
+          <ul class="navbar-nav me-auto mb-2 mb-md-0 flex-wrap">
+            <li class="nav-item">
+              <a class="nav-link" href="#"
+                ><i class="bi bi-house-door me-1"></i>ပင်မစာမျက်နှာ</a
+              >
+            </li>
+            <li class="nav-item dropdown has-sub">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="aboutDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                >ဌာနအကြောင်း</a
+              >
+              <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
+                <li><a class="dropdown-item" href="#">ရည်မှန်းချက်နှင့် မျှော်မှန်းချက်</a></li>
+                <li><a class="dropdown-item" href="#">သမိုင်းကြောင်း</a></li>
+                <li><a class="dropdown-item" href="#">ဦးဆောင်အဖွဲ့</a></li>
+                <li><a class="dropdown-item" href="#">ဆက်သွယ်ရန်</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown has-sub">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="servicesDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                >ဝန်ဆောင်မှုများ</a
+              >
+              <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+                <li><a class="dropdown-item" href="#">ကျားမတန်းတူရေး မြှင့်တင်ခြင်း</a></li>
+                <li><a class="dropdown-item" href="#">အမျိုးသမီးစွမ်းရည်မြှင့်တင်ရေး သင်တန်းများ</a></li>
+                <li><a class="dropdown-item" href="#">အိမ်တွင်းအကြမ်းဖက်မှု တားဆီးကာကွယ်ရေး</a></li>
+                <li><a class="dropdown-item" href="#">ဥပဒေအကူအညီနှင့် ကာကွယ်စောင့်ရှောက်ရေး</a></li>
+              </ul>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="#">သတင်းများ</a></li>
+            <li class="nav-item dropdown has-sub">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="deptDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                >ဌာနများ</a
+              >
+              <ul class="dropdown-menu" aria-labelledby="deptDropdown">
+                <li><a class="dropdown-item" href="#">အမျိုးသမီးဖွံ့ဖြိုးတိုးတက်ရေးဌာန</a></li>
+                <li><a class="dropdown-item" href="#">ကျားမတန်းတူရေးနှင့် မူဝါဒရေးရာဌာန</a></li>
+                <li><a class="dropdown-item" href="#">အမျိုးသမီးအခွင့်အရေး ကာကွယ်စောင့်ရှောက်ရေးဌာန</a></li>
+                <li><a class="dropdown-item" href="#">သုတေသနနှင့် စီမံကိန်းရေးဆွဲရေးဌာန</a></li>
+              </ul>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="#">ဆက်သွယ်ရန်</a></li>
+            <li class="nav-item dropdown has-sub">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="careerDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                >အလုပ်အကိုင်များ</a
+              >
+              <ul class="dropdown-menu" aria-labelledby="careerDropdown">
+                <li><a class="dropdown-item" href="#">ရာထူးလစ်လပ်နေရာများ</a></li>
+                <li><a class="dropdown-item" href="#">အလုပ်သင်အစီအစဉ်များ</a></li>
+                <li><a class="dropdown-item" href="#">အကျိုးခံစားခွင့်များ</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <button
+      id="scrollToTopBtn"
+      onclick="scrollToTop()"
+      aria-label="Scroll to top"
+    >
+      <i class="bi bi-chevron-up"></i>
+    </button>
+
+    <!-- ============================================================
+    DESIGN 1 — CLASSIC / EDITORIAL
+    ============================================================ -->
+    <div class="design-page active design-1" id="design1">
+      <main class="content-placeholder">
+        <div class="container">
+          <div class="article-wrapper">
+            <!-- Article Header -->
+            <div class="article-header">
+              <div class="article-kicker">အထူးသတင်း</div>
+              <h1 class="article-title">
+                တိုင်းရင်းသားရေးရာအသိပညာပေးခြင်းနှင့် ရပ်ရာအခြေပြု
+                အသက်မွေးဝမ်းကျောင်းပညာ လိုအပ်ချက်တို့ကို ဆန်းစစ်စီမံခြင်းအစီအစဉ်
+              </h1>
+              <div class="article-byline">
+                <span><i class="bi bi-calendar"></i> ၂၀ ဇွန် ၂၀၂၆</span>
+                <span><i class="bi bi-geo-alt"></i> မန္တလေးတိုင်းဒေသကြီး</span>
+                <span><i class="bi bi-clock"></i> ဖတ်ရန် ၄ မိနစ်</span>
+              </div>
+            </div>
+
+            <!-- Featured Image -->
+            <div class="article-featured-img">
+              <img
+                src="https://images.unsplash.com/photo-1544531586-fde5298cdd40?q=80&w=1200&auto=format&fit=crop"
+                alt="တိုင်းရင်းသားရေးရာအသိပညာပေးအခမ်းအနား"
+              />
+              <div class="img-caption">
+                မန္တလေးတိုင်းဒေသကြီး၊ ပြင်ဦးလွင်မြို့နယ်၊ ဆင်ဖြူအင်းကျော်ရာ၌
+                ကျင်းပပြုလုပ်သည့် အခမ်းအနားမြင်ကွင်း
+              </div>
+            </div>
+
+            <!-- Article Body -->
+            <div class="article-body">
+              <p>
+                <span class="dropcap">မ</span>န္တလေးတိုင်းဒေသကြီး ၂၀ ဇွန် ၂၀၂၆ — 
+                တိုင်းရင်းသားလူမျိုးများရေးရာဝန်ကြီးဌာန၊ တိုင်းရင်းသားအခွင့်အရေးများကာကွယ်
+                စောင့်ရှောက်ရေးဦးစီးဌာန၊ မန္တလေးတိုင်းဒေသကြီး ညွှန်ကြားရေးမှုရုံးမှ
+                ဦးစီးရှိ “တိုင်းရင်းသားရေးရာအသိပညာပေးခြင်းနှင့် ရပ်ရာအခြေပြု
+                အသက်မွေးဝမ်းကျောင်းပညာလိုအပ်ချက်တို့ကို ဆန်းစစ်စီမံခြင်းအစီအစဉ်”ကို
+                (၂၀-၆-၂၀၂၆) ရက်နေ့တွင် မန္တလေးတိုင်းဒေသကြီး၊ ပြင်ဦးလွင် မြို့နယ်၊
+                ဆင်ဖြူအင်းကျော်ရာ၊ အခြေခံပညာမူလတန်းကျောင်းခန်းမည့် ကျင်းပပြုလုပ်ခဲ့ပါသည်။
+              </p>
+
+              <p>
+                အခမ်းအနားတွင် မန္တလေးတိုင်းဒေသကြီးအစိုးရအဖွဲ့ ရပ်းတိုင်းရင်းသားလူမျိုးရေးရာဝန်ကြီး
+                စိုင်းအောင်ကြည်မှ အဖွင့် အမှာစကားပြောကြားခဲ့ပြီး တိုင်းရင်းသားအခွင့်အရေးများကာကွယ်
+                စောင့်ရှောက်ရေးဦးစီးဌာနမှ ညွှန်ကြားရေးမှူး ဒေါ်ငြိမ်းနေဝ၊ တိုင်းရင်းသားစာပေနှင့်
+                ယဉ်ကျေးမှု ဦးစီးဌာနမှ ညွှန်ကြားရေးမှူး ဦးဝင်းနိုင်၊ ပြန်ကြားရေးနှင့်ပြည်သူ့ဆက်ဆံရေးဦးစီးဌာနမှ
+                ညွှန်ကြားရေးမှူး ဒေါ်ဝေဝငြိမ်း၊ လူငယ်ရေးရာဦးစီးဌာနမှ ညွှန်ကြားရေးမှူး ဦးလိုင်ငြေ့ဌေးအောင်၊
+                လူမှုဝန်ထမ်းဦးစီးဌာနမှ လက်ထောက် ညွှန်ကြားရေးမှူး ဒေါ်လဲ့လဲ့ဝင်း၊
+                အသေးစားစက်မှုလက်မှု လုပ်ငန်းဦးစီးဌာနမှ လက်ထောက်ညွှန်ကြားရေးမှူး ဒေါ်ဇင်မိုးလိုင်တို့က
+                သက်ဆိုင်ရာကုဏ္ဍ အလိုက် အသီးသီးအသိပညာပေး ဟောပြောခဲ့ကြပါသည်။
+              </p>
+
+              <div class="article-divider">• • •</div>
+
+              <p>
+                ထို့နောက် တိုင်းရင်းသားအခွင့်အရေးများကာကွယ်စောင့်ရှောက်ရေးဦးစီးဌာနမှ
+                လက်ထောက် ညွှန်ကြားရေးမှူး ဦးလိုင်ဝင်းဟန်က ရပ်ရာအခြေပြုအသက်မွေးဝမ်းကျောင်းပညာလိုအပ်ချက်
+                စစ်တမ်းကောက်ယူရခြင်း၏ ရည်ရွယ်ချက်များကို ရှင်းလင်းပြောကြားရှိ စစ်တမ်းကောက်ယူခဲ့ရာ
+                ဒေသခံတိုင်းရင်းသား (၆၀) ဦးတို့က စစ်တမ်းမွေးခွန်းလျာများကို ဖြေဆိုခဲ့ကြောင်း သိရှိရပါသည်။
+              </p>
+            </div>
+
+            <!-- Tags -->
+            <div class="article-tags">
+              <a href="#" class="tag">#တိုင်းရင်းသားရေးရာ</a>
+              <a href="#" class="tag">#မန္တလေး</a>
+              <a href="#" class="tag">#ပညာပေး</a>
+              <a href="#" class="tag">#အသက်မွေးဝမ်းကျောင်း</a>
+              <a href="#" class="tag">#အမျိုးသမီးရေးရာ</a>
+            </div>
+          </div>
+
+          <!-- Related (Design 1 style) -->
+          <div class="row mt-5">
+            <div class="col-lg-8 mx-auto">
+              <div class="related-sidebar">
+                <h4><i class="bi bi-newspaper me-2"></i>ဆက်စပ်သတင်းများ</h4>
+                <div class="list-item">
+                  <a href="#">ရွင္းျပည္နယ္တိုင္းရင္းသားေရးေရွာန္႔ သက္ေမြး ပညာသင္တန္းစင္တာ၌ တိုင္းရင္းသားရိုးရာ စက္ခ်ဳပ္...</a>
+                  <span class="date">၁၅ ဇွန် ၂၀၂၆</span>
+                </div>
+                <div class="list-item">
+                  <a href="#">“တိုင္းရင္းသားေရးရာ အသိပညာေပးျခင္းန္႔ ရပ္ရြာ အေျချပဳအသက္ေမြးဝမ္းေကျာင္းပညာ လိုအပ္ခ်က္...”</a>
+                  <span class="date">၁၂ ဇွန် ၂၀၂၆</span>
+                </div>
+                <div class="list-item">
+                  <a href="#">တိုင္းရင္းသားေရးရာအသိပညာေပးေဟာေျပာျခင္းန္႔ ရပ္ရြာအေျချပဳအသက္ေမြးဝမ္းေကျာင္းပညာ...</a>
+                  <span class="date">၉ ဇွန် ၂၀၂၆</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- ============================================================
+    DESIGN 2 — MAGAZINE STYLE
+    ============================================================ -->
+    <div class="design-page design-2" id="design2">
+      <main class="content-placeholder">
+        <!-- Hero -->
+        <div class="magazine-hero">
+          <img
+            src="https://images.unsplash.com/photo-1544531586-fde5298cdd40?q=80&w=1400&auto=format&fit=crop"
+            alt="Magazine hero"
+          />
+          <div class="magazine-hero-overlay">
+            <div class="kicker">အထူးစုံစမ်းစစ်ဆေးချက်</div>
+            <h1>တိုင်းရင်းသားရေးရာအသိပညာပေးခြင်းနှင့် ရပ်ရာအခြေပြု အသက်မွေးဝမ်းကျောင်းပညာ လိုအပ်ချက်များ</h1>
+            <div class="meta">
+              <span><i class="bi bi-calendar"></i> ၂၀ ဇွန် ၂၀၂၆</span>
+              <span><i class="bi bi-geo-alt"></i> မန္တလေးတိုင်းဒေသကြီး</span>
+              <span><i class="bi bi-clock"></i> ၄ မိနစ် ဖတ်ရမည်</span>
+              <span><i class="bi bi-person"></i> စိုင်းအောင်ကြည်</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="magazine-body">
+          <div class="row g-4">
+            <!-- Main content -->
+            <div class="col-lg-8">
+              <div class="lead">
+                <i class="bi bi-quote"></i>
+                မန္တလေးတိုင်းဒေသကြီး၌ ကျင်းပပြုလုပ်ခဲ့သည့် တိုင်းရင်းသားရေးရာ
+                အသိပညာပေးအစီအစဉ်တွင် ဒေသခံတိုင်းရင်းသား (၆၀) ဦးတို့
+                ပါဝင်ဆွေးနွေးခဲ့ကြပြီး ရပ်ရာအခြေပြု အသက်မွေးဝမ်းကျောင်းပညာ
+                လိုအပ်ချက်များကို ဆန်းစစ်ခဲ့ကြသည်။
+              </div>
+
+              <p>
+                <strong>မန္တလေးတိုင်းဒေသကြီး၊ ၂၀ ဇွန် ၂၀၂၆</strong> — 
+                တိုင်းရင်းသားလူမျိုးများရေးရာဝန်ကြီးဌာန၊ တိုင်းရင်းသားအခွင့်အရေးများကာကွယ်
+                စောင့်ရှောက်ရေးဦးစီးဌာန၊ မန္တလေးတိုင်းဒေသကြီး ညွှန်ကြားရေးမှုရုံးမှ
+                ဦးစီးရှိ အစီအစဉ်ကို ပြင်ဦးလွင် မြို့နယ်၊ ဆင်ဖြူအင်းကျော်ရာ၊
+                အခြေခံပညာမူလတန်းကျောင်းခန်းမည့် ကျင်းပပြုလုပ်ခဲ့ပါသည်။
+              </p>
+
+              <div class="pull-quote">
+                တိုင်းရင်းသားလူမျိုးများ၏ အခွင့်အရေးများကို ကာကွယ်စောင့်ရှောက်ရန်နှင့်
+                ရပ်ရာအခြေပြု ဖွံ့ဖြိုးတိုးတက်ရေးအတွက် ဤအစီအစဉ်သည် အရေးပါသော
+                ခြေလှမ်းတစ်ရပ်ဖြစ်သည်။
+                <span class="attribution">— စိုင်းအောင်ကြည်၊ ရပ်းတိုင်းရင်းသားလူမျိုးရေးရာဝန်ကြီး</span>
+              </div>
+
+              <p>
+                အခမ်းအနားတွင် ဌာနအသီးသီးမှ ညွှန်ကြားရေးမှူးများက သက်ဆိုင်ရာကုဏ္ဍ
+                အလိုက် အသိပညာပေး ဟောပြောခဲ့ကြပြီး နောက်ဆုံးတွင်
+                လက်ထောက်ညွှန်ကြားရေးမှူး ဦးလိုင်ဝင်းဟန်က ရပ်ရာအခြေပြု
+                အသက်မွေးဝမ်းကျောင်းပညာလိုအပ်ချက် စစ်တမ်းကောက်ယူရခြင်း၏
+                ရည်ရွယ်ချက်များကို ရှင်းလင်းပြောကြားခဲ့သည်။
+              </p>
+
+              <p>
+                ဒေသခံတိုင်းရင်းသား (၆၀) ဦးတို့က စစ်တမ်းမွေးခွန်းလျာများကို
+                ဖြေဆိုခဲ့ကြပြီး ရရှိလာသည့် အချက်အလက်များကို
+                အနာဂတ်စီမံကိန်းများအတွက် အသုံးပြုသွားမည်ဖြစ်ကြောင်း သိရှိရပါသည်။
+              </p>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="col-lg-4">
+              <div class="magazine-sidebar">
+                <h4>ဆက်စပ်သတင်းများ</h4>
+                <div class="rel-item">
+                  <span class="num">01</span>
+                  <div class="text">
+                    <a href="#">ရွင္းျပည္နယ္တိုင္းရင္းသားေရးေရွာန္႔ သက္ေမြး ပညာသင္တန္းစင္တာ</a>
+                    <span class="date">၁၅ ဇွန် ၂၀၂၆</span>
+                  </div>
+                </div>
+                <div class="rel-item">
+                  <span class="num">02</span>
+                  <div class="text">
+                    <a href="#">“တိုင္းရင္းသားေရးရာ အသိပညာေပးျခင္းန္႔ ရပ္ရြာ အေျချပဳအသက္ေမြးဝမ္းေကျာင္းပညာ”</a>
+                    <span class="date">၁၂ ဇွန် ၂၀၂၆</span>
+                  </div>
+                </div>
+                <div class="rel-item">
+                  <span class="num">03</span>
+                  <div class="text">
+                    <a href="#">တိုင္းရင္းသားေရးရာအသိပညာေပးေဟာေျပာျခင္းန္႔ ရပ္ရြာအေျချပဳအသက္ေမြးဝမ္းေကျာင္းပညာ</a>
+                    <span class="date">၉ ဇွန် ၂၀၂၆</span>
+                  </div>
+                </div>
+                <div class="rel-item">
+                  <span class="num">04</span>
+                  <div class="text">
+                    <a href="#">“ကရင္ရိုးရာစာေပသင္တန္း” န္႔ “အေျခခံစက္ခ်ဳပ္သင္တန္း” များကို ရန္ကုန္တိုင္းေဒသႀကီးတြင္ က်င္း...</a>
+                    <span class="date">၅ ဇွန် ၂၀၂၆</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- ============================================================
+    DESIGN 3 — MODERN CARD-BASED
+    ============================================================ -->
+    <div class="design-page design-3" id="design3">
+      <main class="content-placeholder">
+        <div class="container">
+          <!-- Page Header -->
+          <div class="page-header">
+            <div class="container">
+              <div class="breadcrumb-custom">
+                <a href="#">ပင်မစာမျက်နှာ</a>
+                <span class="sep">/</span>
+                <a href="#">သတင်းများ</a>
+                <span class="sep">/</span>
+                <span>အသိပညာပေး</span>
+              </div>
+              <h1>အခြားသတင်းများ</h1>
+              <div class="sub">တိုင်းရင်းသားရေးရာနှင့် ရပ်ရာအခြေပြု ဖွံ့ဖြိုးတိုးတက်ရေး</div>
+            </div>
+          </div>
+
+          <div class="row g-4">
+            <!-- Main Article Card -->
+            <div class="col-lg-8">
+              <article class="card-article">
+                <div class="card-img">
+                  <img
+                    src="https://images.unsplash.com/photo-1544531586-fde5298cdd40?q=80&w=1200&auto=format&fit=crop"
+                    alt="အသိပညာပေးအခမ်းအနား"
+                  />
+                  <span class="badge-date">
+                    <i class="bi bi-calendar"></i> ၂၀ ဇွန် ၂၀၂၆
+                  </span>
+                  <span class="badge-category">ပညာပေး</span>
+                </div>
+                <div class="card-body">
+                  <div class="meta-row">
+                    <span><i class="bi bi-geo-alt"></i> မန္တလေးတိုင်းဒေသကြီး</span>
+                    <span><i class="bi bi-tag"></i> တိုင်းရင်းသားရေးရာ</span>
+                    <span><i class="bi bi-clock"></i> ၄ မိနစ် ဖတ်ရမည်</span>
+                  </div>
+                  <h2>
+                    <a href="#">
+                      တိုင်းရင်းသားရေးရာအသိပညာပေးခြင်းနှင့် ရပ်ရာအခြေပြု
+                      အသက်မွေးဝမ်းကျောင်းပညာ လိုအပ်ချက်တို့ကို ဆန်းစစ်စီမံခြင်းအစီအစဉ်
+                    </a>
+                  </h2>
+                  <p>
+                    မန္တလေးတိုင်းဒေသကြီး ၂၀ ဇွန် ၂၀၂၆ — 
+                    တိုင်းရင်းသားလူမျိုးများရေးရာဝန်ကြီးဌာန၊ တိုင်းရင်းသားအခွင့်အရေးများကာကွယ်
+                    စောင့်ရှောက်ရေးဦးစီးဌာန၊ မန္တလေးတိုင်းဒေသကြီး ညွှန်ကြားရေးမှုရုံးမှ
+                    ဦးစီးရှိ အစီအစဉ်ကို ပြင်ဦးလွင် မြို့နယ်၊ ဆင်ဖြူအင်းကျော်ရာ၊
+                    အခြေခံပညာမူလတန်းကျောင်းခန်းမည့် ကျင်းပပြုလုပ်ခဲ့ပါသည်။
+                  </p>
+                  <p>
+                    အခမ်းအနားတွင် မန္တလေးတိုင်းဒေသကြီးအစိုးရအဖွဲ့ ရပ်းတိုင်းရင်းသားလူမျိုးရေးရာဝန်ကြီး
+                    စိုင်းအောင်ကြည်မှ အဖွင့် အမှာစကားပြောကြားခဲ့ပြီး ဌာနအသီးသီးမှ
+                    ညွှန်ကြားရေးမှူးများက သက်ဆိုင်ရာကုဏ္ဍ အလိုက်
+                    အသိပညာပေး ဟောပြောခဲ့ကြပါသည်။
+                  </p>
+                  <p>
+                    ထို့နောက် လက်ထောက်ညွှန်ကြားရေးမှူး ဦးလိုင်ဝင်းဟန်က
+                    ရပ်ရာအခြေပြုအသက်မွေးဝမ်းကျောင်းပညာလိုအပ်ချက်
+                    စစ်တမ်းကောက်ယူရခြင်း၏ ရည်ရွယ်ချက်များကို ရှင်းလင်းပြောကြားရှိ
+                    ဒေသခံတိုင်းရင်းသား (၆၀) ဦးတို့က စစ်တမ်းမွေးခွန်းလျာများကို
+                    ဖြေဆိုခဲ့ကြကြောင်း သိရှိရပါသည်။
+                  </p>
+                  <a href="#" class="read-more">
+                    ဆက်လက်ဖတ်ရှုရန် <i class="bi bi-arrow-right"></i>
+                  </a>
+                </div>
+              </article>
+            </div>
+
+            <!-- Sidebar Cards -->
+            <div class="col-lg-4">
+              <div class="card-sidebar">
+                <h4><i class="bi bi-newspaper me-2"></i>ဆက်စပ်သတင်းများ</h4>
+
+                <div class="rel-card">
+                  <div class="thumb">
+                    <img
+                      src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=150&h=150&fit=crop&crop=center"
+                      alt="thumb"
+                    />
+                  </div>
+                  <div class="info">
+                    <div class="title">
+                      <a href="#">ရွင္းျပည္နယ္တိုင္းရင္းသားေရးေရွာန္႔ သက္ေမြး ပညာသင္တန္းစင္တာ...</a>
+                    </div>
+                    <div class="date"><i class="bi bi-calendar3"></i> ၁၅ ဇွန် ၂၀၂၆</div>
+                  </div>
+                </div>
+
+                <div class="rel-card">
+                  <div class="thumb">
+                    <img
+                      src="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=150&h=150&fit=crop&crop=center"
+                      alt="thumb"
+                    />
+                  </div>
+                  <div class="info">
+                    <div class="title">
+                      <a href="#">“တိုင္းရင္းသားေရးရာ အသိပညာေပးျခင္းန္႔ ရပ္ရြာ အေျချပဳအသက္ေမြးဝမ္းေကျာင္းပညာ”</a>
+                    </div>
+                    <div class="date"><i class="bi bi-calendar3"></i> ၁၂ ဇွန် ၂၀၂၆</div>
+                  </div>
+                </div>
+
+                <div class="rel-card">
+                  <div class="thumb">
+                    <img
+                      src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=150&h=150&fit=crop&crop=center"
+                      alt="thumb"
+                    />
+                  </div>
+                  <div class="info">
+                    <div class="title">
+                      <a href="#">တိုင္းရင္းသားေရးရာအသိပညာေပးေဟာေျပာျခင္းန္႔ ရပ္ရြာအေျချပဳအသက္ေမြးဝမ္းေကျာင္းပညာ...</a>
+                    </div>
+                    <div class="date"><i class="bi bi-calendar3"></i> ၉ ဇွန် ၂၀၂၆</div>
+                  </div>
+                </div>
+
+                <div class="rel-card">
+                  <div class="thumb">
+                    <img
+                      src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=150&h=150&fit=crop&crop=center"
+                      alt="thumb"
+                    />
+                  </div>
+                  <div class="info">
+                    <div class="title">
+                      <a href="#">“ကရင္ရိုးရာစာေပသင္တန္း” န္႔ “အေျခခံစက္ခ်ဳပ္သင္တန္း” များကို ရန္ကုန္တိုင္းေဒသႀကီးတြင္...</a>
+                    </div>
+                    <div class="date"><i class="bi bi-calendar3"></i> ၅ ဇွန် ၂၀၂၆</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- ============================================================
+    FOOTER (shared)
+    ============================================================ -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-social">
+          <a href="#" title="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="#" title="YouTube"><i class="bi bi-youtube"></i></a>
+          <a href="#" title="Twitter / X"><i class="bi bi-twitter-x"></i></a>
+          <a href="#" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+          <a href="#" title="Instagram"><i class="bi bi-instagram"></i></a>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-lg-3 col-md-6 col-12">
+            <h4 class="footer-title">Contact Us</h4>
+            <div class="footer-contact-item">
+              <i class="bi bi-geo-alt-fill"></i>
+              <span>အမျိုးသမီးရေးရာဝန်ကြီးဌာန၊ ရုံးအမှတ် ၁၄၊ နေပြည်တော်။</span>
+            </div>
+            <div class="footer-contact-item">
+              <i class="bi bi-telephone-fill"></i>
+              <span>၀၆၇-၁၂၃၁၂၃၁</span>
+            </div>
+            <div class="footer-contact-item">
+              <i class="bi bi-envelope-fill"></i>
+              <span>moea.egov.2022@gmail.com</span>
+            </div>
+            <span class="footer-visit-count">လာရောက်ကြည့်ရှုသူပေါင်း: ၉၂၆၁၇၉၉</span>
+          </div>
+
+          <div class="col-lg-3 col-md-6 col-12">
+            <h4 class="footer-title">သတင်းစာများ</h4>
+            <ul class="footer-links">
+              <li><a href="#">မြန်မာ့အလင်း</a></li>
+              <li><a href="#">ကြေးမုံ</a></li>
+              <li><a href="#">မြေတီ</a></li>
+              <li><a href="#">Global New Light of Myanmar</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 col-12">
+            <h4 class="footer-title">အသုံးဝင်သော လင့်များ</h4>
+            <ul class="footer-links">
+              <li><a href="#">၂၀၂၀ ပြည့်နှစ် ပါတီနိုင်ငံရေးအသင်းအဖွဲ့များ၏ မဲဆန္ဒရှင်စာရင်းနှင့် တရားဝင်မဲပြုမှုစီးခြင်းကိစ္စများ</a></li>
+              <li><a href="#">မြန်မာ့ပြည်ထောင်စုသမ္မတနိုင်ငံ၏ အလံတော်</a></li>
+              <li><a href="#">Myanmar National Portal</a></li>
+              <li><a href="#">ဝန်ကြီးဌာန website များ</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 col-12">
+            <h4 class="footer-title">တည်နေရာမြေပုံ</h4>
+            <div class="footer-map-wrapper">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3819.580619977427!2d96.1296285750573!3d19.77359008654159!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30c1f2a2c2d2a2f7%3A0x5d8e3e8e1a0e5a5e!2sMinistry%20Zone!5e0!3m2!1sen!2smm!4v1700000000000!5m2!1sen!2smm"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <div class="footer-bottom-bar">
+      &copy; Copyright MOWA 2026. All Rights Reserved.
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // ============================================================
+      // NAVBAR DROPDOWN (hover)
+      // ============================================================
+      (function () {
+        const dropdowns = document.querySelectorAll(".nav-primary .dropdown");
+        dropdowns.forEach((dd) => {
+          dd.addEventListener("mouseenter", function (e) {
+            if (window.innerWidth >= 768) {
+              this.querySelector(".dropdown-menu")?.classList.add("show");
+            }
+          });
+          dd.addEventListener("mouseleave", function (e) {
+            if (window.innerWidth >= 768) {
+              this.querySelector(".dropdown-menu")?.classList.remove("show");
+            }
+          });
+        });
+      })();
+
+      // ============================================================
+      // STICKY NAVBAR
+      // ============================================================
+      document.addEventListener("DOMContentLoaded", function () {
+        const navbar = document.getElementById("stickyNavbar");
+        let isStuck = false;
+        function checkSticky() {
+          if (window.scrollY > 10) {
+            if (!isStuck) {
+              navbar.classList.add("is-stuck");
+              isStuck = true;
+            }
+          } else {
+            if (isStuck) {
+              navbar.classList.remove("is-stuck");
+              isStuck = false;
+            }
+          }
+        }
+        checkSticky();
+        window.addEventListener("scroll", checkSticky);
+      });
+
+      // ============================================================
+      // SCROLL TO TOP
+      // ============================================================
+      const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+      window.onscroll = function () {
+        if (
+          document.body.scrollTop > 300 ||
+          document.documentElement.scrollTop > 300
+        ) {
+          scrollToTopBtn.classList.add("show");
+        } else {
+          scrollToTopBtn.classList.remove("show");
+        }
+      };
+      function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      // ============================================================
+      // DESIGN SWITCHER
+      // ============================================================
+      document.addEventListener("DOMContentLoaded", function () {
+        const buttons = document.querySelectorAll(".btn-switch");
+        const pages = {
+          design1: document.getElementById("design1"),
+          design2: document.getElementById("design2"),
+          design3: document.getElementById("design3"),
+        };
+
+        buttons.forEach((btn) => {
+          btn.addEventListener("click", function () {
+            // Remove active from all buttons
+            buttons.forEach((b) => b.classList.remove("active"));
+            this.classList.add("active");
+
+            // Hide all pages
+            Object.values(pages).forEach((p) => p.classList.remove("active"));
+
+            // Show selected
+            const design = this.dataset.design;
+            if (pages[design]) {
+              pages[design].classList.add("active");
+            }
+
+            // Scroll to top of content
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
