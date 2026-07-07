@@ -1,9 +1,10 @@
 <!doctype html>
-<html lang="en">
+<html lang="my">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ministry of Women's Affairs</title>
+    <title>Ministry of Women's Affairs | အမျိုးသမီးရေးရာဝန်ကြီးဌာန</title>
+    <link rel="shortcut icon" href="./mowa-logo.png" type="image/png" />
 
     <!-- Bootstrap 5 CSS + Icons -->
     <link
@@ -15,7 +16,7 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
     />
 
-    <!-- Google Font (Inter) for modern look -->
+    <!-- Google Font (Inter) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -24,15 +25,15 @@
     />
 
     <style>
-      /* ==================================================== */
-      /*  GLOBAL VARIABLES & RESET                             */
-      /* ==================================================== */
+      /* ============================================================
+         GLOBAL VARIABLES & RESET
+         ============================================================ */
       :root {
-        --primary-color: #49a9a3;
-        --secondary-color: #2c5f5b;
+        --primary-color: #2c5f5b;
+        --secondary-color: #49a9a3;
         --dark-blue: #1e7bc0;
         --accent-yellow: #f4e8d3;
-        --dark-yellow: #a9494f;
+        --dark-yellow: #e3a349;
         --sky-blue: #3fb2e8;
         --sky-blue-dark: #2a8bc2;
         --bg-light: #f4f7f6;
@@ -60,9 +61,9 @@
         background-color: var(--bg-light);
       }
 
-      /* ==================================================== */
-      /*  HEADER (Logo & Controls)                             */
-      /* ==================================================== */
+      /* ============================================================
+         HEADER
+         ============================================================ */
       .header-gov {
         background: var(--surface-white);
         box-shadow: 0 4px 12px rgba(0, 20, 30, 0.04);
@@ -85,7 +86,6 @@
         color: var(--primary-color);
         margin-top: -2px;
       }
-
       .header-controls .form-control {
         border-radius: 6px;
         background: var(--bg-light);
@@ -110,30 +110,6 @@
         align-items: center;
         justify-content: center;
       }
-      .lang-switch .dropdown-toggle {
-        background: transparent;
-        border: 1px solid #d0dbe8;
-        border-radius: 6px;
-        color: var(--primary-color);
-        font-weight: 500;
-        font-size: 0.9rem;
-        padding: 0.3rem 1rem;
-        height: 40px;
-        display: flex;
-        align-items: center;
-        gap: 6px;
-      }
-      .lang-switch .dropdown-toggle:hover {
-        background: var(--bg-light);
-        border-color: #b0c4db;
-      }
-      .lang-switch .dropdown-menu {
-        border-radius: var(--radius-md);
-        border: 1px solid #e9eef3;
-        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.05);
-      }
-
-      /* Hover effect for the two flag buttons */
       .btn-flag {
         display: inline-block;
         line-height: 0;
@@ -150,70 +126,37 @@
         display: block;
       }
 
-      /* ==================================================== */
-      /*  PRIMARY NAVBAR (Blue bg, Yellow hover)               */
-      /* ==================================================== */
+      /* ============================================================
+         BREADCRUMB
+         ============================================================ */
+
+      /* ============================================================
+         NAVBAR — with multi‑level dropdown support
+         ============================================================ */
       .nav-primary {
-        background: var(--primary-color); /* deep blue */
+        background: var(--primary-color);
         border-bottom: 5px solid var(--dark-yellow);
-        padding: 3rem 0;
+        padding: 0.5rem 0;
         margin-top: 0;
       }
       .nav-primary .navbar-nav .nav-link {
-        font-weight: 500;
+        font-weight: 800;
         color: var(--surface-white) !important;
-        padding: 0.7rem 1rem;
-        font-size: 0.95rem;
+        padding: 0.3rem 0.5rem;
+        font-size: 0.9rem;
         border-radius: 6px;
         transition: var(--transition-smooth);
         position: relative;
-        border-bottom: 3px solid var(--primary-color);
+        border-bottom: 3px solid transparent;
+        white-space: nowrap;
       }
       .nav-primary .navbar-nav .nav-link:hover,
       .nav-primary .navbar-nav .nav-link:focus {
         border-radius: 0px !important;
-        border-bottom: 3px solid var(--dark-yellow);
+        border-bottom-color: var(--dark-yellow);
       }
 
-      /* Dropdown Activation */
-      .nav-primary .dropdown:hover .dropdown-menu {
-        display: block;
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0px);
-        transition:
-          opacity 0.2s ease,
-          transform 0.2s ease;
-      }
-      .nav-primary .dropdown .dropdown-menu {
-        display: none;
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(6px);
-        transition:
-          opacity 0.15s ease,
-          transform 0.15s ease,
-          visibility 0s linear 0.15s;
-        margin-top: 0.2rem;
-        border: 1px solid #e9edf2;
-        border-radius: 6px;
-        box-shadow: 0 12px 32px rgba(0, 20, 30, 0.08);
-        padding: 0.5rem 0;
-        background: var(--surface-white);
-        min-width: 200px;
-      }
-      .nav-primary .dropdown .dropdown-item {
-        padding: 0.5rem 1.2rem;
-        font-weight: 450;
-        color: var(--secondary-color);
-        font-size: 0.9rem;
-      }
-      .nav-primary .dropdown .dropdown-item:hover {
-        background: var(--bg-light);
-        color: var(--primary-color);
-      }
-
-      /* Custom Caret */
+      /* ---- Dropdown toggles ---- */
       .nav-primary .dropdown-toggle::after {
         display: none;
       }
@@ -228,7 +171,158 @@
         color: #b0cfdd;
       }
 
-      /* Mobile Toggler */
+      /* ---- Dropdown menus (level 1) ---- */
+      .nav-primary .dropdown-menu {
+        display: none;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(6px);
+        transition:
+          opacity 0.15s ease,
+          transform 0.15s ease,
+          visibility 0s linear 0.15s;
+        margin-top: 0.2rem;
+        border: 1px solid #e9edf2;
+        border-radius: 6px;
+        box-shadow: 0 12px 32px rgba(0, 20, 30, 0.1);
+        padding: 0.3rem 0;
+        background: var(--surface-white);
+        min-width: 220px;
+      }
+      .nav-primary .dropdown:hover > .dropdown-menu {
+        display: block;
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0px);
+        transition:
+          opacity 0.2s ease,
+          transform 0.2s ease;
+      }
+      .nav-primary .dropdown .dropdown-item {
+        padding: 0.5rem 1rem;
+        font-weight: 550;
+        color: var(--secondary-color);
+        font-size: 0.85rem;
+        white-space: nowrap;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+      }
+      .nav-primary .dropdown .dropdown-item:hover {
+        background: var(--bg-light);
+        color: var(--primary-color);
+      }
+
+      /* ---- Sub‑menu caret (▶) ---- */
+      .dropdown-submenu .dropdown-item::after {
+        font-size: 0.8rem;
+        opacity: 0.5;
+        margin-left: auto;
+        transition: var(--transition-smooth);
+      }
+      .dropdown-submenu .dropdown-item:hover::after {
+        opacity: 1;
+        transform: translateX(2px);
+      }
+
+      /* ---- Sub‑menu (level 2+) ---- */
+      .dropdown-submenu {
+        position: relative;
+      }
+
+      .dropdown-submenu .dropdown-menu {
+        position: static !important;
+        margin-left: 1.2rem !important;
+        margin-top: 2px !important;
+        border-radius: 4px !important;
+        box-shadow: none !important;
+        border-left: 2px solid var(--dark-yellow);
+        background: rgba(255, 255, 255, 0.06);
+        transform: none !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        display: none;
+      }
+      /* Hover to open sub‑menu */
+      .dropdown-submenu:hover > .dropdown-menu {
+        display: block;
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(0px);
+        transition:
+          opacity 0.2s ease,
+          transform 0.2s ease;
+      }
+
+      /* ---- Mobile / collapsed state ---- */
+      @media (max-width: 767.98px) {
+        .nav-primary .navbar-collapse {
+          background: var(--primary-color);
+          padding: 0.5rem 0;
+          border-radius: 0 0 8px 8px;
+        }
+        .nav-primary .navbar-nav .nav-link {
+          padding: 0.5rem 0.8rem;
+          font-size: 0.9rem;
+          border-bottom: none;
+          color: var(--surface-white) !important;
+        }
+        .nav-primary .navbar-nav .nav-link:hover {
+          border-bottom: none;
+          background: rgba(255, 255, 255, 0.08);
+          border-radius: 4px;
+        }
+        /* On mobile: sub‑menus slide down, not to the right */
+        .dropdown-submenu .dropdown-menu {
+          position: static !important;
+          margin-left: 1.2rem !important;
+          margin-top: 2px !important;
+          border-radius: 4px !important;
+          box-shadow: none !important;
+          border-left: 2px solid var(--dark-yellow);
+          background: rgba(255, 255, 255, 0.06);
+          transform: none !important;
+          opacity: 1 !important;
+          visibility: visible !important;
+          display: none;
+        }
+        .dropdown-submenu .dropdown-menu .dropdown-item {
+          color: var(--dark-yellow) !important;
+          padding: 0.4rem 0.8rem;
+          font-size: 0.85rem;
+        }
+        .dropdown-submenu .dropdown-menu .dropdown-item:hover {
+          background: rgba(255, 255, 255, 0.1);
+          color: var(--primary-color) !important;
+        }
+        /* Show sub‑menu when parent has .show */
+        .dropdown-submenu.show > .dropdown-menu {
+          display: block !important;
+        }
+        .dropdown-submenu .dropdown-item::after {
+          display: none;
+        }
+        /* Toggle caret for mobile sub‑menu items */
+        .dropdown-submenu > .dropdown-item {
+          cursor: pointer;
+        }
+        .dropdown-submenu > .dropdown-item::after {
+          display: none;
+        }
+        .dropdown-submenu > .dropdown-item .sub-caret {
+          display: inline-block;
+          margin-left: 0.4rem;
+          font-size: 0.7rem;
+          opacity: 0.7;
+          transition: transform 0.2s ease;
+        }
+        .dropdown-submenu.show > .dropdown-item .sub-caret {
+          transform: rotate(90deg);
+        }
+      }
+
+      /* ---- Navbar toggler ---- */
       .nav-primary .navbar-toggler {
         border-color: rgba(255, 255, 255, 0.3);
         color: var(--surface-white);
@@ -238,13 +332,33 @@
         background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255,255,255,0.9)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
       }
 
-      /* ==================================================== */
-      /*  MARQUEE ALERT BOX                                    */
-      /* ==================================================== */
+      /* ---- Sticky animation ---- */
+      .nav-primary {
+        animation: slideDownFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      }
+      .nav-primary.is-stuck {
+        transition:
+          opacity 0.6s ease,
+          transform 0.6s ease,
+          visibility 0.6s ease !important;
+      }
+      @keyframes slideDownFadeIn {
+        0% {
+          opacity: 0;
+          transform: translateY(-100%);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* ============================================================
+         MARQUEE
+         ============================================================ */
       .alert-marquee {
         background: var(--primary-color);
         color: var(--surface-white);
-        /* border-radius: 10px; */
         padding: 0px 20px;
         border: none;
         margin-top: 0.5rem;
@@ -329,6 +443,7 @@
         margin-bottom: 10px;
         display: inline-block;
         padding-bottom: 4px;
+        border-bottom: 3px solid var(--dark-yellow);
       }
       .video-section-header {
         text-align: center;
@@ -404,7 +519,7 @@
         display: flex;
         flex-wrap: wrap;
         gap: 12px;
-        color: var(--dark-yellow);
+        color: var(--surface-white);
       }
       .card-news .meta-tags i {
         margin-right: 5px;
@@ -520,26 +635,13 @@
       .card-news-date .meta-info {
         display: flex;
         align-items: center;
-        gap: 5px;
-        color: var(--dark-yellow);
-        font-size: 0.8rem;
-        font-weight: 600;
-        margin-bottom: 12px;
-      }
-      .card-news-date .meta-info i {
-        margin-right: 5px;
-      }
-
-      .card-news-date .reading-time {
-        display: flex;
-        align-items: center;
         gap: 15px;
         color: var(--dark-yellow);
         font-size: 0.8rem;
         font-weight: 600;
         margin-bottom: 12px;
       }
-      .card-news-date .reading-time i {
+      .card-news-date .meta-info i {
         margin-right: 5px;
       }
       .card-news-date .news-title-text {
@@ -575,6 +677,15 @@
       .card-news-date .read-more-link:hover {
         color: var(--primary-color);
       }
+
+      @media(min-width: 768px) and (max-width: 1200px) {
+        .card-news-date .meta-info {
+          flex-direction: column;   /* now align-items works horizontally */
+          align-items: stretch;     /* or center, etc. */
+        }
+      }
+
+     
 
       /* ==================================================== */
       /*  SERVICE CARDS (Yellow/Green/Red)                     */
@@ -695,7 +806,7 @@
         text-align: center;
       }
       .card-video .video-description {
-        font-size: 0.95rem;
+        font-size: 0.8rem;
         line-height: 1.6;
         color: var(--text-main);
         margin-bottom: 0;
@@ -706,7 +817,7 @@
       }
 
       /* ==================================================== */
-      /*  DIVIDER & READ MORE BUTTONS                          */
+      /*  DIVIDER & ပိုမိုဖတ်ရှုရန် ... BUTTONS                          */
       /* ==================================================== */
       .divider-container {
         display: flex;
@@ -793,13 +904,13 @@
       }
       .btn-read-more-pill {
         display: inline-block;
-        padding: 10px 40px;
+        padding: 5px 15px;
         border: 2px solid var(--dark-yellow);
         border-radius: var(--radius-pill);
         color: var(--dark-yellow);
         background-color: transparent;
-        font-weight: 700;
-        font-size: 0.9rem;
+        font-weight: 500;
+        font-size: 0.875rem;
         text-transform: uppercase;
         text-decoration: none;
         transition: var(--transition-smooth);
@@ -955,9 +1066,28 @@
         flex-wrap: wrap;
         gap: 15px;
       }
-      .header-content {
+      .gallery-header-content {
         text-align: center;
         flex-grow: 1;
+      }
+
+      .gallery-section-title {
+        color: var(--text-main);
+        font-weight: 700;
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+        display: inline-block;
+        padding-bottom: 4px;
+        border-bottom: 3px solid var(--dark-yellow);
+      }
+      .gallery-section-header {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+      .gallery-section-subtitle {
+        font-size: 1rem;
+        color: var(--text-muted);
+        margin-bottom: 15px;
       }
 
       #photoCarousel {
@@ -1098,9 +1228,9 @@
         }
       }
 
-      /* ==================================================== */
-      /*  FOOTER                                               */
-      /* ==================================================== */
+      /* ============================================================
+         FOOTER (condensed for brevity – keep your existing styles)
+         ============================================================ */
       .site-footer {
         background-color: var(--primary-color);
         color: var(--surface-white);
@@ -1116,9 +1246,9 @@
       }
       .footer-title {
         font-weight: 700;
-        font-size: 1.3rem;
+        font-size: 1rem;
         margin-bottom: 25px;
-        color: var(--surface-white);
+        color: var(--dark-yellow);
       }
       .footer-contact-item {
         display: flex;
@@ -1173,6 +1303,29 @@
         height: 100%;
         border: 0;
       }
+      .footer-social {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        padding: 20px 0 20px 0;
+      }
+      .footer-social a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background-color: var(--dark-yellow);
+        color: var(--surface-white);
+        border-radius: 10%;
+        text-decoration: none;
+        font-size: 1.2rem;
+        transition: var(--transition-smooth);
+      }
+      .footer-social a:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      }
       @media (max-width: 991px) {
         .footer-title {
           margin-top: 30px;
@@ -1182,9 +1335,9 @@
         }
       }
 
-      /* ==================================================== */
-      /*  SCROLL TO TOP BUTTON                                 */
-      /* ==================================================== */
+      /* ============================================================
+         SCROLL TO TOP
+         ============================================================ */
       #scrollToTopBtn {
         position: fixed;
         bottom: 3rem;
@@ -1215,32 +1368,9 @@
         transform: translateY(0);
       }
 
-      /* ==================================================== */
-      /*  NAVBAR STICKY ANIMATION                              */
-      /* ==================================================== */
-      .nav-primary {
-        animation: slideDownFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-      }
-      .nav-primary.is-stuck {
-        transition:
-          opacity 0.6s ease,
-          transform 0.6s ease,
-          visibility 0.6s ease !important;
-      }
-      @keyframes slideDownFadeIn {
-        0% {
-          opacity: 0;
-          transform: translateY(-100%);
-        }
-        100% {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      /* ==================================================== */
-      /*  MOBILE HEADER RESPONSIVENESS                         */
-      /* ==================================================== */
+      /* ============================================================
+         MOBILE HEADER
+         ============================================================ */
       @media (max-width: 767.98px) {
         .header-gov .header-controls {
           justify-content: center !important;
@@ -1298,77 +1428,74 @@
           width: auto;
         }
       }
-
-      /* ==================================================== */
-      /*  EXTRA HOVER FIX FOR DESKTOP DROPDOWNS                */
-      /* ==================================================== */
       @media (min-width: 768px) {
-        .nav-primary .dropdown:hover .dropdown-menu {
+        .nav-primary .dropdown:hover > .dropdown-menu {
           display: block !important;
         }
-        .nav-primary .dropdown:hover .dropdown-menu.show {
+        .nav-primary .dropdown:hover > .dropdown-menu.show {
           display: block !important;
         }
       }
 
-      /* ==================================================== */
-      /*  SOCIAL MEDIA ICONS IN FOOTER                         */
-      /* ==================================================== */
-      .footer-social {
-        display: flex;
-        justify-content: center;
-        gap: 15px;
-        padding: 20px 0 20px 0;
+      /* ============================================================
+        Breadcrumb
+         ============================================================ */
+
+      .custom-breadcrumb {
+        background: transparent;
+        padding: 0.5rem 0 0.2rem 0;
+        margin-bottom: 0.2rem;
+        font-size: 0.85rem;
+        font-weight: 600;
       }
-      .footer-social a {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 40px;
-        height: 40px;
-        background-color: var(--dark-yellow);
-        color: var(--surface-white);
-        border-radius: 10%;
+      .custom-breadcrumb .breadcrumb-item a {
+        color: var(--text-muted);
         text-decoration: none;
-        font-size: 1.2rem;
         transition: var(--transition-smooth);
       }
-      .footer-social a:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      .custom-breadcrumb .breadcrumb-item a:hover {
+        color: var(--dark-yellow);
+        text-decoration: underline;
+      }
+      .custom-breadcrumb .breadcrumb-item.active {
+        color: var(--dark-yellow);
+        font-weight: 600;
+      }
+      .custom-breadcrumb .breadcrumb-item + .breadcrumb-item::before {
+        content: "/";
+        color: var(--text-muted);
+        font-weight: 300;
+        padding: 0 0.5rem;
       }
 
-      /* 8 · diagonal corner */
-      .date-diagonal {
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 80px;
-        height: 80px;
-        overflow: hidden;
-        pointer-events: none;
-      }
-      .date-diagonal .diag-badge {
-        position: absolute;
-        top: 14px;
-        right: -22px;
-        width: 120px;
-        background: var(--dark-yellow);
-        color: #fff;
-        text-align: center;
-        padding: 0.15rem 0;
-        font-size: 0.65rem;
+      /* ============================================================
+        NEWS LIST
+         ============================================================ */
+
+      .news-list-title {
+        color: var(--text-main);
         font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        transform: rotate(45deg);
-        box-shadow: 0 4px 12px rgba(15, 52, 96, 0.2);
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+        display: inline-block;
+        border-bottom: 3px solid var(--dark-yellow);
+        padding-bottom: 4px;
       }
-      .date-diagonal .diag-badge .day-diag {
-        font-size: 0.9rem;
-        font-weight: 800;
-        margin-right: 0.2rem;
+
+      @media (max-width: 576px) {
+        .news-list-title {
+          font-size: 1.5rem;
+        }
+        .custom-breadcrumb {
+          font-size: 0.75rem;
+        }
       }
+
+
+       /* ============================================================
+        PAGINATION LINK
+         ============================================================ */
+
 
       .pagination .page-link {
         color: var(--text-main);
@@ -1393,64 +1520,28 @@
         pointer-events: none;
       }
 
-      /* --- Breadcrumb & Title for "အခြားသတင်းများ" --- */
-.custom-breadcrumb {
-    background: transparent;
-    padding: 0.5rem 0 0.2rem 0;
-    margin-bottom: 0.2rem;
-    font-size: 0.85rem;
-}
-.custom-breadcrumb .breadcrumb-item a {
-    color: var(--text-muted);
-    text-decoration: none;
-    transition: var(--transition-smooth);
-}
-.custom-breadcrumb .breadcrumb-item a:hover {
-    color: var(--dark-yellow);
-    text-decoration: underline;
-}
-.custom-breadcrumb .breadcrumb-item.active {
-    color: var(--dark-yellow);
-    font-weight: 600;
-}
-.custom-breadcrumb .breadcrumb-item + .breadcrumb-item::before {
-    content: "/";
-    color: var(--text-muted);
-    font-weight: 300;
-    padding: 0 0.5rem;
-}
-
-
-
-.other-news-title {
-    color: var(--text-main);
-        font-weight: 700;
-        font-size: 1.2rem;
-        margin-bottom: 20px;
-        display: inline-block;
-        border-bottom: 3px solid var(--dark-yellow);
-        padding-bottom: 4px;
-}
-
-@media (max-width: 576px) {
-    .other-news-title {
-        font-size: 1.5rem;
-    }
-    .custom-breadcrumb {
-        font-size: 0.75rem;
-    }
-}
+       @media (max-width: 768px) {
+          .pagination .page-link {
+            flex-direction: column;   /* now align-items works horizontally */
+            align-items: stretch; 
+        }
+      }
     </style>
   </head>
   <body>
-    <!-- HEADER: left logo + two lines, right: language switcher + search (centered on mobile) -->
+    <!-- ============================================================
+    HEADER
+    ============================================================ -->
     <header class="header-gov">
       <div class="container">
         <div class="row align-items-center g-2">
-          <!-- left: logo + two lines -->
           <div class="col-6 col-md-6 d-flex align-items-center">
             <div class="me-2">
-              <img class="header-logo-img" src="./mowa-logo.png" alt="" />
+              <img
+                class="header-logo-img"
+                src="./mowa-logo.png"
+                alt="MOWA Logo"
+              />
             </div>
             <div class="logo-wrap d-flex flex-column">
               <span class="header-logo-text fs-4"
@@ -1461,31 +1552,11 @@
               >
             </div>
           </div>
-          <!-- right: language switcher + search (centered on mobile via flex) -->
           <div
             class="col-6 col-md-6 d-flex justify-content-end header-controls"
           >
             <div class="d-flex gap-2 align-items-center flex-wrap">
-              <!-- language switcher: Myanmar + English -->
-              <!-- <div class="lang-switch dropdown">
-                <button
-                  class="dropdown-toggle d-flex align-items-center gap-1"
-                  type="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  <i class="bi bi-globe2"></i> <span>EN</span>
-                </button>
-                <ul class="dropdown-menu dropdown-menu-end">
-                  <li><a class="dropdown-item" href="#">English</a></li>
-                  <li><a class="dropdown-item" href="#">မြန်မာ</a></li>
-                </ul>
-              </div> -->
-              <!-- ============================================== -->
-              <!-- TWO SEPARATE FLAG BUTTONS START                -->
-              <!-- ============================================== -->
               <div class="d-flex align-items-center gap-1">
-                <!-- Myanmar Flag Button -->
                 <a href="#" class="btn-flag" title="မြန်မာ">
                   <img
                     src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Flag_of_Myanmar.svg"
@@ -1498,7 +1569,6 @@
                     "
                   />
                 </a>
-                <!-- English Flag Button -->
                 <a href="#" class="btn-flag" title="English">
                   <img
                     src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Flag_of_the_United_Kingdom_%281-2%29.svg"
@@ -1512,11 +1582,6 @@
                   />
                 </a>
               </div>
-              <!-- ============================================== -->
-              <!-- TWO SEPARATE FLAG BUTTONS END                  -->
-              <!-- ============================================== -->
-
-              <!-- search box -->
               <form class="d-flex" role="search">
                 <div class="input-group">
                   <input
@@ -1536,10 +1601,11 @@
       </div>
     </header>
 
-    <!-- NAVBAR: blue bg, white text, yellow hover, toggler left on mobile -->
-    <!-- NAVBAR: blue bg, white text, yellow hover, toggler left on mobile -->
+    <!-- ============================================================
+    NAVBAR — multi‑level dropdown support
+    ============================================================ -->
     <nav
-      class="navbar navbar-expand-md nav-primary py-3 sticky-top"
+      class="navbar navbar-expand-md nav-primary py-2 sticky-top"
       id="stickyNavbar"
     >
       <div class="container">
@@ -1556,13 +1622,16 @@
         </button>
         <div class="collapse navbar-collapse" id="mainNav">
           <ul class="navbar-nav me-auto mb-2 mb-md-0 flex-wrap">
-            <!-- Home -->
+            <!-- HOME -->
             <li class="nav-item">
-              <a class="nav-link" href="#"
+              <a class="nav-link" href="./index.html"
                 ><i class="bi bi-house-door me-1"></i>ပင်မစာမျက်နှာ</a
               >
             </li>
-            <!-- About -->
+
+            <!-- ======================================================
+                 DROPDOWN: ဌာနအကြောင်း  (with sub‑menus)
+                 ====================================================== -->
             <li class="nav-item dropdown has-sub">
               <a
                 class="nav-link dropdown-toggle"
@@ -1575,117 +1644,240 @@
               >
               <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
                 <li>
-                  <a class="dropdown-item" href="#"
-                    >ရည်မှန်းချက်နှင့် မျှော်မှန်းချက်</a
+                  <a class="dropdown-item" href="./history.html"
+                    >နောက်ခံသမိုင်း</a
                   >
                 </li>
-                <li><a class="dropdown-item" href="#">သမိုင်းကြောင်း</a></li>
-                <li><a class="dropdown-item" href="#">ဦးဆောင်အဖွဲ့</a></li>
-                <li><a class="dropdown-item" href="#">ဆက်သွယ်ရန်</a></li>
+                <li>
+                  <a class="dropdown-item" href="./detail.html"
+                    >မူဝါဒ၊ ရည်မှန်းချက်၊ မျှော်မှန်းချက် နှင့်တာဝန်</a
+                  >
+                </li>
+
+                <!-- SUB‑MENU: ပြည်ထောင်စုဝန်ကြီးရုံးနှင့် ဦးစီးဌာနများ -->
+                <li class="dropdown-submenu">
+                  <a class="dropdown-item" href="#"
+                    >ပြည်ထောင်စုဝန်ကြီးရုံးနှင့် ဦးစီးဌာနများ
+                    <span class="sub-caret">▸</span></a
+                  >
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">ဝန်ကြီးရုံး</a></li>
+                    <li>
+                      <a class="dropdown-item" href="#"
+                        >အမျိုးသမီးများ ဖွံ့ဖြိုးတိုးတက်ရေး ဦးစီးဌာန</a
+                      >
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#"
+                        >အမျိုးသမီးများ ကာကွယ်စောင့်ရှောက်ရေး ဦးစီးဌာန</a
+                      >
+                    </li>
+                  </ul>
+                </li>
               </ul>
             </li>
-            <!-- Services (Women-focused) -->
+
+            <!-- ======================================================
+                 DROPDOWN: သတင်းမီဒီယာ
+                 ====================================================== -->
             <li class="nav-item dropdown has-sub">
               <a
                 class="nav-link dropdown-toggle"
                 href="#"
-                id="servicesDropdown"
+                id="mediaDropdown"
                 role="button"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
-                >ဝန်ဆောင်မှုများ</a
+                >သတင်းမီဒီယာ</a
               >
-              <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+              <ul class="dropdown-menu" aria-labelledby="mediaDropdown">
                 <li>
-                  <a class="dropdown-item" href="#"
-                    >ကျားမတန်းတူရေး မြှင့်တင်ခြင်း</a
-                  >
+                  <a class="dropdown-item" href="./news.html">သတင်းများ</a>
                 </li>
+                <li><a class="dropdown-item" href="./videos.html">ရုပ်သံသတင်းများ</a></li>
+                <li><a class="dropdown-item" href="#">ကြေငြာချက်များ</a></li>
                 <li>
-                  <a class="dropdown-item" href="#"
-                    >အမျိုးသမီးစွမ်းရည်မြှင့်တင်ရေး သင်တန်းများ</a
-                  >
+                  <a class="dropdown-item" href="./photos.html">ဓါတ်ပုံမှတ်တမ်းများ</a>
                 </li>
-                <li>
-                  <a class="dropdown-item" href="#"
-                    >အိမ်တွင်းအကြမ်းဖက်မှု တားဆီးကာကွယ်ရေး</a
-                  >
-                </li>
-                <li>
-                  <a class="dropdown-item" href="#"
-                    >ဥပဒေအကူအညီနှင့် ကာကွယ်စောင့်ရှောက်ရေး</a
-                  >
-                </li>
+                <li><a class="dropdown-item" href="#">တင်ဒါများ</a></li>
               </ul>
             </li>
-            <!-- News -->
-            <li class="nav-item"><a class="nav-link" href="#">သတင်းများ</a></li>
-            <!-- Departments (Women-focused) -->
+
+            <!-- ======================================================
+                 DROPDOWN: မူဝါဒ  (with sub‑menu)
+                 ====================================================== -->
             <li class="nav-item dropdown has-sub">
               <a
                 class="nav-link dropdown-toggle"
                 href="#"
-                id="deptDropdown"
+                id="policyDropdown"
                 role="button"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
-                >ဌာနများ</a
+                >မူဝါဒ</a
               >
-              <ul class="dropdown-menu" aria-labelledby="deptDropdown">
+              <ul class="dropdown-menu" aria-labelledby="policyDropdown">
+                <li><a class="dropdown-item" href="#">မူဝါဒများ</a></li>
+                <li><a class="dropdown-item" href="#">ဥပဒေ/နည်းဥပဒေ</a></li>
+                <li><a class="dropdown-item" href="#">မဟာဗျူဟာ</a></li>
+              </ul>
+            </li>
+
+            <!-- ======================================================
+                 DROPDOWN: ကော်မတီများ  (with sub‑menus)
+                 ====================================================== -->
+            <li class="nav-item dropdown has-sub">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="committeeDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                >ကော်မတီများ</a
+              >
+              <ul class="dropdown-menu" aria-labelledby="committeeDropdown">
                 <li>
                   <a class="dropdown-item" href="#"
-                    >အမျိုးသမီးဖွံ့ဖြိုးတိုးတက်ရေးဌာန</a
+                    >မြန်မာနိုင်ငံလုံးဆိုင်ရာ အမျိုးသမီးကော်မတီ</a
+                  >
+                </li>
+
+                <li>
+                  <a class="dropdown-item" href="#"
+                    >လူသားချင်းစာနာထောက်ထားမှု အကူအညီပေးရေးနှင့်
+                    အသက်မွေးဝမ်းကျောင်းလုပ်ငန်းများ
+                    ဖော်ဆောင်ရေးလုပ်ငန်းကော်မတီ</a
                   >
                 </li>
                 <li>
                   <a class="dropdown-item" href="#"
-                    >ကျားမတန်းတူရေးနှင့် မူဝါဒရေးရာဌာန</a
+                    >လူမှုကာကွယ်စောင့်ရှောက်ရေးဆိုင်ရာအမျိုးသား ကော်မတီ</a
                   >
                 </li>
                 <li>
                   <a class="dropdown-item" href="#"
-                    >အမျိုးသမီးအခွင့်အရေး ကာကွယ်စောင့်ရှောက်ရေးဌာန</a
+                    >လူသားချင်းစာနာမှုအကူအညီအထောက်အပံ့ပေးရေးနှင့်
+                    ပြန်လည်နေရာချထားရေးလုပ်ငန်း ကော်မတီ</a
                   >
                 </li>
                 <li>
                   <a class="dropdown-item" href="#"
-                    >သုတေသနနှင့် စီမံကိန်းရေးဆွဲရေးဌာန</a
+                    >အမျိုးသားသဘာဝဘေးအန္တရာယ်ဆိုင်ရာစီမံခန့်ခွဲမှု ကော်မတီ</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#"
+                    >မသန်စွမ်းသူများ၏အခွင့်အရေးများဆိုင်ရာအမျိုးသား ကော်မတီ</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#"
+                    >မြန်မာနိုင်ငံသက်ကြီးရွယ်အိုများဆိုင်ရာကော်မတီ</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#"
+                    >မြန်မာနိုင်ငံလူငယ်ရေးရာကော်မတီ</a
+                  >
+                </li>
+
+                <li>
+                  <a class="dropdown-item" href="#"
+                    >ပဋိပက္ခအတွင်းလိင်ပိုင်းဆိုင်ရာ
+                    အကြမ်းဖက်မှုတားဆီးကာကွယ်ရေးနှင့်
+                    တုံ့ပြန်ဆောင်ရွက်ရေးဆိုင်ရာအမျိုးသားအဆင့်ကော်မတီ</a
+                  >
+                </li>
+
+                <li>
+                  <a class="dropdown-item" href="#"
+                    >လက်နက်ကိုင်ပဋိပက္ခအတွင်းကလေးသူငယ်များအပေါ်ကြီးလေးသော
+                    ကျူးလွန်မှုများမှ ကာကွယ်တားဆီးရေးကော်မတီ</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#"
+                    >ကလေးသူငယ်အခွင့်အရေးများဆိုင်ရာ အမျိုးသား ကော်မတီ</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#"
+                    >လူမှုကာကွယ်စောင့်ရှောက်ရေးဆိုင်ရာ လုပ်ငန်းကော်မတီ</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#"
+                    >အမျိုးသားအဆင့် ရှေးဦးအရွယ်ကလေးသူငယ်ပြုစုပျိုးထောင်ရေးနှင့်
+                    ဖွံ့ဖြိုးရေး ကော်မတီ</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#"
+                    >ရှေးဦးအရွယ်ကလေးသူငယ်ပြုစုပျိုးထောင်ရေးနှင့်ဖွံ့ဖြိုးရေးလုပ်ငန်း
+                    ဗဟိုကြီးကြပ်ရေးအဖွဲ့</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#"
+                    >ပြည်တွင်းနေရပ်စွန့်ခွာသူများပြန်လည်နေရာချထားရေးနှင့်ယာယီခိုလှုံရာစခန်းများပိတ်သိမ်းရေးဆိုင်ရာ
+                    အမျိုးသားအဆင့်ကော်မတီ</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#"
+                    >အမျိုးသားဆင့်စေတနာ့ဝန်ထမ်း ဦးဆောင်အဖွဲ့</a
                   >
                 </li>
               </ul>
             </li>
-            <!-- Contact -->
+
+            <!-- ======================================================
+                 DROPDOWN: ကွန်ဗင်းရှင်း
+                 ====================================================== -->
+            <li class="nav-item dropdown has-sub">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="conventionDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                >ကွန်ဗင်းရှင်း</a
+              >
+              <ul class="dropdown-menu" aria-labelledby="conventionDropdown">
+                <li>
+                  <a class="dropdown-item" href="#"
+                    >အမျိုးသမီးများအားနည်းမျိုးစုံဖြင့် ခွဲခြားမှု
+                    ပပျောက်ရေးဆိုင်ရာ ကွန်ဗင်းရှင်း</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#"
+                    >ကလေးသူငယ်အခွင့်အရေးများဆိုင်ရာ ကုလသမဂ္ဂကွန်ဗင်းရှင်း</a
+                  >
+                </li>
+              </ul>
+            </li>
+
+            <!-- STATIC LINKS -->
+            <li class="nav-item">
+              <a class="nav-link" href="#">လုပ်ငန်းဆောင်ရွက်ချက်များ</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">ဝန်ဆောင်မှုများ</a>
+            </li>
             <li class="nav-item">
               <a class="nav-link" href="#">ဆက်သွယ်ရန်</a>
-            </li>
-            <!-- Careers -->
-            <li class="nav-item dropdown has-sub">
-              <a
-                class="nav-link dropdown-toggle"
-                href="#"
-                id="careerDropdown"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-                >အလုပ်အကိုင်များ</a
-              >
-              <ul class="dropdown-menu" aria-labelledby="careerDropdown">
-                <li>
-                  <a class="dropdown-item" href="#">ရာထူးလစ်လပ်နေရာများ</a>
-                </li>
-                <li>
-                  <a class="dropdown-item" href="#">အလုပ်သင်အစီအစဉ်များ</a>
-                </li>
-                <li>
-                  <a class="dropdown-item" href="#">အကျိုးခံစားခွင့်များ</a>
-                </li>
-              </ul>
             </li>
           </ul>
         </div>
       </div>
     </nav>
 
+    <!-- ============================================================
+    SCROLL TO TOP
+    ============================================================ -->
     <button
       id="scrollToTopBtn"
       onclick="scrollToTop()"
@@ -1694,28 +1886,32 @@
       <i class="bi bi-chevron-up"></i>
     </button>
 
-    <!-- main content demo -->
-    <main class="content-placeholder">
+   
 
+    <!-- ============================================================
+    MAIN CONTENT (demo)
+    ============================================================ -->
+    <main class="content-placeholder">
       <div class="container container-news pt-4 pb-3">
-    <div class="row">
-        <div class="col-12">
+        <div class="row">
+          <div class="col-12">
             <!-- Breadcrumb -->
             <nav aria-label="breadcrumb">
-                <ol class="breadcrumb custom-breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">ပင်မစာမျက်နှာ</a></li>
-                    <li class="breadcrumb-item"><a href="#">သတင်းမီဒီယာ</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">အခြားသတင်းများ</li>
-                </ol>
+              <ol class="breadcrumb custom-breadcrumb">
+                <li class="breadcrumb-item"><a href="#">ပင်မစာမျက်နှာ</a></li>
+                <li class="breadcrumb-item"><a href="#">သတင်းမီဒီယာ</a></li>
+                <li class="breadcrumb-item active" aria-current="page">
+                  အခြားသတင်းများ
+                </li>
+              </ol>
             </nav>
             <!-- Title -->
-            <h1 class="other-news-title">အခြားသတင်းများ</h1>
+            <h1 class="news-list-title">အခြားသတင်းများ</h1>
             <!-- Optional Divider -->
             <hr class="gradient-divider my-3" />
+          </div>
         </div>
-    </div>
-</div>
-
+      </div>
       <div class="container container-news">
         <!-- Section Header -->
 
@@ -1737,12 +1933,13 @@
               <div class="card-body-custom">
                 <div class="meta-info">
                   <span class="date"
-                    ><i class="bi bi-calendar"></i> 27 FEBRUARY 2026</span
+                    ><i class="bi bi-calendar"></i> 27 FEB 2026</span
                   >
                   <span class="location"
                     ><i class="bi bi-geo-alt-fill"></i> နေပြည်တော်</span
                   >
-                 
+
+                   <span><i class="bi bi-clock"></i> ဖတ်ရန် ၄ မိနစ်</span>
                 </div>
                 <h3 class="news-title-text">
                   အမျိုးသမီးရေးရာဝန်ကြီးဌာန၊ ဒုတိယဝန်ကြီး ဒေါ်စန်းစန်းနွယ်
@@ -1757,7 +1954,7 @@
                   ခေါင်းဆောင်မှုစွမ်းရည်နှင့် စီးပွားရေးဆိုင်ရာ
                   အခွင့်အလမ်းများအကြောင်း ဟောပြောခဲ့ပါသည်။
                 </p>
-                <div class="reading-time"><span><i class="bi bi-clock"></i> ဖတ်ရန် ၄ မိနစ်</span></div>
+                
                 <a href="#" class="read-more-link"
                   >ဆက်လက်ဖတ်ရှုရန် <i class="bi bi-arrow-right"></i
                 ></a>
@@ -1791,10 +1988,10 @@
                   <span class="location"
                     ><i class="bi bi-geo-alt-fill"></i> နေပြည်တော်</span
                   >
-                  
-                 
+
+                   <span><i class="bi bi-clock"></i> ဖတ်ရန် ၄ မိနစ်</span>
                 </div>
-               
+
                 <h3 class="news-title-text">
                   အမျိုးသမီးရေးရာဝန်ကြီးဌာနမှ ကျင်းပသည့် ကျားမတန်းတူရေး
                   ဆွေးနွေးပွဲသို့ အရပ်ဘက်အဖွဲ့အစည်းများ တက်ရောက်
@@ -1806,8 +2003,8 @@
                   အရပ်ဘက်လူမှုအဖွဲ့အစည်းများမှ ကိုယ်စားလှယ်များ
                   တက်ရောက်ခဲ့ကြသည်။
                 </p>
-                 <div class="reading-time"><span><i class="bi bi-clock"></i> ဖတ်ရန် ၄ မိနစ်</span></div>
                 
+
                 <a href="#" class="read-more-link"
                   >ဆက်လက်ဖတ်ရှုရန် <i class="bi bi-arrow-right"></i
                 ></a>
@@ -1860,400 +2057,7 @@
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6">
-            <div class="card-news-date">
-              <div class="img-wrapper">
-                <img
-                  src="https://images.unsplash.com/photo-1544531586-fde5298cdd40?q=80&w=800&auto=format&fit=crop"
-                  alt="News Image"
-                />
-                <!-- <div class="date-badge">
-                  <span class="day">27</span>
-                  <span class="month">FEB</span>
-                </div> -->
-                <div class="date-diagonal">
-                  <div class="diag-badge">
-                    <span class="day-diag">27</span> FEB
-                  </div>
-                </div>
-              </div>
-              <div class="card-body-custom">
-                <div class="meta-info">
-                  <span class="date"
-                    ><i class="bi bi-calendar"></i> 27 FEBRUARY 2026</span
-                  >
-                  <span class="location"
-                    ><i class="bi bi-geo-alt-fill"></i> နေပြည်တော်</span
-                  >
-                </div>
-                <h3 class="news-title-text">
-                  အမျိုးသမီးရေးရာဝန်ကြီးဌာနမှ ကျင်းပသည့် အိမ်တွင်းအကြမ်းဖက်မှု
-                  တားဆီးရေး အသိပညာပေး ဟောပြောပွဲ
-                </h3>
-                <p class="news-body-text">
-                  မန္တလေးမြို့ရှိ အမျိုးသမီးရေးရာဝန်ကြီးဌာနရုံးခွဲတွင်
-                  ကျင်းပပြုလုပ်သည့် အိမ်တွင်းအကြမ်းဖက်မှု ကာကွယ်တားဆီးရေး
-                  အသိပညာပေး ဟောပြောပွဲသို့ ဒေသခံ အမျိုးသမီးများ၊ မိသားစုဝင်များ
-                  အများအပြား တက်ရောက်၍ သိသင့်သည့် ဥပဒေရေးရာအချက်များ ကို
-                  ဆွေးနွေးခဲ့ကြသည်။
-                </p>
-                <a href="#" class="read-more-link"
-                  >ဆက်လက်ဖတ်ရှုရန် <i class="bi bi-arrow-right"></i
-                ></a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="card-news-date">
-              <div class="img-wrapper">
-                <img
-                  src="https://images.unsplash.com/photo-1544531586-fde5298cdd40?q=80&w=800&auto=format&fit=crop"
-                  alt="News Image"
-                />
-
-                <div class="date-diagonal">
-                  <div class="diag-badge">
-                    <span class="day-diag">27</span> FEB
-                  </div>
-                </div>
-              </div>
-              <div class="card-body-custom">
-                <div class="meta-info">
-                  <span class="date"
-                    ><i class="bi bi-calendar"></i> 27 FEBRUARY 2026</span
-                  >
-                  <span class="location"
-                    ><i class="bi bi-geo-alt-fill"></i> နေပြည်တော်</span
-                  >
-                </div>
-                <h3 class="news-title-text">
-                  အမျိုးသမီးရေးရာဝန်ကြီးဌာန၊ ဒုတိယဝန်ကြီး ဒေါ်စန်းစန်းနွယ်
-                  မြန်မာနိုင်ငံရှိ အမျိုးသမီးများ၏ အခွင့်အရေးနှင့် ဖွံ့ဖြိုးရေး
-                  လုပ်ငန်းများ အကြောင်း ဆွေးနွေး
-                </h3>
-                <p class="news-body-text">
-                  ရန်ကုန်တိုင်းဒေသကြီး၊ အင်းစိန်မြို့နယ်ရှိ
-                  အမျိုးသမီးရေးရာဝန်ကြီးဌာန၌ ကျင်းပပြုလုပ်ခဲ့သည့်
-                  အမျိုးသမီးများ၏ စွမ်းဆောင်ရည်မြှင့်တင်ရေး
-                  အလုပ်ရုံဆွေးနွေးပွဲတွင် ဒုတိယဝန်ကြီးက အမျိုးသမီးများ၏
-                  ခေါင်းဆောင်မှုစွမ်းရည်နှင့် စီးပွားရေးဆိုင်ရာ
-                  အခွင့်အလမ်းများအကြောင်း ဟောပြောခဲ့ပါသည်။
-                </p>
-                <a href="#" class="read-more-link"
-                  >ဆက်လက်ဖတ်ရှုရန် <i class="bi bi-arrow-right"></i
-                ></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6">
-            <div class="card-news-date">
-              <div class="img-wrapper">
-                <img
-                  src="https://images.unsplash.com/photo-1544531586-fde5298cdd40?q=80&w=800&auto=format&fit=crop"
-                  alt="News Image"
-                />
-                <!-- <div class="date-badge">
-                  <span class="day">27</span>
-                  <span class="month">FEB</span>
-                </div> -->
-
-                <div class="date-diagonal">
-                  <div class="diag-badge">
-                    <span class="day-diag">27</span> FEB
-                  </div>
-                </div>
-              </div>
-              <div class="card-body-custom">
-                <div class="meta-info">
-                  <span class="date"
-                    ><i class="bi bi-calendar"></i> 27 FEBRUARY 2026</span
-                  >
-                  <span class="location"
-                    ><i class="bi bi-geo-alt-fill"></i> နေပြည်တော်</span
-                  >
-                </div>
-                <h3 class="news-title-text">
-                  အမျိုးသမီးရေးရာဝန်ကြီးဌာနမှ ကျင်းပသည့် ကျားမတန်းတူရေး
-                  ဆွေးနွေးပွဲသို့ အရပ်ဘက်အဖွဲ့အစည်းများ တက်ရောက်
-                </h3>
-                <p class="news-body-text">
-                  နေပြည်တော်ရှိ အမျိုးသမီးရေးရာဝန်ကြီးဌာန၏ ခန်းမတွင်
-                  ကျင်းပပြုလုပ်ခဲ့သည့် ကျားမတန်းတူရေးနှင့် အမျိုးသမီးများ၏
-                  နိုင်ငံရေးပါဝင်မှုဆိုင်ရာ အလုပ်ရုံဆွေးနွေးပွဲသို့
-                  အရပ်ဘက်လူမှုအဖွဲ့အစည်းများမှ ကိုယ်စားလှယ်များ
-                  တက်ရောက်ခဲ့ကြသည်။
-                </p>
-                <a href="#" class="read-more-link"
-                  >ဆက်လက်ဖတ်ရှုရန် <i class="bi bi-arrow-right"></i
-                ></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6">
-            <div class="card-news-date">
-              <div class="img-wrapper">
-                <img
-                  src="https://images.unsplash.com/photo-1544531586-fde5298cdd40?q=80&w=800&auto=format&fit=crop"
-                  alt="News Image"
-                />
-                <!-- <div class="date-badge">
-                  <span class="day">27</span>
-                  <span class="month">FEB</span>
-                </div> -->
-                <div class="date-diagonal">
-                  <div class="diag-badge">
-                    <span class="day-diag">27</span> FEB
-                  </div>
-                </div>
-              </div>
-              <div class="card-body-custom">
-                <div class="meta-info">
-                  <span class="date"
-                    ><i class="bi bi-calendar"></i> 27 FEBRUARY 2026</span
-                  >
-                  <span class="location"
-                    ><i class="bi bi-geo-alt-fill"></i> နေပြည်တော်</span
-                  >
-                </div>
-                <h3 class="news-title-text">
-                  အမျိုးသမီးများအတွက် ဒီဂျစ်တယ် ငွေကြေးအသိပညာပေး သင်တန်းများ
-                  ဖွင့်လှစ်
-                </h3>
-                <p class="news-body-text">
-                  အမျိုးသမီးရေးရာဝန်ကြီးဌာနနှင့် မြန်မာနိုင်ငံတော်ဗဟိုဘဏ် တို့
-                  ပူးပေါင်းဆောင်ရွက်သည့် ဒီဂျစ်တယ် ဘဏ်လုပ်ငန်းနှင့်
-                  ငွေကြေးဆိုင်ရာ အသိပညာပေး သင်တန်းများကို
-                  ရန်ကုန်တိုင်းဒေသကြီးတွင် စတင်ဖွင့်လှစ်ခဲ့ပြီး
-                  အမျိုးသမီးစီးပွားရေးလုပ်ငန်းရှင်များ တက်ရောက်ခဲ့ကြသည်။
-                </p>
-                <a href="#" class="read-more-link"
-                  >ဆက်လက်ဖတ်ရှုရန် <i class="bi bi-arrow-right"></i
-                ></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6">
-            <div class="card-news-date">
-              <div class="img-wrapper">
-                <img
-                  src="https://images.unsplash.com/photo-1544531586-fde5298cdd40?q=80&w=800&auto=format&fit=crop"
-                  alt="News Image"
-                />
-                <!-- <div class="date-badge">
-                  <span class="day">27</span>
-                  <span class="month">FEB</span>
-                </div> -->
-                <div class="date-diagonal">
-                  <div class="diag-badge">
-                    <span class="day-diag">27</span> FEB
-                  </div>
-                </div>
-              </div>
-              <div class="card-body-custom">
-                <div class="meta-info">
-                  <span class="date"
-                    ><i class="bi bi-calendar"></i> 27 FEBRUARY 2026</span
-                  >
-                  <span class="location"
-                    ><i class="bi bi-geo-alt-fill"></i> နေပြည်တော်</span
-                  >
-                </div>
-                <h3 class="news-title-text">
-                  အမျိုးသမီးရေးရာဝန်ကြီးဌာနမှ ကျင်းပသည့် အိမ်တွင်းအကြမ်းဖက်မှု
-                  တားဆီးရေး အသိပညာပေး ဟောပြောပွဲ
-                </h3>
-                <p class="news-body-text">
-                  မန္တလေးမြို့ရှိ အမျိုးသမီးရေးရာဝန်ကြီးဌာနရုံးခွဲတွင်
-                  ကျင်းပပြုလုပ်သည့် အိမ်တွင်းအကြမ်းဖက်မှု ကာကွယ်တားဆီးရေး
-                  အသိပညာပေး ဟောပြောပွဲသို့ ဒေသခံ အမျိုးသမီးများ၊ မိသားစုဝင်များ
-                  အများအပြား တက်ရောက်၍ သိသင့်သည့် ဥပဒေရေးရာအချက်များ ကို
-                  ဆွေးနွေးခဲ့ကြသည်။
-                </p>
-                <a href="#" class="read-more-link"
-                  >ဆက်လက်ဖတ်ရှုရန် <i class="bi bi-arrow-right"></i
-                ></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6">
-            <div class="card-news-date">
-              <div class="img-wrapper">
-                <img
-                  src="https://images.unsplash.com/photo-1544531586-fde5298cdd40?q=80&w=800&auto=format&fit=crop"
-                  alt="News Image"
-                />
-
-                <div class="date-diagonal">
-                  <div class="diag-badge">
-                    <span class="day-diag">27</span> FEB
-                  </div>
-                </div>
-              </div>
-              <div class="card-body-custom">
-                <div class="meta-info">
-                  <span class="date"
-                    ><i class="bi bi-calendar"></i> 27 FEBRUARY 2026</span
-                  >
-                  <span class="location"
-                    ><i class="bi bi-geo-alt-fill"></i> နေပြည်တော်</span
-                  >
-                </div>
-                <h3 class="news-title-text">
-                  အမျိုးသမီးရေးရာဝန်ကြီးဌာန၊ ဒုတိယဝန်ကြီး ဒေါ်စန်းစန်းနွယ်
-                  မြန်မာနိုင်ငံရှိ အမျိုးသမီးများ၏ အခွင့်အရေးနှင့် ဖွံ့ဖြိုးရေး
-                  လုပ်ငန်းများ အကြောင်း ဆွေးနွေး
-                </h3>
-                <p class="news-body-text">
-                  ရန်ကုန်တိုင်းဒေသကြီး၊ အင်းစိန်မြို့နယ်ရှိ
-                  အမျိုးသမီးရေးရာဝန်ကြီးဌာန၌ ကျင်းပပြုလုပ်ခဲ့သည့်
-                  အမျိုးသမီးများ၏ စွမ်းဆောင်ရည်မြှင့်တင်ရေး
-                  အလုပ်ရုံဆွေးနွေးပွဲတွင် ဒုတိယဝန်ကြီးက အမျိုးသမီးများ၏
-                  ခေါင်းဆောင်မှုစွမ်းရည်နှင့် စီးပွားရေးဆိုင်ရာ
-                  အခွင့်အလမ်းများအကြောင်း ဟောပြောခဲ့ပါသည်။
-                </p>
-                <a href="#" class="read-more-link"
-                  >ဆက်လက်ဖတ်ရှုရန် <i class="bi bi-arrow-right"></i
-                ></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6">
-            <div class="card-news-date">
-              <div class="img-wrapper">
-                <img
-                  src="https://images.unsplash.com/photo-1544531586-fde5298cdd40?q=80&w=800&auto=format&fit=crop"
-                  alt="News Image"
-                />
-                <!-- <div class="date-badge">
-                  <span class="day">27</span>
-                  <span class="month">FEB</span>
-                </div> -->
-
-                <div class="date-diagonal">
-                  <div class="diag-badge">
-                    <span class="day-diag">27</span> FEB
-                  </div>
-                </div>
-              </div>
-              <div class="card-body-custom">
-                <div class="meta-info">
-                  <span class="date"
-                    ><i class="bi bi-calendar"></i> 27 FEBRUARY 2026</span
-                  >
-                  <span class="location"
-                    ><i class="bi bi-geo-alt-fill"></i> နေပြည်တော်</span
-                  >
-                </div>
-                <h3 class="news-title-text">
-                  အမျိုးသမီးရေးရာဝန်ကြီးဌာနမှ ကျင်းပသည့် ကျားမတန်းတူရေး
-                  ဆွေးနွေးပွဲသို့ အရပ်ဘက်အဖွဲ့အစည်းများ တက်ရောက်
-                </h3>
-                <p class="news-body-text">
-                  နေပြည်တော်ရှိ အမျိုးသမီးရေးရာဝန်ကြီးဌာန၏ ခန်းမတွင်
-                  ကျင်းပပြုလုပ်ခဲ့သည့် ကျားမတန်းတူရေးနှင့် အမျိုးသမီးများ၏
-                  နိုင်ငံရေးပါဝင်မှုဆိုင်ရာ အလုပ်ရုံဆွေးနွေးပွဲသို့
-                  အရပ်ဘက်လူမှုအဖွဲ့အစည်းများမှ ကိုယ်စားလှယ်များ
-                  တက်ရောက်ခဲ့ကြသည်။
-                </p>
-                <a href="#" class="read-more-link"
-                  >ဆက်လက်ဖတ်ရှုရန် <i class="bi bi-arrow-right"></i
-                ></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6">
-            <div class="card-news-date">
-              <div class="img-wrapper">
-                <img
-                  src="https://images.unsplash.com/photo-1544531586-fde5298cdd40?q=80&w=800&auto=format&fit=crop"
-                  alt="News Image"
-                />
-                <!-- <div class="date-badge">
-                  <span class="day">27</span>
-                  <span class="month">FEB</span>
-                </div> -->
-                <div class="date-diagonal">
-                  <div class="diag-badge">
-                    <span class="day-diag">27</span> FEB
-                  </div>
-                </div>
-              </div>
-              <div class="card-body-custom">
-                <div class="meta-info">
-                  <span class="date"
-                    ><i class="bi bi-calendar"></i> 27 FEBRUARY 2026</span
-                  >
-                  <span class="location"
-                    ><i class="bi bi-geo-alt-fill"></i> နေပြည်တော်</span
-                  >
-                </div>
-                <h3 class="news-title-text">
-                  အမျိုးသမီးများအတွက် ဒီဂျစ်တယ် ငွေကြေးအသိပညာပေး သင်တန်းများ
-                  ဖွင့်လှစ်
-                </h3>
-                <p class="news-body-text">
-                  အမျိုးသမီးရေးရာဝန်ကြီးဌာနနှင့် မြန်မာနိုင်ငံတော်ဗဟိုဘဏ် တို့
-                  ပူးပေါင်းဆောင်ရွက်သည့် ဒီဂျစ်တယ် ဘဏ်လုပ်ငန်းနှင့်
-                  ငွေကြေးဆိုင်ရာ အသိပညာပေး သင်တန်းများကို
-                  ရန်ကုန်တိုင်းဒေသကြီးတွင် စတင်ဖွင့်လှစ်ခဲ့ပြီး
-                  အမျိုးသမီးစီးပွားရေးလုပ်ငန်းရှင်များ တက်ရောက်ခဲ့ကြသည်။
-                </p>
-                <a href="#" class="read-more-link"
-                  >ဆက်လက်ဖတ်ရှုရန် <i class="bi bi-arrow-right"></i
-                ></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6">
-            <div class="card-news-date">
-              <div class="img-wrapper">
-                <img
-                  src="https://images.unsplash.com/photo-1544531586-fde5298cdd40?q=80&w=800&auto=format&fit=crop"
-                  alt="News Image"
-                />
-                <!-- <div class="date-badge">
-                  <span class="day">27</span>
-                  <span class="month">FEB</span>
-                </div> -->
-                <div class="date-diagonal">
-                  <div class="diag-badge">
-                    <span class="day-diag">27</span> FEB
-                  </div>
-                </div>
-              </div>
-              <div class="card-body-custom">
-                <div class="meta-info">
-                  <span class="date"
-                    ><i class="bi bi-calendar"></i> 27 FEBRUARY 2026</span
-                  >
-                  <span class="location"
-                    ><i class="bi bi-geo-alt-fill"></i> နေပြည်တော်</span
-                  >
-                </div>
-                <h3 class="news-title-text">
-                  အမျိုးသမီးရေးရာဝန်ကြီးဌာနမှ ကျင်းပသည့် အိမ်တွင်းအကြမ်းဖက်မှု
-                  တားဆီးရေး အသိပညာပေး ဟောပြောပွဲ
-                </h3>
-                <p class="news-body-text">
-                  မန္တလေးမြို့ရှိ အမျိုးသမီးရေးရာဝန်ကြီးဌာနရုံးခွဲတွင်
-                  ကျင်းပပြုလုပ်သည့် အိမ်တွင်းအကြမ်းဖက်မှု ကာကွယ်တားဆီးရေး
-                  အသိပညာပေး ဟောပြောပွဲသို့ ဒေသခံ အမျိုးသမီးများ၊ မိသားစုဝင်များ
-                  အများအပြား တက်ရောက်၍ သိသင့်သည့် ဥပဒေရေးရာအချက်များ ကို
-                  ဆွေးနွေးခဲ့ကြသည်။
-                </p>
-                <a href="#" class="read-more-link"
-                  >ဆက်လက်ဖတ်ရှုရန် <i class="bi bi-arrow-right"></i
-                ></a>
-              </div>
-            </div>
-          </div>
+         
         </div>
 
         <!-- ===== PAGINATION (placeholder for Laravel) ===== -->
@@ -2262,7 +2066,7 @@
             <!-- First -->
             <li class="page-item disabled">
               <a class="page-link" href="#" tabindex="-1" aria-disabled="true">
-                <i class="bi bi-chevron-double-left"></i> ပထမ
+                <i class="bi bi-chevron-double-left"></i> ပထမဆုံး
               </a>
             </li>
             <!-- Previous -->
@@ -2296,13 +2100,11 @@
       </div>
     </main>
 
-    <!-- MAIN FOOTER SECTION -->
-    <!-- MAIN FOOTER SECTION -->
+    <!-- ============================================================
+    FOOTER
+    ============================================================ -->
     <footer class="site-footer">
       <div class="container">
-        <!-- ==================================================== -->
-        <!-- SOCIAL MEDIA ICONS ROW                                -->
-        <!-- ==================================================== -->
         <div class="footer-social">
           <a href="#" title="Facebook"><i class="bi bi-facebook"></i></a>
           <a href="#" title="YouTube"><i class="bi bi-youtube"></i></a>
@@ -2310,32 +2112,27 @@
           <a href="#" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
           <a href="#" title="Instagram"><i class="bi bi-instagram"></i></a>
         </div>
-        <!-- ==================================================== -->
-        <!-- END SOCIAL MEDIA ICONS ROW                            -->
-        <!-- ==================================================== -->
-
         <div class="row g-4">
-          <!-- COLUMN 1: Contact Us -->
           <div class="col-lg-3 col-md-6 col-12">
-            <h4 class="footer-title">Contact Us</h4>
+            <h4 class="footer-title">ဆက်သွယ်ရန်</h4>
             <div class="footer-contact-item">
               <i class="bi bi-geo-alt-fill"></i>
-              <span>အမျိုးသမီးရေးရာဝန်ကြီးဌာန၊ ရုံးအမှတ် ၁၄၊ နေပြည်တော်။</span>
+              <span>အမျိုးသမီးရေးရာဝန်ကြီးဌာန၊ ရုံးအမှတ် ၁၂၃ နေပြည်တော်။</span>
             </div>
             <div class="footer-contact-item">
               <i class="bi bi-telephone-fill"></i>
-              <span>067-1231231</span>
+              <span>၀၆၇-၁၂၃၄၅၆၇</span>
             </div>
             <div class="footer-contact-item">
               <i class="bi bi-envelope-fill"></i>
-              <span>moea.egov.2022@gmail.com</span>
+              <span>egov@mowa.gov.mm</span>
             </div>
-            <span class="footer-visit-count">Total Visits: 9261799</span>
+            <span class="footer-visit-count"
+              >လာရောက်ကြည့်ရှုသူပေါင်း: ၁၂၃၄၅၆၇၈၉၀</span
+            >
           </div>
-
-          <!-- COLUMN 2: Newspaper -->
           <div class="col-lg-3 col-md-6 col-12">
-            <h4 class="footer-title">Newspaper</h4>
+            <h4 class="footer-title">သတင်းစာများ</h4>
             <ul class="footer-links">
               <li><a href="#">မြန်မာ့အလင်း</a></li>
               <li><a href="#">ကြေးမုံ</a></li>
@@ -2343,10 +2140,8 @@
               <li><a href="#">Global New Light of Myanmar</a></li>
             </ul>
           </div>
-
-          <!-- COLUMN 3: Useful Link -->
           <div class="col-lg-3 col-md-6 col-12">
-            <h4 class="footer-title">Useful Link</h4>
+            <h4 class="footer-title">အသုံးဝင်သော လင့်များ</h4>
             <ul class="footer-links">
               <li>
                 <a href="#"
@@ -2359,10 +2154,8 @@
               <li><a href="#">ဝန်ကြီးဌာန website များ</a></li>
             </ul>
           </div>
-
-          <!-- COLUMN 4: Location Map -->
           <div class="col-lg-3 col-md-6 col-12">
-            <h4 class="footer-title">Location Map</h4>
+            <h4 class="footer-title">ဌာန တည်နေရာ</h4>
             <div class="footer-map-wrapper">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3819.580619977427!2d96.1296285750573!3d19.77359008654159!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30c1f2a2c2d2a2f7%3A0x5d8e3e8e1a0e5a5e!2sMinistry%20Zone!5e0!3m2!1sen!2smm!4v1700000000000!5m2!1sen!2smm"
@@ -2375,38 +2168,77 @@
         </div>
       </div>
     </footer>
-
-    <!-- BOTTOM COPYRIGHT BAR -->
     <div class="footer-bottom-bar">
       &copy; Copyright MOWA 2026. All Rights Reserved.
     </div>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+
     <script>
+      // ================================================================
+      // 1) NAVBAR DROPDOWN HOVER (desktop)
+      // ================================================================
       (function () {
-        // hover behaviour for sub-menus (desktop)
         const dropdowns = document.querySelectorAll(".nav-primary .dropdown");
         dropdowns.forEach((dd) => {
           dd.addEventListener("mouseenter", function (e) {
             if (window.innerWidth >= 768) {
-              this.querySelector(".dropdown-menu")?.classList.add("show");
+              const menu = this.querySelector(
+                ":scope > .dropdown-menu, :scope > .dropdown-submenu > .dropdown-menu",
+              );
+              if (menu) menu.classList.add("show");
             }
           });
           dd.addEventListener("mouseleave", function (e) {
             if (window.innerWidth >= 768) {
-              this.querySelector(".dropdown-menu")?.classList.remove("show");
+              const menu = this.querySelector(
+                ":scope > .dropdown-menu, :scope > .dropdown-submenu > .dropdown-menu",
+              );
+              if (menu) menu.classList.remove("show");
             }
           });
         });
       })();
-    </script>
 
-    <script>
+      // ================================================================
+      // 2) MOBILE: toggle sub‑menu on click (dropdown-submenu)
+      // ================================================================
+      document.addEventListener("DOMContentLoaded", function () {
+        const submenuToggles = document.querySelectorAll(
+          ".dropdown-submenu > .dropdown-item",
+        );
+        submenuToggles.forEach((toggle) => {
+          toggle.addEventListener("click", function (e) {
+            if (window.innerWidth < 768) {
+              e.preventDefault();
+              const parent = this.closest(".dropdown-submenu");
+              if (parent) {
+                parent.classList.toggle("show");
+              }
+            }
+          });
+        });
+
+        // Close other sub‑menus when one opens (mobile)
+        const allSubmenus = document.querySelectorAll(".dropdown-submenu");
+        allSubmenus.forEach((sm) => {
+          sm.addEventListener("show.bs.dropdown", function () {
+            if (window.innerWidth < 768) {
+              allSubmenus.forEach((other) => {
+                if (other !== this) other.classList.remove("show");
+              });
+            }
+          });
+        });
+      });
+
+      // ================================================================
+      // 3) STICKY NAVBAR
+      // ================================================================
       document.addEventListener("DOMContentLoaded", function () {
         const navbar = document.getElementById("stickyNavbar");
         let isStuck = false;
-
         function checkSticky() {
           if (window.scrollY > 10) {
             if (!isStuck) {
@@ -2424,6 +2256,9 @@
         window.addEventListener("scroll", checkSticky);
       });
 
+      // ================================================================
+      // 4) SCROLL TO TOP
+      // ================================================================
       const scrollToTopBtn = document.getElementById("scrollToTopBtn");
       window.onscroll = function () {
         if (
