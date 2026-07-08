@@ -1181,13 +1181,15 @@
         -webkit-box-orient: vertical;
         overflow: hidden;
       }
+
+      
       .card-gallery .meta {
         display: flex;
         flex-wrap: wrap;
         gap: 15px;
         font-size: 0.8rem;
         font-weight: 600;
-        color: #eb6c2f;
+        color:var(--dark-yellow);
       }
       .card-gallery .meta i {
         margin-right: 5px;
@@ -1428,6 +1430,24 @@
         }
       }
 
+      .card-gallery .btn-read-more {
+        margin-top: auto;
+        background: transparent;
+        color: var(--dark-yellow);
+        border-radius: 10px;
+        font-weight: 700;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        text-decoration: none;
+        transition: var(--transition-smooth);
+      }
+
+      .card-gallery .btn-read-more:hover {
+        cursor: pointer;
+        background: var(--surface-white);
+        color: var(--primary-color);
+      }
+
       
     </style>
   </head>
@@ -1602,7 +1622,7 @@
                 <li>
                   <a class="dropdown-item" href="./photos.html">ဓါတ်ပုံမှတ်တမ်းများ</a>
                 </li>
-                <li><a class="dropdown-item" href="#">တင်ဒါများ</a></li>
+                <li><a class="dropdown-item" href="./tenders.html">တင်ဒါများ</a></li>
               </ul>
             </li>
 
@@ -1621,7 +1641,7 @@
               >
               <ul class="dropdown-menu" aria-labelledby="policyDropdown">
                 <li><a class="dropdown-item" href="#">မူဝါဒများ</a></li>
-                <li><a class="dropdown-item" href="#">ဥပဒေ/နည်းဥပဒေ</a></li>
+                <li><a class="dropdown-item" href="./laws.html">ဥပဒေ/နည်းဥပဒေ</a></li>
                 <li><a class="dropdown-item" href="#">မဟာဗျူဟာ</a></li>
               </ul>
             </li>
@@ -1763,10 +1783,35 @@
               </ul>
             </li>
 
-            <!-- STATIC LINKS -->
-            <li class="nav-item">
-              <a class="nav-link" href="#">လုပ်ငန်းဆောင်ရွက်ချက်များ</a>
+             <!-- ======================================================
+                 DROPDOWN: လုပ်ငန်းဆောင်ရွက်ချက်များ
+                 ====================================================== -->
+            <li class="nav-item dropdown has-sub">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="processDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                >လုပ်ငန်းဆောင်ရွက်ချက်များ</a
+              >
+              <ul class="dropdown-menu" aria-labelledby="processDropdown">
+                <li>
+                  <a class="dropdown-item" href="./awareness.html"
+                    >အသိပညာပေးခြင်း</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="/egoverment.html"
+                    >e-Goverment</a
+                  >
+                </li>
+              </ul>
             </li>
+
+            <!-- STATIC LINKS -->
+            
             <li class="nav-item">
               <a class="nav-link" href="#">ဝန်ဆောင်မှုများ</a>
             </li>
@@ -1850,7 +1895,7 @@
                     “သစ်ပင်စိုက်ပျိုးပွဲ” အခမ်းအနားနှင့် “ စာတမ်းဖတ်ပွဲ”
                     အခမ်းအနား ကျင်းပခြင်း
                   </div>
-                  <a href="./new.html" class="read-more-btn"
+                  <a href="./news-detail.html" class="read-more-btn"
                     >ဆက်လက်ဖတ်ရှုရန် <i class="bi bi-arrow-right"></i
                     ><i class="fas fa-arrow-right"></i
                   ></a>
@@ -1882,7 +1927,7 @@
                         ရုပ်ရှင်သဘင်ဂီတဖျော်ဖြေပွဲ ကျင်းပ
                       </div>
 
-                      <a href="/comming-soon.html" class="read-more-btn"
+                      <a href="./news-detail.html" class="read-more-btn"
                         >ဆက်လက်ဖတ်ရှုရန် <i class="bi bi-arrow-right"></i
                       ></a>
                     </div>
@@ -1902,7 +1947,7 @@
                           <div class="news-title small-text">
                             ၂၀၂၆ ခုနှစ် မြန်မာအမျိုးသမီးများနေ့ အခမ်းအနား ကျင်းပ
                           </div>
-                          <a href="./comming-soon.html" class="read-more-btn"
+                          <a href="./news-detail.html" class="read-more-btn"
                             >ဆက်လက်ဖတ်ရှုရန် <i class="bi bi-arrow-right"></i
                             ><i class="fas fa-arrow-right"></i
                           ></a>
@@ -1920,7 +1965,7 @@
                           <div class="news-title small-text">
                             အမျိုးသမီးရေးရာ ဝန်ကြီးဌာန၊ ပြည်ထောင်စုဝန်ကြီး...
                           </div>
-                          <a href="./comming-soon.html" class="read-more-btn"
+                          <a href="./news-detail.html" class="read-more-btn"
                             >ဆက်လက်ဖတ်ရှုရန် <i class="bi bi-arrow-right"></i
                             ><i class="fas fa-arrow-right"></i
                           ></a>
@@ -1958,7 +2003,7 @@
                     အမျိုးသမီးရေးရာဝန်ကြီးဌာန၏ လုပ်ငန်းဆောင်ရွက်ချက်များ
                     အောင်မြင်စွာအကောင်အထည်ဖော် နိုင်ရေးအတွက် ရှင်းလင်းဆွေးနွေး
                   </div>
-                  <a href="/comming-soon.html" class="read-more-btn"
+                  <a href="./news-detail.html" class="read-more-btn"
                     >ဆက်လက်ဖတ်ရှုရန် <i class="bi bi-arrow-right"></i
                   ></a>
                 </div>
@@ -1980,7 +2025,7 @@
                     အမျိုးသမီးရေးရာဝန်ကြီးဌာန၏ လုပ်ငန်းဆောင်ရွက်ချက်များ
                     အောင်မြင်စွာအကောင်အထည်ဖော် နိုင်ရေးအတွက် ရှင်းလင်းဆွေးနွေး
                   </div>
-                  <a href="./comming-soon.html" class="read-more-btn"
+                  <a href="./news-detail.html" class="read-more-btn"
                     >ဆက်လက်ဖတ်ရှုရန် <i class="bi bi-arrow-right"></i
                   ></a>
                 </div>
@@ -2032,7 +2077,7 @@
                   ခေါင်းဆောင်မှုစွမ်းရည်နှင့် စီးပွားရေးဆိုင်ရာ
                   အခွင့်အလမ်းများအကြောင်း ဟောပြောခဲ့ပါသည်။
                 </p>
-                <a href="#" class="read-more-link"
+                <a href="./news-detail.html" class="read-more-link"
                   >ဆက်လက်ဖတ်ရှုရန် <i class="bi bi-arrow-right"></i
                 ></a>
               </div>
@@ -2074,7 +2119,7 @@
                   အရပ်ဘက်လူမှုအဖွဲ့အစည်းများမှ ကိုယ်စားလှယ်များ
                   တက်ရောက်ခဲ့ကြသည်။
                 </p>
-                <a href="#" class="read-more-link"
+                <a href="./news-detail.html" class="read-more-link"
                   >ဆက်လက်ဖတ်ရှုရန် <i class="bi bi-arrow-right"></i
                 ></a>
               </div>
@@ -2115,7 +2160,7 @@
                   ရန်ကုန်တိုင်းဒေသကြီးတွင် စတင်ဖွင့်လှစ်ခဲ့ပြီး
                   အမျိုးသမီးစီးပွားရေးလုပ်ငန်းရှင်များ တက်ရောက်ခဲ့ကြသည်။
                 </p>
-                <a href="#" class="read-more-link"
+                <a href="./news-detail.html" class="read-more-link"
                   >ဆက်လက်ဖတ်ရှုရန် <i class="bi bi-arrow-right"></i
                 ></a>
               </div>
@@ -2156,7 +2201,7 @@
                   အများအပြား တက်ရောက်၍ သိသင့်သည့် ဥပဒေရေးရာအချက်များ ကို
                   ဆွေးနွေးခဲ့ကြသည်။
                 </p>
-                <a href="#" class="read-more-link"
+                <a href="./news-detail.html" class="read-more-link"
                   >ဆက်လက်ဖတ်ရှုရန် <i class="bi bi-arrow-right"></i
                 ></a>
               </div>
@@ -2165,7 +2210,7 @@
         </div>
 
         <div class="read-more-wrapper">
-          <a href="#" class="btn-read-more-pill">ပိုမိုဖတ်ရှုရန် ...</a>
+          <a href="./news.html" class="btn-read-more-pill">ပိုမိုဖတ်ရှုရန် ...</a>
         </div>
       </div>
 
@@ -2185,7 +2230,7 @@
                 ပါဝင်ဆောင်ရွက်ခွင့်ရရှိရေးတို့ကို ဖော်ဆောင် ခြင်းဖြင့်
                 အားလုံးအကျုံးဝင်သော လူ့အဖွဲ့အစည်းတစ်ရပ် ဖြစ်ထွန်းလာစေရန်။
               </p>
-              <a href="#" class="btn-read-more">ပိုမိုဖတ်ရှုရန် ...</a>
+              <a href="./comming-soon.html" class="btn-read-more">ပိုမိုဖတ်ရှုရန် ...</a>
             </div>
           </div>
 
@@ -2203,7 +2248,7 @@
                 ကဏ္ဍစုံတွင် ကျား၊မ တန်းတူညီမျှရေးနှင့်
                 ထည့်သွင်းစဉ်းစားရေးတို့ကို ဆောင်ရွက်သွားမည်ဖြစ်ပါ သည်။
               </p>
-              <a href="#" class="btn-read-more">ပိုမိုဖတ်ရှုရန် ...</a>
+              <a href="./comming-soon.html" class="btn-read-more">ပိုမိုဖတ်ရှုရန် ...</a>
             </div>
           </div>
 
@@ -2219,7 +2264,7 @@
                 ပါဝင်ဆောင်ရွက်ခွင့်ရရှိရေးတို့ကို ဖော်ဆောင် ခြင်းဖြင့်
                 အားလုံးအကျုံးဝင်သော လူ့အဖွဲ့အစည်းတစ်ရပ် ဖြစ်ထွန်းလာစေရန်။
               </p>
-              <a href="#" class="btn-read-more">ပိုမိုဖတ်ရှုရန် ...</a>
+              <a href="./comming-soon.html" class="btn-read-more">ပိုမိုဖတ်ရှုရန် ...</a>
             </div>
           </div>
         </div>
@@ -2308,7 +2353,7 @@
         </div>
 
         <div class="read-more-wrapper">
-          <a href="#" class="btn-read-more-pill">ပိုမိုကြည့်ရှုရန် ...</a>
+          <a href="./videos.html" class="btn-read-more-pill">ပိုမိုကြည့်ရှုရန် ...</a>
         </div>
       </div>
 
@@ -2537,7 +2582,7 @@
             </div>
 
             <div class="read-more-wrapper">
-              <a href="#" class="btn-read-more-pill">ပိုမိုဖတ်ရှုရန် ...</a>
+              <a href="./tenders.html" class="btn-read-more-pill">ပိုမိုဖတ်ရှုရန် ...</a>
             </div>
           </div>
 
@@ -2632,16 +2677,20 @@
                       </div>
                     </div>
                     <div class="card-body">
-                      <div class="headline">
-                        နိုင်ငံတော်အဆင့် အခမ်းအနားကြီးများတွင် ပါဝင်ခဲ့သည့်
-                        မှတ်တမ်းဓာတ်ပုံများ...
-                      </div>
                       <div class="meta">
                         <span><i class="bi bi-calendar"></i> 23 MARCH 2025</span
                         ><span
                           ><i class="bi bi-geo-alt-fill"></i> နေပြည်တော်</span
                         >
                       </div>
+
+                      <div class="headline">
+                        နိုင်ငံတော်အဆင့် အခမ်းအနားကြီးများတွင် ပါဝင်ခဲ့သည့်
+                        မှတ်တမ်းဓာတ်ပုံများ...
+                      </div>
+                        <a href="./photo.html" class="btn-read-more">ဆက်လက်ကြည့်ရှုရန်  <i class="bi bi-arrow-right"></i
+                ></a>
+                      
                     </div>
                   </div>
                 </div>
@@ -2655,15 +2704,18 @@
                       </div>
                     </div>
                     <div class="card-body">
-                      <div class="headline">
-                        မရဝိဒယဗုဒ္ဓဟူဌက္တော်အတွင်း၌ ကျင်းပပြုလုပ်ခဲ့သည့်
-                        မာရဝိဒယဗုဒ္ဓပြားတော်ခြားကြီး တန်ဆောင်တိုင်ပွဲတော်...
-                      </div>
                       <div class="meta">
                         <span
                           ><i class="bi bi-calendar"></i> 29 OCTOBER 2025</span
                         ><span><i class="bi bi-geo-alt-fill"></i> ရန်ကုန်</span>
                       </div>
+                      <div class="headline">
+                        မရဝိဒယဗုဒ္ဓဟူဌက္တော်အတွင်း၌ ကျင်းပပြုလုပ်ခဲ့သည့်
+                        မာရဝိဒယဗုဒ္ဓပြားတော်ခြားကြီး တန်ဆောင်တိုင်ပွဲတော်...
+                      </div>
+                        <a href="./photo.html" class="btn-read-more">ဆက်လက်ကြည့်ရှုရန်  <i class="bi bi-arrow-right"></i
+                ></a>
+                      
                     </div>
                   </div>
                 </div>
@@ -2677,176 +2729,29 @@
                       </div>
                     </div>
                     <div class="card-body">
+                       <div class="meta">
+                        <span
+                          ><i class="bi bi-calendar"></i> 03 NOVEMBER 2025</span
+                        ><span><i class="bi bi-geo-alt-fill"></i> ရန်ကုန်</span>
+                      </div>
+
                       <div class="headline">
                         မာရဝိဒယဗုဒ္ဓပြားတော်ခြားကြီး တန်ဆောင်တိုင်ပွဲတော်၊
                         မီးပုံးပျံလွှတ်တင် ပွဲတော်ပြိုင်ပွဲတွင်
                         တိုင်းရင်းသားလူမျိုး...
                       </div>
-                      <div class="meta">
-                        <span
-                          ><i class="bi bi-calendar"></i> 03 NOVEMBER 2025</span
-                        ><span><i class="bi bi-geo-alt-fill"></i> ရန်ကုန်</span>
-                      </div>
+                     
+
+                      <a href="./photo.html" class="btn-read-more">ဆက်လက်ကြည့်ရှုရန်  <i class="bi bi-arrow-right"></i
+                ></a>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div class="carousel-item">
-              <div class="row g-4">
-                <div class="col-md-4">
-                  <div class="card-gallery">
-                    <div class="img-wrapper">
-                      <img src="./image/news-1.jpg" alt="Gallery Image" />
-                      <div class="date-badge">
-                        <span class="day">18</span
-                        ><span class="month">NOV</span>
-                      </div>
-                    </div>
-                    <div class="card-body">
-                      <div class="headline">
-                        တစ်နိုင်ငံလုံး ပစ်ခတ်တိုက်ခိုက်မှုရပ်စဲရေး သဘောတူစာချုပ်
-                        (NCA) (၁၀) နှစ်ပြည့် နှစ်ပတ်လည်နေ့ အခမ်းအနား
-                      </div>
-                      <div class="meta">
-                        <span
-                          ><i class="bi bi-calendar"></i> 18 NOVEMBER 2025</span
-                        ><span
-                          ><i class="bi bi-geo-alt-fill"></i> နေပြည်တော်</span
-                        >
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="card-gallery">
-                    <div class="img-wrapper">
-                      <img src="./image/news-2.jpg" alt="Gallery Image" />
-                      <div class="date-badge">
-                        <span class="day">10</span
-                        ><span class="month">DEC</span>
-                      </div>
-                    </div>
-                    <div class="card-body">
-                      <div class="headline">
-                        အမျိုးသမီးရေးရာဝန်ကြီးဌာနမှ ကျင်းပပြုလုပ်သည့် နှစ်ပတ်လည်
-                        ညီလာခံ အခမ်းအနား...
-                      </div>
-                      <div class="meta">
-                        <span
-                          ><i class="bi bi-calendar"></i> 10 DECEMBER 2025</span
-                        ><span
-                          ><i class="bi bi-geo-alt-fill"></i> နေပြည်တော်</span
-                        >
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="card-gallery">
-                    <div class="img-wrapper">
-                      <img src="./image/news-3.jpg" alt="Gallery Image" />
-                      <div class="date-badge">
-                        <span class="day">25</span
-                        ><span class="month">DEC</span>
-                      </div>
-                    </div>
-                    <div class="card-body">
-                      <div class="headline">
-                        ကချင်ပြည်နယ် မြို့နယ်အသီးသီးရှိ ကျေးရွာများအတွက်
-                        ဆောက်လုပ်ရေး ပစ္စည်းများ လှူဒါန်းခြင်း...
-                      </div>
-                      <div class="meta">
-                        <span
-                          ><i class="bi bi-calendar"></i> 25 DECEMBER 2025</span
-                        ><span
-                          ><i class="bi bi-geo-alt-fill"></i> ကချင်ပြည်နယ်</span
-                        >
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- SLIDE 2 -->
-            <div class="carousel-item">
-              <div class="row g-4">
-                <div class="col-md-4">
-                  <div class="card-gallery">
-                    <div class="img-wrapper">
-                      <img src="./image/news-4.jpg" alt="Gallery Image" />
-                      <div class="date-badge">
-                        <span class="day">18</span
-                        ><span class="month">NOV</span>
-                      </div>
-                    </div>
-                    <div class="card-body">
-                      <div class="headline">
-                        တစ်နိုင်ငံလုံး ပစ်ခတ်တိုက်ခိုက်မှုရပ်စဲရေး သဘောတူစာချုပ်
-                        (NCA) (၁၀) နှစ်ပြည့် နှစ်ပတ်လည်နေ့ အခမ်းအနား
-                      </div>
-                      <div class="meta">
-                        <span
-                          ><i class="bi bi-calendar"></i> 18 NOVEMBER 2025</span
-                        ><span
-                          ><i class="bi bi-geo-alt-fill"></i> နေပြည်တော်</span
-                        >
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="card-gallery">
-                    <div class="img-wrapper">
-                      <img src="./image/news-2.jpg" alt="Gallery Image" />
-                      <div class="date-badge">
-                        <span class="day">10</span
-                        ><span class="month">DEC</span>
-                      </div>
-                    </div>
-                    <div class="card-body">
-                      <div class="headline">
-                        အမျိုးသမီးရေးရာဝန်ကြီးဌာနမှ ကျင်းပပြုလုပ်သည့် နှစ်ပတ်လည်
-                        ညီလာခံ အခမ်းအနား...
-                      </div>
-                      <div class="meta">
-                        <span
-                          ><i class="bi bi-calendar"></i> 10 DECEMBER 2025</span
-                        ><span
-                          ><i class="bi bi-geo-alt-fill"></i> နေပြည်တော်</span
-                        >
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="card-gallery">
-                    <div class="img-wrapper">
-                      <img src="./image/news-3.jpg" alt="Gallery Image" />
-                      <div class="date-badge">
-                        <span class="day">25</span
-                        ><span class="month">DEC</span>
-                      </div>
-                    </div>
-                    <div class="card-body">
-                      <div class="headline">
-                        ကချင်ပြည်နယ် မြို့နယ်အသီးသီးရှိ ကျေးရွာများအတွက်
-                        ဆောက်လုပ်ရေး ပစ္စည်းများ လှူဒါန်းခြင်း...
-                      </div>
-                      <div class="meta">
-                        <span
-                          ><i class="bi bi-calendar"></i> 25 DECEMBER 2025</span
-                        ><span
-                          ><i class="bi bi-geo-alt-fill"></i> ကချင်ပြည်နယ်</span
-                        >
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+        
+           
           </div>
         </div>
       </div>

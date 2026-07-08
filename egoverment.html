@@ -1098,7 +1098,7 @@
         top: 50%;
         transform: translateY(-50%);
         opacity: 1;
-        background-color: rgba(0, 0, 0, 0.7);
+        background-color: var(--dark-yellow);
         border-radius: 6px;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
         transition: background-color 0.3s ease;
@@ -1108,10 +1108,10 @@
         background-color: rgba(0, 0, 0, 0.7);
       }
       .carousel-control-prev {
-        left: 5px; */
+        left: -60px;
       }
       .carousel-control-next {
-        right: 5px; */
+        right: -60px;
       }
       .carousel-control-prev-icon,
       .carousel-control-next-icon {
@@ -1123,10 +1123,10 @@
         height: auto;
       }
       .carousel-control-prev-icon::before {
-        content: "\f284";
+        content: "\f12f";
       }
       .carousel-control-next-icon::before {
-        content: "\f285";
+        content: "\f138";
       }
 
       .card-gallery {
@@ -1194,10 +1194,28 @@
         gap: 15px;
         font-size: 0.8rem;
         font-weight: 600;
-        color: #eb6c2f;
+        color: var(--dark-yellow);
       }
       .card-gallery .meta i {
         margin-right: 5px;
+      }
+
+      .card-gallery .btn-read-more {
+        margin-top: auto;
+        background: transparent;
+        color: var(--dark-yellow);
+        border-radius: 10px;
+        font-weight: 700;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        text-decoration: none;
+        transition: var(--transition-smooth);
+      }
+
+      .card-gallery .btn-read-more:hover {
+        cursor: pointer;
+        background: var(--surface-white);
+        color: var(--primary-color);
       }
 
       @media (max-width: 991px) {
@@ -1522,542 +1540,239 @@
           align-items: stretch;
         }
       }
+    </style>
 
-      /* ==================================================== */
-      /*  MAIN FEATURED NEWS (col-8)                          */
-      /* ==================================================== */
-      /* ==================================================== */
-      /*  FEATURED ARTICLE CARD (col-8)                       */
-      /* ==================================================== */
-      .featured-article-card {
-        background: var(--surface-white);
-        border-radius: 8px;
-        overflow: hidden;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-        height: 100%;
-      }
-
-      .featured-article-card .featured-img-wrapper {
-        position: relative;
-        width: 95%;
-        margin: 20px auto;
-        aspect-ratio: 16 / 9;
-        overflow: hidden;
-        background: #e9ecef;
-      }
-
-      .featured-article-card .featured-img-wrapper img {
-        width: 80%;
-        height: 10%;
-        object-fit: cover;
-        transition: transform 0.5s ease;
-      }
-
-      .featured-article-card:hover .featured-img-wrapper img {
-        transform: scale(1.04);
-      }
-
-      .featured-article-card .featured-body {
-        padding: 1.8rem 2rem 2rem 2rem;
-      }
-
-      .featured-article-card .featured-meta {
-        display: flex;
-        align-items: center;
-        gap: 1.2rem;
-        font-size: 0.8rem;
-        color: var(--dark-yellow);
-        font-weight: 600;
-        margin-bottom: 0.6rem;
-        flex-wrap: wrap;
-      }
-
-      .featured-article-card .featured-meta i {
-        margin-right: 4px;
-      }
-
-      .featured-article-card .featured-title {
-        font-size: 1.1rem;
-        font-weight: 700;
-        color: var(--text-main);
-        line-height: 1.4;
-        margin-bottom: 0.8rem;
-      }
-
-      .featured-article-card .featured-title a {
-        color: var(--text-main);
-        text-decoration: none;
-        transition: var(--transition-smooth);
-      }
-
-      .featured-article-card .featured-title a:hover {
-        color: var(--dark-yellow);
-      }
-
-      /* Article text styling */
-      .featured-article-text {
-        font-size: 0.95rem;
-        line-height: 1.8;
-        color: var(--text-main);
-        margin-bottom: 1.2rem;
-      }
-
-      .featured-article-text p {
-        margin-bottom: 1rem;
-      }
-
-      .featured-article-text p:last-child {
-        margin-bottom: 0;
-      }
-
-      .featured-article-card .featured-read-more {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        color: var(--dark-yellow);
-        font-weight: 700;
-        font-size: 0.85rem;
-        text-decoration: none;
-        transition: var(--transition-smooth);
-        margin-top: 0.5rem;
-      }
-
-      .featured-article-card .featured-read-more:hover {
-        color: var(--primary-color);
-        gap: 10px;
-      }
-
-      /* Responsive */
-      @media (max-width: 991px) {
-        .featured-article-card .featured-body {
-          padding: 1.2rem;
-        }
-        .featured-article-card .featured-title {
-          font-size: 1.2rem;
-        }
-        .featured-article-text {
-          font-size: 0.9rem;
-        }
-      }
-
-      @media (max-width: 768px) {
-        .featured-article-card .featured-img-wrapper {
-          aspect-ratio: 16 / 10;
-        }
-        .featured-article-card .featured-title {
-          font-size: 1rem;
-        }
-        .featured-article-text {
-          font-size: 0.85rem;
-          line-height: 1.7;
-        }
-      }
-
-      #featuredCarousel .carousel-control-prev,
-      #featuredCarousel .carousel-control-next {
-        width: 48px;
-        height: 48px;
-        top: 50%;
-        transform: translateY(-50%);
-        opacity: 1;
-        background-color: rgba(0, 0, 0, 0.7);
-        border-radius: 6px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-        transition: background-color 0.3s ease;
-      }
-      #featuredCarousel .carousel-control-prev {
-        left: 10px;
-      }
-      #featuredCarousel .carousel-control-next {
-        right: 10px;
-      }
-      #featuredCarousel .carousel-control-prev-icon,
-      #featuredCarousel .carousel-control-next-icon {
-        background-image: none;
-        font-family: "bootstrap-icons";
-        font-size: 1.8rem;
-        color: #fff;
-        width: auto;
-        height: auto;
-      }
-      #featuredCarousel .carousel-control-prev-icon::before {
-        content: "\f284";
-      }
-      #featuredCarousel .carousel-control-next-icon::before {
-        content: "\f285";
-      }
-
-      /* ==================================================== */
-      /*  RELATED NEWS SIDEBAR (col-4)                        */
-      /* ==================================================== */
-      .related-news-section {
-        background: var(--surface-white);
-        border-radius: 8px;
-        padding: 1.5rem 1.5rem 0.8rem 1.5rem;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-        height: 100%;
-      }
-
-      .related-news-section .related-header {
-        font-size: 1.1rem;
-        font-weight: 700;
-        color: var(--text-main);
-        padding-bottom: 0.8rem;
-        margin-bottom: 0.8rem;
-        border-bottom: 3px solid var(--dark-yellow);
-        display: inline-block;
-      }
-
-      .related-news-item {
-        display: flex;
-        align-items: flex-start;
-        gap: 1rem;
-        padding: 0.8rem 0;
-        border-bottom: 1px solid #f0f2f5;
-        transition: var(--transition-smooth);
-        cursor: pointer;
-      }
-
-      .related-news-item:last-child {
-        border-bottom: none;
-      }
-
-      .related-news-item:hover {
-        background: #fafbfc;
-        margin: 0 -0.5rem;
-        padding-left: 0.5rem;
-        padding-right: 0.5rem;
-        border-radius: 6px;
-      }
-
-      .related-news-item .related-thumb {
-        flex-shrink: 0;
-        width: 75px;
-        height: 75px;
-        border-radius: 6px;
-        overflow: hidden;
-        background: #e9ecef;
-        border: 1px solid #e9ecef;
-      }
-
-      .related-news-item .related-thumb img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: transform 0.3s ease;
-      }
-
-      .related-news-item:hover .related-thumb img {
-        transform: scale(1.06);
-      }
-
-      .related-news-item .related-content {
-        flex: 1;
-        min-width: 0;
-      }
-
-      .related-news-item .related-title {
-        padding: 1rem 1rem;
-        font-size: 0.8rem;
-        font-weight: 600;
-        /* line-height: 1.5; */
-        color: var(--text-main);
-        margin-bottom: 0.3rem;
-        display: -webkit-box;
-        -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-        transition: var(--transition-smooth);
-      }
-
-      .related-news-item:hover .related-title {
-        color: var(--dark-yellow);
-      }
-
-      .related-news-item .related-title a {
-        color: inherit;
-        text-decoration: none;
-      }
-
-      .related-news-item .related-date {
-        font-size: 0.7rem;
-        font-weight: 500;
-        color: var(--text-muted);
-        display: flex;
-        align-items: center;
-        gap: 4px;
-      }
-
-      .related-news-item .related-date i {
-        font-size: 0.65rem;
-        color: var(--dark-yellow);
-      }
-
-      @media (max-width: 991px) {
-        .featured-news-card .featured-body {
-          padding: 1.2rem;
-        }
-        .featured-news-card .featured-title {
-          font-size: 1.2rem;
-        }
-        .related-news-item .related-thumb {
-          width: 60px;
-          height: 60px;
-        }
-        .related-news-item .related-title {
-          font-size: 0.8rem;
-        }
-      }
-
-      @media (max-width: 768px) {
-        .featured-news-card .featured-img-wrapper {
-          aspect-ratio: 16 / 10;
-        }
-        .featured-news-card .featured-title {
-          font-size: 1rem;
-        }
-        .featured-news-card .featured-excerpt {
-          font-size: 0.85rem;
-          -webkit-line-clamp: 3;
-          display: -webkit-box;
-          -webkit-box-orient: vertical;
-          overflow: hidden;
-        }
-        .related-news-section {
-          margin-top: 1.5rem;
-        }
-        .other-news-title {
-          font-size: 1.5rem;
-        }
-        .custom-breadcrumb {
-          font-size: 0.75rem;
-        }
-      }
-
-      @media (max-width: 576px) {
-        .related-news-item .related-thumb {
-          width: 55px;
-          height: 55px;
-        }
-        .related-news-item .related-title {
-          font-size: 0.75rem;
-        }
-        .date-diagonal {
-          width: 60px;
-          height: 60px;
-        }
-        .date-diagonal .diag-badge {
-          font-size: 0.55rem;
-          top: 10px;
-          right: -18px;
-          width: 100px;
-        }
-        .date-diagonal .diag-badge .day-diag {
-          font-size: 0.75rem;
-        }
-      }
-
-      /* ==================================================== */
-      /*  DATE DIAGONAL BADGE (for featured image)             */
-      /* ==================================================== */
-      .date-diagonal {
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 80px;
-        height: 80px;
-        overflow: hidden;
-        pointer-events: none;
-        z-index: 2;
-      }
-      .date-diagonal .diag-badge {
-        position: absolute;
-        top: 14px;
-        right: -22px;
-        width: 120px;
-        background: var(--dark-yellow);
-        color: #fff;
-        text-align: center;
-        padding: 0.15rem 0;
-        font-size: 0.65rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        transform: rotate(45deg);
-        box-shadow: 0 4px 12px rgba(15, 52, 96, 0.2);
-      }
-      .date-diagonal .diag-badge .day-diag {
-        font-size: 0.9rem;
-        font-weight: 800;
-        margin-right: 0.2rem;
-      }
-
-      /* ============================================================
-         ARTICLE
-         ============================================================ */
-
-      .article-body {
-        font-size: 1.05rem;
-        line-height: 1.9;
-        color: var(--text-main);
-      }
-
-      .article-body p {
-        margin-bottom: 1.25rem;
-      }
-
-      /* .article-body p:first-of-type::first-letter {
-        font-size: 3.2rem;
-        font-weight: 700;
-        float: left;
-        line-height: 1;
-        margin-right: 0.5rem;
-        color: var(--dark-yellow);
-      } */
-
-      .article-body .section-subheading {
-        font-size: 1.3rem;
-        font-weight: 700;
-        color: var(--primary-color);
-        margin-top: 1.8rem;
-        margin-bottom: 0.8rem;
-        border-left: 4px solid var(--dark-yellow);
-        padding-left: 1rem;
-      }
-
-      .article-body .pull-quote {
-        font-size: 1.2rem;
-        font-weight: 600;
-        line-height: 1.6;
-        color: var(--text-main);
-        padding: 1.2rem 2rem;
-        margin: 1.5rem 0;
-        background: #f8f6f0;
-        border-radius: 8px;
-        border-left: 5px solid var(--dark-yellow);
-        position: relative;
-      }
-      .article-body .pull-quote .attribution {
-        display: block;
-        font-size: 0.85rem;
-        font-weight: 400;
-        color: var(--text-muted);
-        margin-top: 0.5rem;
-      }
-
-      .article-divider {
-        text-align: center;
-        color: var(--dark-yellow);
-        font-size: 1.5rem;
-        letter-spacing: 0.5rem;
-        margin: 2rem 0;
-        opacity: 0.5;
-      }
-
-      .article-tags {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.6rem;
-        margin-top: 2.5rem;
-        padding-top: 1.5rem;
-        border-top: 2px solid #e9edf2;
-      }
-      .article-tags .tag {
-        font-size: 0.75rem;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        background: #eef2f5;
-        color: var(--text-muted);
-        padding: 0.25rem 1rem;
+    <style>
+    /* ─── table container ─── */
+    .table-wrap {
+        background: #ffffff;
         border-radius: 20px;
-        text-decoration: none;
-        transition: var(--transition-smooth);
-      }
-      .article-tags .tag:hover {
-        background: var(--dark-yellow);
-        color: var(--surface-white);
-      }
+        padding: 1.5rem 1.25rem 1.75rem 1.25rem;
+        box-shadow: 0 8px 30px rgba(0, 20, 40, 0.08);
+        border: 1px solid #eef3f8;
+        transition: box-shadow 0.3s ease;
+    }
 
-      .article-share {
+    .table-wrap:hover {
+        box-shadow: 0 14px 45px rgba(0, 20, 40, 0.12);
+    }
+
+    /* ─── table header decoration ─── */
+    .table-header-custom {
         display: flex;
         align-items: center;
-        gap: 1rem;
-        margin-top: 1rem;
-        padding-top: 1rem;
-        border-top: 2px solid #e9edf2;
-      }
-      .article-share .share-label {
+        justify-content: space-between;
+        margin-bottom: 1.25rem;
+        padding-bottom: 0.75rem;
+        border-bottom: 2px solid #e9eff5;
+    }
+
+    .table-header-custom h5 {
         font-weight: 600;
-        font-size: 0.85rem;
-        color: var(--dark-yellow);
-      }
-      .article-share .share-btn {
+        color: #1a3b5c;
+        letter-spacing: -0.2px;
+        margin: 0;
+        font-size: 1.1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .table-header-custom h5 i {
+        color: #4a7eb5;
+        font-size: 1.3rem;
+    }
+
+    .table-header-custom .entry-count {
+        font-size: 0.8rem;
+        background: #eef4fa;
+        color: #2c577a;
+        padding: 0.25rem 1rem;
+        border-radius: 30px;
+        font-weight: 500;
+        border: 1px solid #dae5f0;
+    }
+
+    /* ─── table ─── */
+    .table-custom {
+        margin-bottom: 0;
+        border-collapse: separate;
+        border-spacing: 0 6px;
+        width: 100%;
+    }
+
+    .table-custom thead th {
+        background-color:var(--primary-color);
+        color:var(--dark-yellow);
+        font-weight: 600;
+        font-size: 0.8rem;
+        padding:1rem 1rem;
+        border: none;
+        border-bottom: 2px solid #e2ebf3;
+        white-space: nowrap;
+    }
+
+    
+
+    .table-custom tbody tr {
+        background: #ffffff;
+        border-radius: 12px;
+        transition: all 0.2s ease;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.02);
+    }
+
+    .table-custom tbody tr:hover {
+        background: #f6faff;
+        box-shadow: 0 4px 16px rgba(26, 67, 113, 0.07);
+        transform: scale(1.002);
+    }
+
+    .table-custom tbody td {
+        padding: 0.9rem 1rem;
+        border: none;
+        vertical-align: middle;
+        color: #1e3b57;
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+
+    .table-custom tbody td:first-child {
+        padding-left: 0.5rem;
+        font-weight: 500;
+        color: #4a7eb5;
+        width: 50px;
+        text-align: center;
+    }
+
+ 
+    
+
+
+
+    /* ─── title column ─── */
+    .table-custom tbody td:nth-child(2) {
+        font-weight: 500;
+        color:var(--text-main);
+        min-width: 180px;
+    }
+
+    /* ─── description column ─── */
+    .table-custom tbody td:nth-child(3) {
+        color: #3f5f7a;
+        font-size: 0.9rem;
+        max-width: 320px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    /* ─── action column (eye button) ─── */
+    .table-custom tbody td:last-child {
+        text-align: center;
+        width: 90px;
+        padding: 0.5rem 0.5rem;
+    }
+
+    .btn-eye {
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        width: 36px;
-        height: 36px;
-        border-radius: 50%;
-        background: #eef2f5;
-        color: var(--secondary-color);
+        gap: 0.4rem;
+        background: transparent;
+        color:var(--surface-white);
+        border: 1.5px solid #d4e2f0;
+        border-radius: 6px;
+        padding: 0.35rem 1rem 0.35rem 0.9rem;
+        font-size: 0.85rem;
+        font-weight: 500;
         text-decoration: none;
-        transition: var(--transition-smooth);
-        font-size: 0.9rem;
-      }
-      .article-share .share-btn:hover {
-        background: var(--dark-yellow);
-        color: var(--surface-white);
+        transition: all 0.25s ease;
+        background:var(--dark-yellow);
+        white-space: nowrap;
+    }
+
+    .btn-eye i {
+        font-size: 1.1rem;
+        transition: transform 0.2s ease;
+    }
+
+    .btn-eye:hover {
+        background: var(--primary-color);
+        border-color: var(--primary-color);
+        color: #ffffff;
+        box-shadow: 0 4px 14px rgba(30, 75, 110, 0.25);
         transform: translateY(-2px);
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      }
+    }
 
-      /* ============================================================
-         RESPONSIVE — ARTICLE
-         ============================================================ */
-      @media (max-width: 768px) {
-        .article-header .article-title {
-          font-size: 1.6rem;
-        }
-        .article-body {
-          font-size: 0.95rem;
-          line-height: 1.8;
-        }
-        /* .article-body p:first-of-type::first-letter {
-          font-size: 2.4rem;
-        } */
-        .article-body .section-subheading {
-          font-size: 1.1rem;
-        }
-        .article-body .pull-quote {
-          font-size: 1rem;
-          padding: 1rem 1.2rem;
-        }
-        .article-container {
-          padding: 0 1rem;
-        }
-      }
+    .btn-eye:hover i {
+        transform: scale(1.15);
+    }
 
-      @media (max-width: 480px) {
-        .article-header .article-title {
-          font-size: 1.3rem;
+    .btn-eye:active {
+        transform: scale(0.96);
+    }
+
+    /* ─── responsive tweaks ─── */
+    @media (max-width: 768px) {
+        .table-wrap {
+            padding: 1rem 0.75rem 1.25rem 0.75rem;
         }
-        .article-header .article-meta {
-          gap: 0.8rem;
-          font-size: 0.75rem;
+
+        .table-custom tbody td {
+            padding: 0.7rem 0.6rem;
+            font-size: 0.85rem;
         }
-        .article-body {
-          font-size: 0.9rem;
+
+        .table-custom tbody td:nth-child(3) {
+            max-width: 140px;
         }
-        /* .article-body p:first-of-type::first-letter {
-          font-size: 2rem;
-        } */
-        .article-share {
-          flex-wrap: wrap;
-          gap: 0.6rem;
+
+        .btn-eye {
+            padding: 0.25rem 0.75rem 0.25rem 0.6rem;
+            font-size: 0.75rem;
         }
-      }
-    </style>
+
+        .btn-eye i {
+            font-size: 0.95rem;
+        }
+
+        .table-header-custom h5 {
+            font-size: 0.95rem;
+        }
+
+        .table-custom thead th {
+            font-size: 0.7rem;
+            padding: 0.4rem 0.6rem 0.6rem 0.6rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .table-custom tbody td:nth-child(3) {
+            max-width: 80px;
+        }
+
+        .table-custom tbody td:nth-child(2) {
+            min-width: 100px;
+            font-size: 0.8rem;
+        }
+
+        .btn-eye span {
+            display: none;
+        }
+
+        .btn-eye {
+            padding: 0.3rem 0.7rem;
+            border-radius: 30px;
+        }
+
+        .btn-eye i {
+            font-size: 1rem;
+            margin: 0;
+        }
+    }
+</style>
+
+
   </head>
   <body>
     <!-- ============================================================
@@ -2230,7 +1945,7 @@
                 <li>
                   <a class="dropdown-item" href="./photos.html">ဓါတ်ပုံမှတ်တမ်းများ</a>
                 </li>
-                <li><a class="dropdown-item" href="#">တင်ဒါများ</a></li>
+                <li><a class="dropdown-item" href="./tenders.html">တင်ဒါများ</a></li>
               </ul>
             </li>
 
@@ -2249,7 +1964,7 @@
               >
               <ul class="dropdown-menu" aria-labelledby="policyDropdown">
                 <li><a class="dropdown-item" href="#">မူဝါဒများ</a></li>
-                <li><a class="dropdown-item" href="#">ဥပဒေ/နည်းဥပဒေ</a></li>
+                <li><a class="dropdown-item" href="./laws.html">ဥပဒေ/နည်းဥပဒေ</a></li>
                 <li><a class="dropdown-item" href="#">မဟာဗျူဟာ</a></li>
               </ul>
             </li>
@@ -2391,10 +2106,35 @@
               </ul>
             </li>
 
-            <!-- STATIC LINKS -->
-            <li class="nav-item">
-              <a class="nav-link" href="#">လုပ်ငန်းဆောင်ရွက်ချက်များ</a>
+             <!-- ======================================================
+                 DROPDOWN: လုပ်ငန်းဆောင်ရွက်ချက်များ
+                 ====================================================== -->
+            <li class="nav-item dropdown has-sub">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="processDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                >လုပ်ငန်းဆောင်ရွက်ချက်များ</a
+              >
+              <ul class="dropdown-menu" aria-labelledby="processDropdown">
+                <li>
+                  <a class="dropdown-item" href="./awareness.html"
+                    >အသိပညာပေးခြင်း</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="/egoverment.html"
+                    >e-Goverment</a
+                  >
+                </li>
+              </ul>
             </li>
+
+            <!-- STATIC LINKS -->
+            
             <li class="nav-item">
               <a class="nav-link" href="#">ဝန်ဆောင်မှုများ</a>
             </li>
@@ -2428,294 +2168,96 @@
             <nav aria-label="breadcrumb">
               <ol class="breadcrumb custom-breadcrumb">
                 <li class="breadcrumb-item"><a href="#">ပင်မစာမျက်နှာ</a></li>
-                <li class="breadcrumb-item"><a href="#">သတင်းမီဒီယာ</a></li>
+                <li class="breadcrumb-item"><a href="#">လုပ်ငန်းဆောင်ရွက်ချက်များ</a></li>
                 <li class="breadcrumb-item active" aria-current="page">
-                  အခြားသတင်းများ
+                  e-Goverment
                 </li>
               </ol>
             </nav>
             <!-- Title -->
-            <h1 class="news-list-title">အခြားသတင်းများ</h1>
+            <h1 class="news-list-title">e-Goverment</h1>
             <!-- Optional Divider -->
             <hr class="gradient-divider my-3" />
           </div>
         </div>
+      </div>
+      <div class="container container-news">
+        <!-- Section Header -->
 
-        <div class="row g-4 mt-2">
-          <!-- ========== LEFT: FEATURED NEWS (col-8) ========== -->
-          <div class="col-lg-8">
-            <article class="featured-article-card">
-              <!-- Featured Image with Date Badge -->
-
-              <!-- Date Badge (keep as is) -->
-              <!-- <div class="date-diagonal">
-    <div class="diag-badge">
-      <span class="day-diag">20</span> Jun
-    </div>
-  </div> -->
-              <!-- <div class="featured-img-wrapper">
-                <img
-                  src="https://images.unsplash.com/photo-1544531586-fde5298cdd40?q=80&w=1200&auto=format&fit=crop"
-                  alt="Featured News Image"
-                />
-              </div> -->
-
-              <!-- Featured Image Carousel -->
-              <div class="featured-img-wrapper position-relative">
-                <!-- Date Badge (keep as is) -->
-                <!-- <div class="date-diagonal">
-    <div class="diag-badge">
-      <span class="day-diag">20</span> Jun
-    </div>
-  </div> -->
-
-                <!-- Bootstrap Carousel -->
-                <div
-                  id="featuredCarousel"
-                  class="carousel slide"
-                  data-bs-ride="carousel"
-                >
-                  <div class="carousel-inner">
-                    <!-- Item 1 (active) -->
-                    <div class="carousel-item active">
-                      <img
-                        src="https://images.unsplash.com/photo-1544531586-fde5298cdd40?q=80&w=1200&auto=format&fit=crop"
-                        class="d-block w-100"
-                        alt="Featured Image 1"
-                        style="aspect-ratio: 16/9; object-fit: cover"
-                      />
-                    </div>
-                    <!-- Item 2 -->
-                    <div class="carousel-item">
-                      <img
-                        src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?q=80&w=1200&auto=format&fit=crop"
-                        class="d-block w-100"
-                        alt="Featured Image 2"
-                        style="aspect-ratio: 16/9; object-fit: cover"
-                      />
-                    </div>
-                    <!-- Add more items here as needed -->
-                  </div>
-
-                  <!-- Carousel Controls -->
-                  <button
-                    class="carousel-control-prev"
-                    type="button"
-                    data-bs-target="#featuredCarousel"
-                    data-bs-slide="prev"
-                  >
-                    <span
-                      class="carousel-control-prev-icon"
-                      aria-hidden="true"
-                    ></span>
-                    <span class="visually-hidden">Previous</span>
-                  </button>
-                  <button
-                    class="carousel-control-next"
-                    type="button"
-                    data-bs-target="#featuredCarousel"
-                    data-bs-slide="next"
-                  >
-                    <span
-                      class="carousel-control-next-icon"
-                      aria-hidden="true"
-                    ></span>
-                    <span class="visually-hidden">Next</span>
-                  </button>
-                </div>
-              </div>
-
-              <!-- Article Content -->
-              <div class="featured-body">
-                <!-- Meta Info -->
-                <div class="featured-meta">
-                  <span><i class="bi bi-calendar"></i> 03 July 2026</span>
-                  <span
-                    ><i class="bi bi-geo-alt-fill"></i>
-                    နေပြည်တော်</span
-                  >
-                  <span><i class="bi bi-tag-fill"></i> တိုင်းရင်းသားရေးရာ</span>
-                </div>
-
-                <!-- Article Title -->
-                <h2 class="featured-title">
-                  <a href="#">
-                    ၂၀၂၆ ခုနှစ် မြန်မာအမျိုးသမီးများနေ့ အခမ်းအနား ကျင်းပ
-                  </a>
-                </h2>
-
-                <!-- Full Article Text -->
-                <div class="featured-article-text">
-                  
-                  <p>
-
-၂၀၂၆ ခုနှစ် မြန်မာအမျိုးသမီးများနေ့ အခမ်းအနားကို မြန်မာနိုင်ငံလုံးဆိုင်ရာ အမျိုးသမီးကော်မတီက ဦးဆောင်၍ ယနေ့နံနက်ပိုင်းတွင် နေပြည်တော်ရှိ မြန်မာအပြည်ပြည်ဆိုင်ရာ ကွန်ဗင်းရှင်းဗဟိုဌာန-၁ (MICC-I) ၌ ကျင်းပသည်။
-အခမ်းအနားသို့ ပြည်ထောင်စုသမ္မတ မြန်မာနိုင်ငံတော် ဒုတိယသမ္မတ (၁) ၏ ဇနီး မြန်မာနိုင်ငံအမျိုးသမီးရေးရာအဖွဲ့ချုပ် ဂုဏ်ထူးဆောင်နာယက ဒေါ်စမ်းစမ်းအေး၊ ဒုတိယသမ္မတ (၂) မြန်မာနိုင်ငံအမျိုးသမီးရေးရာအဖွဲ့ချုပ် ဂုဏ်ထူးဆောင်နာယက ဒေါ်နန်းနီနီအေး၊ အမျိုးသားလွှတ်တော်ဥက္ကဋ္ဌ၏ ဇနီး ဒေါ်ဥမ္မာမြင့်၊ တပ်မတော်ကာကွယ်ရေးဦးစီးချုပ်၏ ဇနီး ဒေါ်နီလာ၊ ဒုတိယတပ်မတော်ကာကွယ်ရေးဦးစီးချုပ်၏ ဇနီး၊ ပြည်သူ့ လွှတ်တော်ဒုတိယဥက္ကဋ္ဌ၏ ဇနီး၊ ပြည်ထောင်စုဝန်ကြီးများ၊ ပြည်ထောင်စုဝန်ကြီးများ၏ ဇနီးများ၊ ပြည်ထောင်စုစာရင်းစစ်ချုပ်၊ ညှိနှိုင်းကွပ်ကဲရေးမှူး (ကြည်း၊ ရေ၊ လေ) ၏ ဇနီး၊ ကာကွယ်ရေးဦးစီးချုပ် (ရေ) ၏ ဇနီး၊ ကာကွယ်ရေးဦးစီးချုပ် (လေ) ၏ ဇနီး၊ ပြည်ထောင်စုရာထူးဝန်အဖွဲ့ဥက္ကဋ္ဌ၏ ဇနီး၊ နေပြည်တော်ကောင်စီဥက္ကဋ္ဌ၏ ဇနီး၊ ရှမ်းပြည်နယ်ဝန်ကြီးချုပ်၏ ဇနီး၊ မြန်မာနိုင်ငံ အမျိုးသားလူ့အခွင့်အရေးကော်မရှင်ဥက္ကဋ္ဌ၏ ဇနီး၊ တပ်မတော်မှ အရာရှိကြီးများ၏ ဇနီးများ၊ ဒုတိယဝန်ကြီးများနှင့် ဒုတိယဝန်ကြီးများ၏ ဇနီးများ၊ ဒုတိယဝန်ကြီးနှင့်အဆင့်တူ အမျိုးသမီးပုဂ္ဂိုလ်များ၊ အခွန်အယူခံခုံအဖွဲ့ဥက္ကဋ္ဌ၏ ဇနီး၊ ပြည်ထောင်စုနယ်မြေ နေပြည်တော် အမျိုးသမီးကော်မတီဥက္ကဋ္ဌနှင့် ဇနီး၊ ဌာနဆိုင်ရာအကြီးအကဲများ၊ အလှူရှင်များ၊ အမျိုးသမီးအဖွဲ့များ၏ ဥက္ကဋ္ဌများ၊ ဒုတိယဥက္ကဋ္ဌများနှင့် တာဝန်ရှိသူများ၊ ကဏ္ဍအလိုက်ထူးချွန်ဆုရရှိကြသူများ တက်ရောက်ကြသည်။
-ဦးစွာ တေးသံရှင်မေဂျွန်နှင့် မြနန္ဒာတို့က “မြန်မာနိုင်ငံလုံးဆိုင်ရာ အမျိုးသမီးကော်မတီ” သီချင်းဖြင့် သီဆိုဖျော်ဖြေသည်။
+       <!-- ─── TABLE HTML ─── -->
 
 
-                  </p>
-                  <p>
-                   ထို့နောက် ပြည်ထောင်စုသမ္မတမြန်မာနိုင်ငံတော် နိုင်ငံတော်သမ္မတ ဦးမင်းအောင်လှိုင်က Video Message ဖြင့် အဖွင့်မိန့်ခွန်းပြောကြားသည်။
-ယင်းနောက် မြန်မာနိုင်ငံလုံးဆိုင်ရာအမျိုးသမီးကော်မတီဥက္ကဋ္ဌ အမျိုးသမီးရေးရာဝန်ကြီးဌာန ပြည်ထောင်စုဝန်ကြီး ဒေါက်တာသက်သက်ဇင်က အမျိုးသမီးများဖွံ့ဖြိုးတိုးတက်ရေး၊ အမျိုးသမီးအခွင့်အရေးမြှင့်တင်ဖော်ဆောင်မှုနှင့် အမျိုးသမီးများအပေါ် နည်းမျိုးစုံဖြင့် အကြမ်းဖက်ခံရမှု တားဆီးကာကွယ်ရေးဆိုင်ရာ ဆောင်ရွက်မှုများအား ရှင်းလင်းတင်ပြသည်။
-ဆက်လက်၍ မြန်မာနိုင်ငံလုံးဆိုင်ရာ အမျိုးသမီးကော်မတီတည်ထောင်ခဲ့သည့် နှစ် (၃၀) ပြည့်အတွင်း အမျိုးသမီးများ ဖွံ့ဖြိုးတိုးတက်ရေးလုပ်ငန်းဆောင်ရွက်မှု Video Clip ကို ပြသသည်။
-                  </p>
-                  <p>
-                    ထို့နောက် ကဏ္ဍအလိုက် ထူးချွန်အမျိုးသမီးများအား ဆုချီးမြှင့်ရာ ပြည်ထောင်စုသမ္မတ မြန်မာနိုင်ငံတော် ဒုတိယသမ္မတ (၁) ၏ ဇနီး မြန်မာနိုင်ငံအမျိုးသမီးရေးရာအဖွဲ့ချုပ် ဂုဏ်ထူးဆောင်နာယက ဒေါ်စမ်းစမ်းအေးက နိုင်ငံ့ဂုဏ်ဆောင်ဆုရ မြန်မာနိုင်ငံ Esports အားကစားအဖွဲ့ချုပ်ဂုဏ်ထူးဆောင်နာယကများဖြစ်ကြသည့် ဒေါ်နန်းလိုင်းခမ်းနှင့် ဒေါ်နန်းခမ်းနောင့်တို့ကိုလည်းကောင်း၊ စစ်ရေးပြအကောင်းဆုံးဆုရ ဒုတိယဗိုလ်ဒေါ်ယဉ်မင်းသန့်၊ ရေကြောင်းပညာစာပေထူးချွန်ဆုရ ဗိုလ်ဒေါ်ချစ်မေဇင်၊ ချီးကျူးဂုဏ်ပြုဆုရ ဗိုလ်ကြီးထက်ဝတ်ရည်စိုးတို့ကိုလည်းကောင်း ဂုဏ်ပြုဆုများ ပေးအပ်ချီးမြှင့်သည်။
-ယင်းနောက် ပြည်ထောင်စုသမ္မတ မြန်မာနိုင်ငံတော် ဒုတိယသမ္မတ (၂) မြန်မာနိုင်ငံ အမျိုးသမီးရေးရာအဖွဲ့ချုပ် ဂုဏ်ထူးဆောင်နာယက ဒေါ်နန်းနီနီအေးက ထူးချွန်အမျိုးသမီး ရဲမေဆုရ ရဲအုပ်မြင့်မြတ်သူ၊ ကြက်ခြေနီထူးချွန်ဆုရ ခရိုင်တပ်ဖွဲ့မှူး ဒေါ်ထက်အိဝေနှင့် မသန်စွမ်းအမျိုးသမီး အားကစားထူးချွန်ဆုရရှိသူ မနန်းစန်းရတနာထွန်းတို့ကို ဂုဏ်ပြုဆုများ ပေးအပ်ချီးမြှင့်သည်။
-ဆက်လက်၍ အမျိုးသားလွှတ်တော်ဥက္ကဋ္ဌ၏ ဇနီး၊ တပ်မတော်ကာကွယ်ရေးဦးစီးချုပ်၏ ဇနီး၊ ဒုတိယတပ်မတော်ကာကွယ်ရေးဦးစီးချုပ်၏ ဇနီး၊ ပြည်သူ့လွှတ်တော်ဒုတိယဥက္ကဋ္ဌ၏ ဇနီး၊ ပြည်ထောင်စုဝန်ကြီးများ၏ ဇနီးများနှင့် အမျိုးသမီးရေးရာဝန်ကြီးဌာန ပြည်ထောင်စုဝန်ကြီးတို့က စီးပွားရေးစွမ်းဆောင်ရှင်ဆုရရှိကြသူများကို ဂုဏ်ပြုဆုများ ပေးအပ်ချီးမြှင့်ကြသည်။
-ထို့နောက် တေးသံရှင် ဟန်ထူးဈာန်နှင့် နွေးနွေးချစ်ဖွယ်တို့က “ကမ္ဘာတည်သရွေ့” တေးသီချင်းဖြင့် အနုပညာဦးစီးဌာနမှ အနုပညာရှင်များနှင့်အတူ သီဆိုကပြဖျော်ဖြေတင်ဆက်ကြသည်။
-ယင်းနောက် မြန်မာနိုင်ငံအမျိုးသမီးရေးရာအဖွဲ့ချုပ် ဂုဏ်ထူးဆောင်နာယကများသည် အခမ်းအနားသို့ တက်ရောက်လာကြသူများနှင့်အတူ စုပေါင်းမှတ်တမ်းတင်ဓာတ်ပုံရိုက်ပြီး ၂၀၂၆ ခုနှစ် မြန်မာအမျိုးသမီးများနေ့ အထိမ်းအမှတ်အဖြစ် ခင်းကျင်းပြသထားသည့် အမျိုးသမီးရေးရာဝန်ကြီးဌာန၊ အိမ်တွင်းမှုသက်မွေးလုပ်ငန်း ပညာသင်ကျောင်းများနှင့် အမျိုးသမီးအသင်းအဖွဲ့အစည်းများမှ ထုတ်ကုန်ပစ္စည်းများကို လှည့်လည်ကြည့်ရှုအားပေးကြသည်။
-
-                  </p>
-
-                   <!-- SHARE -->
-                  <div class="article-share">
-                    <span class="share-label">မျှဝေရန်:</span>
-                    <a href="#" class="share-btn" title="Facebook"
-                      ><i class="bi bi-facebook"></i
-                    ></a>
-                    <a href="#" class="share-btn" title="Twitter"
-                      ><i class="bi bi-twitter-x"></i
-                    ></a>
-                    <a href="#" class="share-btn" title="WhatsApp"
-                      ><i class="bi bi-whatsapp"></i
-                    ></a>
-                    <a href="#" class="share-btn" title="LinkedIn"
-                      ><i class="bi bi-linkedin"></i
-                    ></a>
-                    <a href="#" class="share-btn" title="မိတ္တူကူးရန်"
-                      ><i class="bi bi-link-45deg"></i
-                    ></a>
-                  </div>
-                  <!-- SHARE -->
+    <table class="table table-custom">
+        <thead>
+            <tr>
+                <th scope="col">စဉ်</th>
+                <th scope="col">ခေါင်းစဉ်</th>
+                <th scope="col">ဖော်ပြချက်</th>
+                <th scope="col">ဆက်လက်ဖတ်ရှုရန်</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>၁</td>
+                <td>အမျိုးသမီးများအားနည်းမှုနှင့် ခွဲခြားမှု ပျောက်ကင်းရေး လုပ်ငန်းဆောင်ရွက်ချက်များ</td>
+                <td>အမျိုးသမီးများအားနည်းမှုနှင့် ခွဲခြားမှု ပျောက်ကင်းရေး လုပ်ငန်းဆောင်ရွက်ချက်များကို ဓါတ်ပုံမှတ်တမ်းများဖြင့် ဖော်ပြထားသည်။</td>
+                <td>
+                    <a href="detail1.html" class="btn-eye">
+                        <i class="bi bi-eye"></i>
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td>၂</td>
+                <td>အမျိုးသမီးများအားနည်းမှုနှင့် ခွဲခြားမှု ပျောက်ကင်းရေး လုပ်ငန်းဆောင်ရွက်ချက်များ</td>
+                <td>အမည်သမဂၤ အတနညတနညတနညတနညတနညတနညတနညတနညတနညတနညတနညတနညတနညတနညတနညတနညတနညတနညတနညတ</td>
+                <td>
+                    <a href="detail1.html" class="btn-eye">
+                        <i class="bi bi-eye"></i>
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 
 
-                </div>
-              </div>
-              
-            </article>
-
-            
-          </div>
-
-          <!-- ========== RIGHT: RELATED NEWS (col-4) ========== -->
-          <div class="col-lg-4">
-            <div class="related-news-section">
-              <h4 class="related-header">ဆက်စပ်သတင်းများ</h4>
-
-              <!-- Related Item 1 -->
-              <div class="related-news-item">
-                <div class="related-thumb">
-                  <img
-                    src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=150&h=150&fit=crop&crop=center"
-                    alt="News thumb"
-                  />
-                </div>
-                <div class="related-content">
-                  <div class="related-title">
-                    <a href="#"
-                      > အမျိုးသမီးရေးရာဝန်ကြီးဌာနမှ ကျင်းပသည့် ကျားမတန်းတူရေး
-                  ဆွေးနွေးပွဲသို့ အရပ်ဘက်အဖွဲ့အစည်းများ တက်ရောက်...</a
-                    >
-                  </div>
-                  <div class="related-date">
-                    <i class="bi bi-calendar3"></i> 15 June 2026
-                  </div>
-                  
-                </div>
-              </div>
-
-              <!-- Related Item 2 -->
-              <div class="related-news-item">
-                <div class="related-thumb">
-                  <img
-                    src="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=150&h=150&fit=crop&crop=center"
-                    alt="News thumb"
-                  />
-                </div>
-                <div class="related-content">
-                  <div class="related-title">
-                    <a href="#"
-                      >“ အမျိုးသမီးများအတွက် ဒီဂျစ်တယ် ငွေကြေးအသိပညာပေး သင်တန်းများ
-                  ဖွင့်လှစ်...</a
-                    >
-                  </div>
-                  <div class="related-date">
-                    <i class="bi bi-calendar3"></i> 12 June 2026
-                  </div>
-                </div>
-              </div>
-
-              <!-- Related Item 3 -->
-              <div class="related-news-item">
-                <div class="related-thumb">
-                  <img
-                    src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=150&h=150&fit=crop&crop=center"
-                    alt="News thumb"
-                  />
-                </div>
-                <div class="related-content">
-                  <div class="related-title">
-                    <a href="#"
-                      >အမျိုးသမီးရေးရာဝန်ကြီးဌာနမှ ကျင်းပသည့် အိမ်တွင်းအကြမ်းဖက်မှု
-                  တားဆီးရေး အသိပညာပေး ဟောပြောပွဲ...</a
-                    >
-                  </div>
-                  <div class="related-date">
-                    <i class="bi bi-calendar3"></i> 09 June 2026
-                  </div>
-                </div>
-              </div>
-
-              <!-- Related Item 4 -->
-              <div class="related-news-item">
-                <div class="related-thumb">
-                  <img
-                    src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=150&h=150&fit=crop&crop=center"
-                    alt="News thumb"
-                  />
-                </div>
-                <div class="related-content">
-                  <div class="related-title">
-                    <a href="#"
-                      >“အမျိုးသမီးရေးရာဝန်ကြီးဌာန၊ ပြည်ထောင်စုဝန်ကြီး ဒေါက်တာသက်သက်ဇင်
-                  ပြည်ထောင်စုနေ့အခါ နေပြည်တော်အတွင်းရှိ
-                  အမျိုးသမီးအဖွဲ့အစည်းများနှင့် တွေ့ဆုံ...</a
-                    >
-                  </div>
-                  <div class="related-date">
-                    <i class="bi bi-calendar3"></i> 12 June 2026
-                  </div>
-                </div>
-              </div>
-
-              <!-- Related Item 5 -->
-              <div class="related-news-item">
-                <div class="related-thumb">
-                  <img
-                    src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=150&h=150&fit=crop&crop=center"
-                    alt="News thumb"
-                  />
-                </div>
-                <div class="related-content">
-                  <div class="related-title">
-                    <a href="#"
-                      >အမျိုးသမီးရေးရာဝန်ကြီးဌာန၊ ပြည်ထောင်စုဝန်ကြီး ဒေါက်တာသက်သက်ဇင်
-                  ဒီဂျစ်တယ်လုံခြုံရေး (Digital Security) ဆိုင်ရာ
-                  အမျိုးသမီးများအတွက် အသိပညာပေး ဟောပြောပွဲ တက်ရောက်...</a
-                    >
-                  </div>
-                  <div class="related-date">
-                    <i class="bi bi-calendar3"></i> 05 June 2026
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-         
-        </div>
+        <!-- ===== PAGINATION (placeholder for Laravel) ===== -->
+        <nav aria-label="News pagination" class="mt-4">
+          <ul class="pagination justify-content-center">
+            <!-- First -->
+            <li class="page-item disabled">
+              <a class="page-link" href="#" tabindex="-1" aria-disabled="true">
+                <i class="bi bi-chevron-double-left"></i> ပထမဆုံး
+              </a>
+            </li>
+            <!-- Previous -->
+            <li class="page-item disabled">
+              <a class="page-link" href="#" tabindex="-1" aria-disabled="true">
+                <i class="bi bi-chevron-left"></i> နောက်သို့
+              </a>
+            </li>
+            <!-- Page numbers -->
+            <li class="page-item active">
+              <a class="page-link" href="#">1</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">4</a></li>
+            <li class="page-item"><a class="page-link" href="#">5</a></li>
+            <!-- Next -->
+            <li class="page-item">
+              <a class="page-link" href="#">
+                ရှေ့သို့ <i class="bi bi-chevron-right"></i>
+              </a>
+            </li>
+            <!-- Last -->
+            <li class="page-item">
+              <a class="page-link" href="#">
+                နောက်ဆုံး <i class="bi bi-chevron-double-right"></i>
+              </a>
+            </li>
+          </ul>
+        </nav>
       </div>
     </main>
 

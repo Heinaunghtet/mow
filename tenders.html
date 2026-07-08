@@ -230,27 +230,6 @@
       .dropdown-submenu {
         position: relative;
       }
-      /* .dropdown-submenu .dropdown-menu {
-        position: absolute;
-        top: 0;
-        left: 100%;
-        margin-top: 0;
-        margin-left: 2px;
-        min-width: 220px;
-        border-radius: 6px;
-        box-shadow: 0 12px 32px rgba(0, 20, 30, 0.10);
-        border: 1px solid #e9edf2;
-        background: var(--surface-white);
-        padding: 0.3rem 0;
-        display: none;
-        opacity: 0;
-        visibility: hidden;
-        transform: translateX(6px);
-        transition:
-          opacity 0.15s ease,
-          transform 0.15s ease,
-          visibility 0s linear 0.15s;
-      } */
 
       .dropdown-submenu .dropdown-menu {
         position: static !important;
@@ -464,6 +443,7 @@
         margin-bottom: 10px;
         display: inline-block;
         padding-bottom: 4px;
+        border-bottom: 3px solid var(--dark-yellow);
       }
       .video-section-header {
         text-align: center;
@@ -698,6 +678,13 @@
         color: var(--primary-color);
       }
 
+      @media (min-width: 768px) and (max-width: 1200px) {
+        .card-news-date .meta-info {
+          flex-direction: column; /* now align-items works horizontally */
+          align-items: stretch; /* or center, etc. */
+        }
+      }
+
       /* ==================================================== */
       /*  SERVICE CARDS (Yellow/Green/Red)                     */
       /* ==================================================== */
@@ -817,7 +804,7 @@
         text-align: center;
       }
       .card-video .video-description {
-        font-size: 0.95rem;
+        font-size: 0.8rem;
         line-height: 1.6;
         color: var(--text-main);
         margin-bottom: 0;
@@ -1077,9 +1064,28 @@
         flex-wrap: wrap;
         gap: 15px;
       }
-      .header-content {
+      .gallery-header-content {
         text-align: center;
         flex-grow: 1;
+      }
+
+      .gallery-section-title {
+        color: var(--text-main);
+        font-weight: 700;
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+        display: inline-block;
+        padding-bottom: 4px;
+        border-bottom: 3px solid var(--dark-yellow);
+      }
+      .gallery-section-header {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+      .gallery-section-subtitle {
+        font-size: 1rem;
+        color: var(--text-muted);
+        margin-bottom: 15px;
       }
 
       #photoCarousel {
@@ -1188,10 +1194,28 @@
         gap: 15px;
         font-size: 0.8rem;
         font-weight: 600;
-        color: #eb6c2f;
+        color: var(--dark-yellow);
       }
       .card-gallery .meta i {
         margin-right: 5px;
+      }
+
+      .card-gallery .btn-read-more {
+        margin-top: auto;
+        background: transparent;
+        color: var(--dark-yellow);
+        border-radius: 10px;
+        font-weight: 700;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        text-decoration: none;
+        transition: var(--transition-smooth);
+      }
+
+      .card-gallery .btn-read-more:hover {
+        cursor: pointer;
+        background: var(--surface-white);
+        color: var(--primary-color);
       }
 
       @media (max-width: 991px) {
@@ -1238,7 +1262,7 @@
       }
       .footer-title {
         font-weight: 700;
-        font-size: 1.3rem;
+        font-size: 1rem;
         margin-bottom: 25px;
         color: var(--dark-yellow);
       }
@@ -1430,116 +1454,15 @@
       }
 
       /* ============================================================
-         QUICK DEMO CONTENT (news cards, etc. – kept minimal)
+        Breadcrumb
          ============================================================ */
-      .container-news {
-        padding-top: 10px;
-        padding-bottom: 20px;
-      }
-      .section-title {
-        color: var(--text-main);
-        font-weight: 700;
-        font-size: 1.2rem;
-        margin-bottom: 20px;
-        display: inline-block;
-        border-bottom: 3px solid var(--dark-yellow);
-        padding-bottom: 4px;
-      }
-      .card-news {
-        background: var(--surface-white);
-        border-radius: 6px;
-        overflow: hidden;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-        height: 100%;
-        position: relative;
-        display: flex;
-        flex-direction: column;
-      }
-      .card-news .img-wrapper {
-        position: relative;
-        width: 100%;
-        overflow: hidden;
-      }
-      .card-news .img-wrapper img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
-        transition: transform 0.4s ease-in-out;
-      }
-      .card-news:hover .img-wrapper img {
-        transform: scale(1.08);
-        cursor: pointer;
-      }
-      .card-news .aspect-medium {
-        aspect-ratio: 16 / 9;
-      }
-      .card-news .info-overlay {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        padding: 20px;
-        background: linear-gradient(
-          to top,
-          rgba(0, 0, 0, 0.95) 0%,
-          rgba(0, 0, 0, 0.6) 40%,
-          transparent 100%
-        );
-        color: var(--surface-white);
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-      }
-      .card-news .meta-tags {
-        font-size: 0.85rem;
-        margin-bottom: 8px;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 12px;
-        color: var(--text-ma);
-      }
-      .card-news .meta-tags i {
-        margin-right: 5px;
-      }
-      .card-news .news-title {
-        font-weight: 600;
-        font-size: 1rem;
-        line-height: 1.4;
-        margin-bottom: 6px;
-        display: -webkit-box;
-        -webkit-line-clamp: 3;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-      }
-      .card-news .read-more-btn {
-        margin-top: 0.8rem;
-        color: var(--surface-white);
-        text-decoration: none;
-        font-size: 0.8rem;
-        font-weight: 600;
-        transition: var(--transition-smooth);
-        display: inline-block;
-      }
-      .card-news .read-more-btn:hover {
-        color: var(--dark-yellow);
-      }
-      .card-news .read-more-btn i {
-        font-size: 0.75rem;
-        margin-left: 5px;
-      }
-      .row-gap-custom {
-        --bs-gutter-y: 30px;
-      }
 
-      /* ==================================================== */
-      /*  BREADCRUMB & TITLE                                   */
-      /* ==================================================== */
       .custom-breadcrumb {
         background: transparent;
         padding: 0.5rem 0 0.2rem 0;
         margin-bottom: 0.2rem;
         font-size: 0.85rem;
+        font-weight: 600;
       }
       .custom-breadcrumb .breadcrumb-item a {
         color: var(--text-muted);
@@ -1561,169 +1484,11 @@
         padding: 0 0.5rem;
       }
 
-      .article-body {
-        font-size: 1.05rem;
-        line-height: 1.9;
-        color: var(--text-main);
-      }
-
-      .article-body p {
-        margin-bottom: 1.25rem;
-      }
-
-      /* .article-body p:first-of-type::first-letter {
-        font-size: 3.2rem;
-        font-weight: 700;
-        float: left;
-        line-height: 1;
-        margin-right: 0.5rem;
-        color: var(--dark-yellow);
-      } */
-
-      .article-body .section-subheading {
-        font-size: 1.3rem;
-        font-weight: 700;
-        color: var(--primary-color);
-        margin-top: 1.8rem;
-        margin-bottom: 0.8rem;
-        border-left: 4px solid var(--dark-yellow);
-        padding-left: 1rem;
-      }
-
-      .article-body .pull-quote {
-        font-size: 1.2rem;
-        font-weight: 600;
-        line-height: 1.6;
-        color: var(--text-main);
-        padding: 1.2rem 2rem;
-        margin: 1.5rem 0;
-        background: #f8f6f0;
-        border-radius: 8px;
-        border-left: 5px solid var(--dark-yellow);
-        position: relative;
-      }
-      .article-body .pull-quote .attribution {
-        display: block;
-        font-size: 0.85rem;
-        font-weight: 400;
-        color: var(--text-muted);
-        margin-top: 0.5rem;
-      }
-
-      .article-divider {
-        text-align: center;
-        color: var(--dark-yellow);
-        font-size: 1.5rem;
-        letter-spacing: 0.5rem;
-        margin: 2rem 0;
-        opacity: 0.5;
-      }
-
-      .article-tags {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.6rem;
-        margin-top: 2.5rem;
-        padding-top: 1.5rem;
-        border-top: 2px solid #e9edf2;
-      }
-      .article-tags .tag {
-        font-size: 0.75rem;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        background: #eef2f5;
-        color: var(--text-muted);
-        padding: 0.25rem 1rem;
-        border-radius: 20px;
-        text-decoration: none;
-        transition: var(--transition-smooth);
-      }
-      .article-tags .tag:hover {
-        background: var(--dark-yellow);
-        color: var(--surface-white);
-      }
-
-      .article-share {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        margin-top: 1.5rem;
-        padding-top: 1.5rem;
-        border-top: 2px solid #e9edf2;
-      }
-      .article-share .share-label {
-        font-weight: 600;
-        font-size: 0.85rem;
-        color: var(--text-muted);
-      }
-      .article-share .share-btn {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 36px;
-        height: 36px;
-        border-radius: 50%;
-        background: #eef2f5;
-        color: var(--text-muted);
-        text-decoration: none;
-        transition: var(--transition-smooth);
-        font-size: 0.9rem;
-      }
-      .article-share .share-btn:hover {
-        background: var(--dark-yellow);
-        color: var(--surface-white);
-        transform: translateY(-2px);
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      }
-
       /* ============================================================
-         RESPONSIVE — ARTICLE
+        NEWS LIST
          ============================================================ */
-      @media (max-width: 768px) {
-        .article-header .article-title {
-          font-size: 1.6rem;
-        }
-        .article-body {
-          font-size: 0.95rem;
-          line-height: 1.8;
-        }
-        /* .article-body p:first-of-type::first-letter {
-          font-size: 2.4rem;
-        } */
-        .article-body .section-subheading {
-          font-size: 1.1rem;
-        }
-        .article-body .pull-quote {
-          font-size: 1rem;
-          padding: 1rem 1.2rem;
-        }
-        .article-container {
-          padding: 0 1rem;
-        }
-      }
 
-      @media (max-width: 480px) {
-        .article-header .article-title {
-          font-size: 1.3rem;
-        }
-        .article-header .article-meta {
-          gap: 0.8rem;
-          font-size: 0.75rem;
-        }
-        .article-body {
-          font-size: 0.9rem;
-        }
-        /* .article-body p:first-of-type::first-letter {
-          font-size: 2rem;
-        } */
-        .article-share {
-          flex-wrap: wrap;
-          gap: 0.6rem;
-        }
-      }
-
-      .other-news-title {
+      .news-list-title {
         color: var(--text-main);
         font-weight: 700;
         font-size: 1.2rem;
@@ -1732,7 +1497,343 @@
         border-bottom: 3px solid var(--dark-yellow);
         padding-bottom: 4px;
       }
+
+      @media (max-width: 576px) {
+        .news-list-title {
+          font-size: 1.5rem;
+        }
+        .custom-breadcrumb {
+          font-size: 0.75rem;
+        }
+      }
+
+      /* ============================================================
+        PAGINATION LINK
+         ============================================================ */
+
+      .pagination .page-link {
+        color: var(--text-main);
+        border: 1px solid #dee2e6;
+        transition: var(--transition-smooth);
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+      .pagination .page-link:hover {
+        background-color: var(--primary-color);
+        color: #fff;
+        border-color: var(--primary-color);
+      }
+      .pagination .page-item.active .page-link {
+        background-color: var(--dark-yellow);
+        border-color: var(--dark-yellow);
+        color: #fff;
+      }
+      .pagination .page-item.disabled .page-link {
+        opacity: 0.5;
+        pointer-events: none;
+      }
+
+      @media (max-width: 768px) {
+        .pagination .page-link {
+          flex-direction: column; /* now align-items works horizontally */
+          align-items: stretch;
+        }
+      }
     </style>
+
+    <style>
+    /* ─── table container ─── */
+    .table-wrap {
+        background: #ffffff;
+        border-radius: 20px;
+        padding: 1.5rem 1.25rem 1.75rem 1.25rem;
+        box-shadow: 0 8px 30px rgba(0, 20, 40, 0.08);
+        border: 1px solid #eef3f8;
+        transition: box-shadow 0.3s ease;
+    }
+
+    .table-wrap:hover {
+        box-shadow: 0 14px 45px rgba(0, 20, 40, 0.12);
+    }
+
+    /* ─── table header decoration ─── */
+    .table-header-custom {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 1.25rem;
+        padding-bottom: 0.75rem;
+        border-bottom: 2px solid #e9eff5;
+    }
+
+    .table-header-custom h5 {
+        font-weight: 600;
+        color: #1a3b5c;
+        letter-spacing: -0.2px;
+        margin: 0;
+        font-size: 1.1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .table-header-custom h5 i {
+        color: #4a7eb5;
+        font-size: 1.3rem;
+    }
+
+    .table-header-custom .entry-count {
+        font-size: 0.8rem;
+        background: #eef4fa;
+        color: #2c577a;
+        padding: 0.25rem 1rem;
+        border-radius: 30px;
+        font-weight: 500;
+        border: 1px solid #dae5f0;
+    }
+
+    /* ─── table ─── */
+    .table-custom {
+        margin-bottom: 0;
+        border-collapse: separate;
+        border-spacing: 0 6px;
+        width: 100%;
+    }
+
+    .table-custom thead th {
+        background-color:var(--primary-color);
+        color:var(--dark-yellow);
+        font-weight: 600;
+        font-size: 0.8rem;
+        padding:1rem 1rem;
+        border: none;
+        border-bottom: 2px solid #e2ebf3;
+        white-space: nowrap;
+    }
+
+    
+
+    .table-custom tbody tr {
+        background: #ffffff;
+        border-radius: 12px;
+        transition: all 0.2s ease;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.02);
+    }
+
+    .table-custom tbody tr:hover {
+        background: #f6faff;
+        box-shadow: 0 4px 16px rgba(26, 67, 113, 0.07);
+    }
+
+    .table-custom tbody td {
+        padding: 0.9rem 1rem;
+        border: none;
+        vertical-align: middle;
+        color: #1e3b57;
+        font-size: 0.8rem;
+        line-height: 1.5;
+    }
+
+    .table-custom tbody td:first-child {
+        padding-left: 0.5rem;
+        font-weight: 500;
+        color: #4a7eb5;
+        width: 50px;
+        text-align: center;
+    }
+
+ 
+    
+
+
+
+    /* ─── title column ─── */
+    .table-custom tbody td:nth-child(2) {
+        font-weight: 500;
+        color:var(--text-main);
+        min-width: 180px;
+    }
+
+    /* ─── description column ─── */
+    .table-custom tbody td:nth-child(3) {
+        color: #3f5f7a;
+        font-size: 0.9rem;
+        max-width: 320px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    /* ─── action column (eye button) ─── */
+    .table-custom tbody td:last-child {
+        text-align: center;
+        width: 90px;
+        padding: 0.5rem 0.5rem;
+    }
+
+    .btn-eye {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.4rem;
+        background: transparent;
+        color:var(--surface-white);
+        border: 1.5px solid #d4e2f0;
+        border-radius: 6px;
+        padding: 0.3rem 0.7rem;
+        font-size: 0.5rem;
+        font-weight: 500;
+        text-decoration: none;
+        transition: all 0.25s ease;
+        background:var(--dark-yellow);
+        white-space: nowrap;
+    }
+
+    .btn-eye i {
+        font-size: 1.1rem;
+        transition: transform 0.2s ease;
+    }
+
+    .btn-eye:hover {
+        background: var(--primary-color);
+        border-color: var(--primary-color);
+        color: #ffffff;
+        box-shadow: 0 4px 14px rgba(30, 75, 110, 0.25);
+        transform: translateY(-2px);
+    }
+
+    .btn-eye:hover i {
+        transform: scale(1.15);
+    }
+
+    .btn-eye:active {
+        transform: scale(0.96);
+    }
+
+     .btn-download {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.4rem;
+        background: transparent;
+        color:var(--surface-white);
+        border: 1.5px solid #d4e2f0;
+        border-radius: 6px;
+         padding: 0.3rem 0.7rem;
+        font-size: 0.5rem;
+        font-weight: 500;
+        text-decoration: none;
+        transition: all 0.25s ease;
+        background:var(--dark-green);
+        white-space: nowrap;
+    }
+
+    .btn-download i {
+        font-size: 1.1rem;
+        transition: transform 0.2s ease;
+    }
+
+    .btn-download:hover {
+        background: var(--primary-color);
+        border-color: var(--primary-color);
+        color: #ffffff;
+        box-shadow: 0 4px 14px rgba(30, 75, 110, 0.25);
+        transform: translateY(-2px);
+    }
+
+    .btn-download:hover i {
+        transform: scale(1.15);
+    }
+
+    .btn-download:active {
+        transform: scale(0.96);
+    }
+
+    /* ─── responsive tweaks ─── */
+    @media (max-width: 768px) {
+        .table-wrap {
+            padding: 1rem 0.75rem 1.25rem 0.75rem;
+        }
+
+        .table-custom tbody td {
+            padding: 0.7rem 0.6rem;
+            font-size: 0.85rem;
+        }
+
+        .table-custom tbody td:nth-child(3) {
+            max-width: 140px;
+        }
+
+        .btn-eye {
+            padding: 0.35rem 0.75rem 0.35rem 0.6rem;
+            font-size: 0.75rem;
+        }
+
+        .btn-eye i {
+            font-size: 0.8rem;
+        }
+
+        .btn-download {
+            padding: 0.25rem 0.75rem 0.25rem 0.6rem;
+            font-size: 0.75rem;
+        }
+
+        .btn-download i {
+            font-size: 0.95rem;
+        }
+
+        .table-header-custom h5 {
+            font-size: 0.95rem;
+        }
+
+        .table-custom thead th {
+            font-size: 0.7rem;
+            padding: 0.4rem 0.6rem 0.6rem 0.6rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .table-custom tbody td:nth-child(3) {
+            max-width: 80px;
+        }
+
+        .table-custom tbody td:nth-child(2) {
+            min-width: 100px;
+            font-size: 0.8rem;
+        }
+
+        .btn-eye span {
+            display: none;
+        }
+
+        .btn-eye {
+            padding: 0.3rem 0.7rem;
+            border-radius: 30px;
+        }
+
+        .btn-eye i {
+            font-size: 1rem;
+            margin: 0;
+        }
+
+        .btn-download span {
+            display: none;
+        }
+
+        .btn-download {
+            padding: 0.3rem 0.7rem;
+            border-radius: 30px;
+        }
+
+        .btn-download i {
+            font-size: 1rem;
+            margin: 0;
+        }
+    }
+</style>
+
+
   </head>
   <body>
     <!-- ============================================================
@@ -2118,96 +2219,142 @@
     </button>
 
     <!-- ============================================================
-    MARQUEE
-    ============================================================ -->
-    <div class="container alert-marquee">
-      <div class="marquee-wrapper">
-        <div class="marquee-scroll-area">
-          <div class="marquee-content">
-            <span><span class="badge-urgent">Latest News</span></span>
-            <span
-              >📢၂၀၂၆ ခုနှစ် ဇူလိုင်လ ၃ ရက်တွင် ကျရောက်မည့်
-              မြန်မာအမျိုးသမီးများနေ့အထိမ်းအမှတ်အကြိုလှုပ်ရှားမှု “ပုလဲရတု
-              စွမ်းအားပြု၊ ဂုဏ်ယူဝင့်ကြွား မြန်မာအမျိုးသမီးများ”
-              ဝတ်စားဆင်ယင်မှုပြပွဲနှင့် ရုပ်ရှင်သဘင်ဂီတဖျော်ဖြေပွဲ ကျင်းပ</span
-            >
-            <span>•</span>
-            <span
-              >📢 ၂၀၂၆ ခုနှစ်၊ ဇူလိုင်လ ၃ ရက်တွင် ကျရောက်သည့်
-              မြန်မာအမျိုးသမီးများနေ့ အထိမ်းအမှတ် အကြိုလှုပ်ရှားမှု
-              “သစ်ပင်စိုက်ပျိုးပွဲ” အခမ်းအနားနှင့် “ စာတမ်းဖတ်ပွဲ” အခမ်းအနား
-              ကျင်းပခြင်း</span
-            >
-            <span>•</span>
-            <span
-              >📢 အမျိုးသမီးများအတွက် ဒီဂျစ်တယ် ငွေကြေးအသိပညာပေး သင်တန်းများ
-              ဖွင့်လှစ်</span
-            >
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ============================================================
     MAIN CONTENT (demo)
     ============================================================ -->
     <main class="content-placeholder">
       <div class="container container-news pt-4 pb-3">
-        <!-- Breadcrumb & Title -->
         <div class="row">
           <div class="col-12">
+            <!-- Breadcrumb -->
             <nav aria-label="breadcrumb">
               <ol class="breadcrumb custom-breadcrumb">
-                <li class="breadcrumb-item"><a href="./index.html">ပင်မစာမျက်နှာ</a></li>
-
+                <li class="breadcrumb-item"><a href="#">ပင်မစာမျက်နှာ</a></li>
+                <li class="breadcrumb-item"><a href="#">သတင်းမီဒီယာ</a></li>
                 <li class="breadcrumb-item active" aria-current="page">
-                  Comming Soon
+                  တင်ဒါများ
                 </li>
               </ol>
             </nav>
-            <h1 class="other-news-title"> Comming Soon</h1>
+            <!-- Title -->
+            <h1 class="news-list-title">တင်ဒါအချက်အလက်များ</h1>
+            <!-- Optional Divider -->
             <hr class="gradient-divider my-3" />
           </div>
-        </div>
 
-        <!-- ARTICLE BODY -->
-        <div class="article-body">
-          <p>
-            မကြာမှီ အချိန်အတွင်း အမျိုးသမီးရေးရာဝန်ကြီးဌာန၏ ဝက်ဘ်ဆိုက်ကို အပြည့်အစုံ အသုံးပြုနိုင်မည်ဖြစ်ပြီး အမျိုးသမီးရေးရာဝန်ကြီးဌာန၏ လုပ်ငန်းဆောင်ရွက်ချက်များ၊ သတင်းများ၊ မူဝါဒများ၊ ဥပဒေ/နည်းဥပဒေများ၊ ကော်မတီများနှင့် ကွန်ဗင်းရှင်းများအကြောင်းအရာများကို လွယ်ကူစွာ ရှာဖွေနိုင်မည်ဖြစ်ပါသည်။
-          </p>
+          <div class="col-12">
 
-          
-          
+           <div class="list-news-item">
+              <div class="thumb">
+                <img src="./mowa-logo.png" alt="Flag" />
+              </div>
+              <div class="content">
+                <div class="headline">
+                  ၂၀၂၆-၂၀၂၇ ဘဏ္ဍာရေးနှစ်၊ အမျိုးသမီးရေးရာဝန်ကြီးဌာန၊
+                  ဒေသို့ဆောင်ရွက်မှုအစီအစဉ်အား တင်ဒါအောင် ပြုလုပ်ရန်
+                </div>
+                <div class="meta">
+                  <span><i class="bi bi-calendar"></i> 26 JUNE 2026</span>
+                  <span><i class="bi bi-geo-alt-fill"></i> နေပြည်တော်</span>
+                </div>
+                
+              </div>
+              <a href="./pdf/demo_file.pdf" target="_blank" class="btn-eye">
+                        <i class="bi bi-eye"></i>
+                    </a>
+                    <a href="./pdf/demo_file.pdf" download="demo_file.pdf" class="btn-download">
+                        <i class="bi bi-download"></i>
+                    </a>
+            </div>
 
-         
-          
-          
+            <div class="list-news-item">
+              <div class="thumb">
+                <img src="./mowa-logo.png" alt="Flag" />
+              </div>
+              <div class="content">
+                <div class="headline">
+                  အမျိုးသမီးရေးရာဝန်ကြီးဌာန ရုံးသုံးစက်ကိရိယာပစ္စည်းများ
+                  ရှိသောင်းအမိန့်စာဝယ်ယူခြင်း နှင့် တည်ဆောက်ခြင်းလုပ်ငန်းများ
+                </div>
+                <div class="meta">
+                  <span><i class="bi bi-calendar"></i> 28 MAY 2026</span>
+                  <span><i class="bi bi-geo-alt-fill"></i> နေပြည်တော်</span>
+                </div>
+              </div>
+              <a href="./pdf/demo_file.pdf" target="_blank" class="btn-eye">
+                        <i class="bi bi-eye"></i>
+                    </a>
+                    <a href="./pdf/demo_file.pdf" download="demo_file.pdf" class="btn-download">
+                        <i class="bi bi-download"></i>
+                    </a>
+            </div>
 
-          
+            <div class="list-news-item">
+              <div class="thumb">
+                <img src="./mowa-logo.png" alt="Flag" />
+              </div>
+              <div class="content">
+                <div class="headline">တင်ဒါခေါ်ယူခြင်း</div>
+                <div class="meta">
+                  <span><i class="bi bi-calendar"></i> 04 FEBRUARY 2026</span>
+                  <span><i class="bi bi-geo-alt-fill"></i> နေပြည်တော်</span>
+                </div>
+              </div>
+              <a href="./pdf/demo_file.pdf" target="_blank" class="btn-eye">
+                        <i class="bi bi-eye"></i>
+                    </a>
+                    <a href="./pdf/demo_file.pdf" download="demo_file.pdf" class="btn-download">
+                        <i class="bi bi-download"></i>
+                    </a>
+            </div>
 
-        
-
-          <!-- SHARE -->
-          <div class="article-share">
-            <span class="share-label">မျှဝေရန်:</span>
-            <a href="#" class="share-btn" title="Facebook"
-              ><i class="bi bi-facebook"></i
-            ></a>
-            <a href="#" class="share-btn" title="Twitter"
-              ><i class="bi bi-twitter-x"></i
-            ></a>
-            <a href="#" class="share-btn" title="WhatsApp"
-              ><i class="bi bi-whatsapp"></i
-            ></a>
-            <a href="#" class="share-btn" title="LinkedIn"
-              ><i class="bi bi-linkedin"></i
-            ></a>
-            <a href="#" class="share-btn" title="မိတ္တူကူးရန်"
-              ><i class="bi bi-link-45deg"></i
-            ></a>
           </div>
         </div>
-        <!-- /article-body -->
+      
+        <!-- Section Header -->
+
+       <!-- ─── TABLE HTML ─── -->
+
+
+    
+
+
+        <!-- ===== PAGINATION (placeholder for Laravel) ===== -->
+        <nav aria-label="News pagination" class="mt-4">
+          <ul class="pagination justify-content-center">
+            <!-- First -->
+            <li class="page-item disabled">
+              <a class="page-link" href="#" tabindex="-1" aria-disabled="true">
+                <i class="bi bi-chevron-double-left"></i> ပထမဆုံး
+              </a>
+            </li>
+            <!-- Previous -->
+            <li class="page-item disabled">
+              <a class="page-link" href="#" tabindex="-1" aria-disabled="true">
+                <i class="bi bi-chevron-left"></i> နောက်သို့
+              </a>
+            </li>
+            <!-- Page numbers -->
+            <li class="page-item active">
+              <a class="page-link" href="#">1</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">4</a></li>
+            <li class="page-item"><a class="page-link" href="#">5</a></li>
+            <!-- Next -->
+            <li class="page-item">
+              <a class="page-link" href="#">
+                ရှေ့သို့ <i class="bi bi-chevron-right"></i>
+              </a>
+            </li>
+            <!-- Last -->
+            <li class="page-item">
+              <a class="page-link" href="#">
+                နောက်ဆုံး <i class="bi bi-chevron-double-right"></i>
+              </a>
+            </li>
+          </ul>
+        </nav>
       </div>
     </main>
 

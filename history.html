@@ -1814,7 +1814,7 @@
       class="navbar navbar-expand-md nav-primary py-2 sticky-top"
       id="stickyNavbar"
     >
-      <div class="container">
+     <div class="container">
         <button
           class="navbar-toggler border-0"
           type="button"
@@ -1849,7 +1849,11 @@
                 >ဌာနအကြောင်း</a
               >
               <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
-                <li><a class="dropdown-item" href="./history.html">နောက်ခံသမိုင်း</a></li>
+                <li>
+                  <a class="dropdown-item" href="./history.html"
+                    >နောက်ခံသမိုင်း</a
+                  >
+                </li>
                 <li>
                   <a class="dropdown-item" href="./detail.html"
                     >မူဝါဒ၊ ရည်မှန်းချက်၊ မျှော်မှန်းချက် နှင့်တာဝန်</a
@@ -1893,13 +1897,15 @@
                 >သတင်းမီဒီယာ</a
               >
               <ul class="dropdown-menu" aria-labelledby="mediaDropdown">
-                <li><a class="dropdown-item" href="#">သတင်းများ</a></li>
-                <li><a class="dropdown-item" href="#">ရုပ်သံသတင်းများ</a></li>
+                <li>
+                  <a class="dropdown-item" href="./news.html">သတင်းများ</a>
+                </li>
+                <li><a class="dropdown-item" href="./videos.html">ရုပ်သံသတင်းများ</a></li>
                 <li><a class="dropdown-item" href="#">ကြေငြာချက်များ</a></li>
                 <li>
-                  <a class="dropdown-item" href="#">ဓါတ်ပုံမှတ်တမ်းများ</a>
+                  <a class="dropdown-item" href="./photos.html">ဓါတ်ပုံမှတ်တမ်းများ</a>
                 </li>
-                <li><a class="dropdown-item" href="#">တင်ဒါများ</a></li>
+                <li><a class="dropdown-item" href="./tenders.html">တင်ဒါများ</a></li>
               </ul>
             </li>
 
@@ -1918,7 +1924,7 @@
               >
               <ul class="dropdown-menu" aria-labelledby="policyDropdown">
                 <li><a class="dropdown-item" href="#">မူဝါဒများ</a></li>
-                <li><a class="dropdown-item" href="#">ဥပဒေ/နည်းဥပဒေ</a></li>
+                <li><a class="dropdown-item" href="./laws.html">ဥပဒေ/နည်းဥပဒေ</a></li>
                 <li><a class="dropdown-item" href="#">မဟာဗျူဟာ</a></li>
               </ul>
             </li>
@@ -2060,10 +2066,35 @@
               </ul>
             </li>
 
-            <!-- STATIC LINKS -->
-            <li class="nav-item">
-              <a class="nav-link" href="#">လုပ်ငန်းဆောင်ရွက်ချက်များ</a>
+             <!-- ======================================================
+                 DROPDOWN: လုပ်ငန်းဆောင်ရွက်ချက်များ
+                 ====================================================== -->
+            <li class="nav-item dropdown has-sub">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="processDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                >လုပ်ငန်းဆောင်ရွက်ချက်များ</a
+              >
+              <ul class="dropdown-menu" aria-labelledby="processDropdown">
+                <li>
+                  <a class="dropdown-item" href="./awareness.html"
+                    >အသိပညာပေးခြင်း</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="/egoverment.html"
+                    >e-Goverment</a
+                  >
+                </li>
+              </ul>
             </li>
+
+            <!-- STATIC LINKS -->
+            
             <li class="nav-item">
               <a class="nav-link" href="#">ဝန်ဆောင်မှုများ</a>
             </li>
