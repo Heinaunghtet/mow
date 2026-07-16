@@ -998,6 +998,7 @@
       .card-video .video-description {
         font-size: 0.8rem;
         line-height: 1.6;
+        font-weight: 600;
         color: var(--text-main);
         margin-bottom: 0;
         display: -webkit-box;
@@ -1005,6 +1006,8 @@
         -webkit-box-orient: vertical;
         overflow: hidden;
       }
+
+      
 
       /* ==================================================== */
       /*  DIVIDER & ပိုမိုဖတ်ရှုရန် ... BUTTONS                          */
